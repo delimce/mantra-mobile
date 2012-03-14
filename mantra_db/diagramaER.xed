@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram version="1.0" type="MySQL" versionMajor="5" versionMinor="0" groupSchema="false">
+<Table id="0" name="tbl_vendedor" schema="" database="">
+<Column id="1" name="id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="2" name="cuenta_id" type="int" length="240" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="3" name="codigo" type="varchar" length="6" nulls="true"/>
+<Column id="4" name="nombre" type="varchar" length="250" nulls="false"/>
+<Column id="5" name="user" type="varchar" length="40" nulls="false"/>
+<Column id="6" name="password" type="varchar" length="50" nulls="false"/>
+<Column id="7" name="emaiil" type="varchar" length="150" nulls="true"/>
+<Column id="8" name="activo" type="tinyint" length="25" nulls="true">
+<CP name="DEFAULT_VALUE">1</CP>
+<CP name="PRECISION">1</CP>
+</Column>
+<Column id="9" name="borrado" type="tinyint" length="25" nulls="true">
+<CP name="DEFAULT_VALUE">0</CP>
+<CP name="PRECISION">1</CP>
+</Column>
+<Storage name="Charset" value=""/>
+<Storage name="Collation" value=""/>
+<Storage name="Engine" value=""/>
+</Table>
+<Table id="10" name="tbl_cuenta" schema="" database="">
+<Column id="11" name="id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="12" name="nombre" type="varchar" length="25" nulls="false"/>
+<Column id="13" name="activa" type="tinyint" length="25" nulls="false">
+<CP name="DEFAULT_VALUE">1</CP>
+<CP name="PRECISION">1</CP>
+</Column>
+<Column id="14" name="creada" type="datetime" length="25" nulls="false"/>
+<Column id="15" name="site_titulo" type="varchar" length="150" nulls="true"/>
+<Column id="16" name="banner_titulo" type="varchar" length="120" nulls="true"/>
+<Column id="17" name="footer_titulo" type="varchar" length="120" nulls="true"/>
+<Column id="18" name="lenguaje" type="varchar" length="25" nulls="true"/>
+<Storage name="Charset" value=""/>
+<Storage name="Collation" value=""/>
+<Storage name="Engine" value=""/>
+</Table>
+<Table id="19" name="tbl_cliente" schema="" database="">
+<Column id="20" name="id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="21" name="cuenta_id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="22" name="codigo" type="varchar" length="25" nulls="false"/>
+<Column id="23" name="nombre" type="varchar" length="250" nulls="false"/>
+<Column id="24" name="rif" type="varchar" length="25" nulls="true"/>
+<Column id="25" name="telefono1" type="varchar" length="60" nulls="false"/>
+<Column id="26" name="telefono2" type="varchar" length="60" nulls="false"/>
+<Column id="27" name="borrado" type="tinyint" length="25" nulls="false">
+<CP name="DEFAULT_VALUE">0</CP>
+<CP name="PRECISION">1</CP>
+</Column>
+<Storage name="Charset" value=""/>
+<Storage name="Collation" value=""/>
+<Storage name="Engine" value=""/>
+</Table>
+<Table id="28" name="tbl_vendedor_cliente" schema="" database="">
+<Column id="29" name="cuenta_id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="30" name="vendedor_id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="31" name="cliente_id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Storage name="Charset" value=""/>
+<Storage name="Collation" value=""/>
+<Storage name="Engine" value=""/>
+</Table>
+<Table id="32" name="tbl_producto" schema="" database="">
+<Column id="33" name="id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="34" name="cuenta_id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="35" name="codigo" type="varchar" length="25" nulls="false"/>
+<Column id="36" name="descripcion" type="text" length="25" nulls="true"/>
+<Column id="37" name="unidad_med" type="varchar" length="15" nulls="true"/>
+<Column id="38" name="precio1" type="float" length="25" nulls="true"/>
+<Column id="39" name="borrado" type="tinyint" length="25" nulls="true">
+<CP name="DEFAULT_VALUE">0</CP>
+<CP name="PRECISION">1</CP>
+</Column>
+<Column id="40" name="activo" type="tinyint" length="25" nulls="true">
+<CP name="DEFAULT_VALUE">1</CP>
+<CP name="PRECISION">1</CP>
+</Column>
+<Storage name="Charset" value=""/>
+<Storage name="Collation" value=""/>
+<Storage name="Engine" value=""/>
+</Table>
+<Table id="41" name="tbl_pedido" schema="" database="">
+<Column id="42" name="id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="43" name="cuenta_id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="44" name="npedido" type="varchar" length="10" nulls="false"/>
+<Column id="45" name="fecha" type="datetime" length="25" nulls="false"/>
+<Column id="46" name="vendedor_id" type="int" length="25" nulls="true">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="47" name="cliente_id" type="int" length="25" nulls="true">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="48" name="anulado" type="tinyint" length="25" nulls="false">
+<CP name="DEFAULT_VALUE">0</CP>
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="49" name="impreso" type="smallint" length="25" nulls="true">
+<CP name="DEFAULT_VALUE">0</CP>
+<CP name="PRECISION">6</CP>
+</Column>
+<Column id="50" name="borrado" type="tinyint" length="25" nulls="false">
+<CP name="DEFAULT_VALUE">0</CP>
+<CP name="PRECISION">15</CP>
+</Column>
+<Storage name="Charset" value=""/>
+<Storage name="Collation" value=""/>
+<Storage name="Engine" value=""/>
+</Table>
+<Table id="51" name="tbl_pedido_detalle" schema="" database="">
+<Column id="52" name="id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="53" name="cuenta_id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="54" name="pedido_id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="55" name="producto_id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="56" name="cantidad" type="smallint" length="25" nulls="false">
+<CP name="DEFAULT_VALUE">1</CP>
+<CP name="PRECISION">6</CP>
+</Column>
+<Column id="57" name="precio" type="float" length="25" nulls="false"/>
+<Column id="58" name="subtotal" type="float" length="25" nulls="false"/>
+<Storage name="Charset" value=""/>
+<Storage name="Collation" value=""/>
+<Storage name="Engine" value=""/>
+</Table>
+<Table id="59" name="tbl_admin" schema="" database="">
+<Column id="60" name="id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="61" name="cuenta_id" type="int" length="25" nulls="true">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="62" name="nombre" type="varchar" length="200" nulls="true"/>
+<Column id="63" name="user" type="varchar" length="40" nulls="true"/>
+<Column id="64" name="password" type="varchar" length="50" nulls="true"/>
+<Column id="65" name="is_super" type="tinyint" length="25" nulls="true">
+<CP name="DEFAULT_VALUE">1</CP>
+<CP name="PRECISION">1</CP>
+</Column>
+<Storage name="Charset" value=""/>
+<Storage name="Collation" value=""/>
+<Storage name="Engine" value=""/>
+</Table>
+<Table id="66" name="tbl_inventario" schema="" database="">
+<Column id="67" name="cuenta_id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="68" name="producto_id" type="int" length="25" nulls="false">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="69" name="fecha" type="datetime" length="25" nulls="false"/>
+<Column id="70" name="accion" type="enum" length="25" nulls="false">
+<CP name="ENUMERATION">compra,venta,actualizacion</CP>
+</Column>
+<Column id="71" name="cantidad" type="int" length="25" nulls="false">
+<CP name="DEFAULT_VALUE">0</CP>
+<CP name="PRECISION">15</CP>
+<CP name="IDENTITY">NO</CP>
+</Column>
+<Column id="72" name="ref_pedido" type="int" length="25" nulls="true">
+<CP name="DEFAULT_VALUE">0</CP>
+<CP name="PRECISION">15</CP>
+</Column>
+<Storage name="Charset" value=""/>
+<Storage name="Collation" value=""/>
+<Storage name="Engine" value=""/>
+</Table>
+<Table id="73" name="tbl_cuenta_admin" schema="" database="">
+<Column id="74" name="cuenta_id" type="int" length="25" nulls="true">
+<CP name="PRECISION">15</CP>
+</Column>
+<Column id="75" name="admin_id" type="int" length="25" nulls="true">
+<CP name="PRECISION">15</CP>
+</Column>
+<Storage name="Charset" value=""/>
+<Storage name="Collation" value=""/>
+<Storage name="Engine" value=""/>
+</Table>
+<Relation id="76" name="frk_cuenta_usuario" cardinality="-2" identifying="true" nulls="false">
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="onUpdate" class="String" value="RESTRICT"/>
+<FK>11</FK>
+<PK>2</PK>
+</Relation>
+<Relation id="77" name="rfk_vendedor_cliente" cardinality="-2" identifying="true" nulls="false">
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="onUpdate" class="String" value="RESTRICT"/>
+<FK>1</FK>
+<FK>2</FK>
+<PK>30</PK>
+<PK>29</PK>
+</Relation>
+<Relation id="78" name="frk_vendedor_cliente" cardinality="-2" identifying="true" nulls="false">
+<Option name="onUpdate" class="String" value="RESTRICT"/>
+<Option name="onDelete" class="String" value="CASCADE"/>
+<FK>20</FK>
+<FK>21</FK>
+<PK>31</PK>
+<PK>29</PK>
+</Relation>
+<Relation id="79" name="frk_producto_cuenta" cardinality="-2" identifying="true" nulls="false">
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="onUpdate" class="String" value="RESTRICT"/>
+<FK>11</FK>
+<PK>34</PK>
+</Relation>
+<Relation id="80" name="rfk_cliente_pedido" cardinality="-2" identifying="true" nulls="false">
+<Option name="onUpdate" class="String" value="RESTRICT"/>
+<Option name="onDelete" class="String" value="CASCADE"/>
+<FK>20</FK>
+<FK>21</FK>
+<PK>47</PK>
+<PK>43</PK>
+</Relation>
+<Relation id="81" name="frk_vendedor_pedido" cardinality="-2" identifying="true" nulls="false">
+<Option name="onUpdate" class="String" value="RESTRICT"/>
+<Option name="onDelete" class="String" value="CASCADE"/>
+<FK>1</FK>
+<FK>2</FK>
+<PK>46</PK>
+<PK>43</PK>
+</Relation>
+<Relation id="82" name="frk_pedido_detalle" cardinality="-2" identifying="true" nulls="false">
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="onUpdate" class="String" value="RESTRICT"/>
+<FK>42</FK>
+<FK>43</FK>
+<PK>54</PK>
+<PK>53</PK>
+</Relation>
+<Relation id="83" name="frk_detalle_producto" cardinality="-2" identifying="true" nulls="false">
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="onUpdate" class="String" value="RESTRICT"/>
+<FK>33</FK>
+<FK>34</FK>
+<PK>55</PK>
+<PK>53</PK>
+</Relation>
+<Relation id="84" name="frk_producto_inventario" cardinality="-2" identifying="true" nulls="false">
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="onUpdate" class="String" value="RESTRICT"/>
+<FK>33</FK>
+<FK>34</FK>
+<PK>68</PK>
+<PK>67</PK>
+</Relation>
+<Relation id="85" name="frk_admin_cuenta" cardinality="-2" identifying="true" nulls="false">
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="onUpdate" class="String" value="RESTRICT"/>
+<FK>60</FK>
+<FK>61</FK>
+<PK>74</PK>
+<PK>75</PK>
+<Text/>
+</Relation>
+<Relation id="86" name="frk_cuenta_admin" cardinality="-2" identifying="true" nulls="false">
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="onUpdate" class="String" value="RESTRICT"/>
+<FK>11</FK>
+<PK>74</PK>
+<Text/>
+</Relation>
+<Index table="0" name="INDEX_tbl_vendedor_user" schema="" database="">
+<IndexColumn id="3" sequence="1" ascending="true"/>
+<IndexColumn id="5" sequence="0" ascending="true"/>
+</Index>
+<Index table="0" name="INDEX_tbl_vendedor_borrado" schema="" database="">
+<IndexColumn id="9" sequence="0" ascending="true"/>
+</Index>
+<Index table="10" name="INDEX_tbl_cuenta_estatus" schema="" database="">
+<IndexColumn id="13" sequence="0" ascending="true"/>
+</Index>
+<Index table="19" name="INDEX_tbl_cliente_codigo" schema="" database="">
+<IndexColumn id="22" sequence="0" ascending="true"/>
+</Index>
+<Index table="19" name="INDEX_tbl_cliente_borrado" schema="" database="">
+<IndexColumn id="27" sequence="0" ascending="true"/>
+</Index>
+<Index table="32" name="INDEX_tbl_producto_codigo" schema="" database="">
+<IndexColumn id="35" sequence="0" ascending="true"/>
+</Index>
+<Index table="32" name="INDEX_tbl_producto_borrado" schema="" database="">
+<IndexColumn id="39" sequence="0" ascending="true"/>
+</Index>
+<Index table="41" name="INDEX_tbl_pedido_numero" schema="" database="">
+<IndexColumn id="44" sequence="0" ascending="true"/>
+</Index>
+<Index table="41" name="INDEX_tbl_pedido_borrado" schema="" database="">
+<IndexColumn id="50" sequence="0" ascending="true"/>
+</Index>
+<Constraint table="0" name="PK_tbl_vendedor_1" type="PrimKey">
+<ConstraintColumn id="1"/>
+<ConstraintColumn id="2"/>
+</Constraint>
+<Constraint table="10" name="PK_tbl_cuenta_1" type="PrimKey">
+<ConstraintColumn id="11"/>
+</Constraint>
+<Constraint table="19" name="PK_tbl_cliente_1" type="PrimKey">
+<ConstraintColumn id="20"/>
+<ConstraintColumn id="21"/>
+</Constraint>
+<Constraint table="28" name="PK_tbl_usuario_cliente_1" type="PrimKey">
+<ConstraintColumn id="29"/>
+<ConstraintColumn id="30"/>
+<ConstraintColumn id="31"/>
+</Constraint>
+<Constraint table="32" name="PK_tbl_producto_1" type="PrimKey">
+<ConstraintColumn id="33"/>
+<ConstraintColumn id="34"/>
+</Constraint>
+<Constraint table="41" name="UNIQUE_tbl_pedido_1" type="Unique">
+<ConstraintColumn id="44"/>
+<ConstraintColumn id="45"/>
+</Constraint>
+<Constraint table="41" name="PK_tbl_pedido_1" type="PrimKey">
+<ConstraintColumn id="42"/>
+<ConstraintColumn id="43"/>
+</Constraint>
+<Constraint table="51" name="PK_tbl_pedido_detalle_1" type="PrimKey">
+<ConstraintColumn id="52"/>
+<ConstraintColumn id="53"/>
+</Constraint>
+<Constraint table="59" name="PK_tbl_admin_1" type="PrimKey">
+<ConstraintColumn id="60"/>
+<ConstraintColumn id="61"/>
+</Constraint>
+<Constraint table="66" name="PK_tbl_inventario_1" type="PrimKey">
+<ConstraintColumn id="68"/>
+<ConstraintColumn id="69"/>
+</Constraint>
+<Constraint table="73" name="PK_tbl_cuenta_admin_1" type="PrimKey">
+<ConstraintColumn id="74"/>
+<ConstraintColumn id="75"/>
+</Constraint>
+<Sheet name="Untitled 1" id="87" disp_at="true" disp_ph="true" disp_co="true" disp_rn="true">
+<Place id="78" visible="true">500,0,0,0</Place>
+<Place id="86" visible="true" options="459.793621018069,57.60441390306634,161.0,203.0,789.9466988301142,19.783479044953747,120.0,80.0,4,620.793621018069,150.0,680.0,150.0,680.0,50.0,789.9466988301142,50.0">500,0,0,0</Place>
+<Place id="10" visible="true">459,57,161,203</Place>
+<Place id="77" visible="true">500,0,0,0</Place>
+<Place id="81" visible="true" options="159.18151396608914,69.18151396608914,151.0,183.0,549.0,365.0,120.0,181.0,4,309.0,220.0,420.0,220.0,420.0,430.0,549.0,430.0">500,0,0,0</Place>
+<Place id="79" visible="true">500,0,0,0</Place>
+<Place id="59" visible="true">1089,39,120,132</Place>
+<Place id="41" visible="true">549,365,120,181</Place>
+<Place id="32" visible="true">780,217,120,174</Place>
+<Place id="76" visible="true" options="459.793621018069,57.60441390306634,161.0,203.0,159.18151396608914,69.18151396608914,151.0,183.0,4,459.793621018069,140.0,380.0,140.0,380.0,170.0,309.0,170.0">500,0,0,0</Place>
+<Place id="85" visible="true">500,0,0,0</Place>
+<Place id="66" visible="true">1100,381,120,131</Place>
+<Place id="80" visible="true">500,0,0,0</Place>
+<Place id="51" visible="true">888,519,120,151</Place>
+<Place id="73" visible="true">789,19,120,80</Place>
+<Place id="82" visible="true" options="549.0,365.0,120.0,181.0,888.0,519.0,120.0,151.0,4,669.0,440.0,760.0,440.0,760.0,540.0,888.0,540.0">500,0,0,0</Place>
+<Place id="83" visible="true">500,0,0,0</Place>
+<Place id="19" visible="true">249,467,141,182</Place>
+<Place id="28" visible="true">48,299,151,81</Place>
+<Place id="0" visible="true">159,69,151,183</Place>
+<Place id="84" visible="true" options="780.0,217.0,120.0,174.0,1100.3086578651018,381.22539674441623,120.0,131.0,4,900.0,290.0,1025.0,290.0,1025.4055915910217,410.0,1100.3086578651018,410.0">500,0,0,0</Place>
+</Sheet>
+<Settings sheet="87" zoom="0.8408964152537146"/>
+</Diagram>
