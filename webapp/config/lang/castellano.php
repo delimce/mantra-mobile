@@ -17,10 +17,16 @@ define(LANG_chpass,"cambiar");
 define(LANG_tel1,"Teléfono de contacto");
 define(LANG_tel2,"Teléfono Celular");
 define(LANG_tel,"Teléfono");
+define(LANG_back,"Regresar");
 define(LANG_accept,"Aceptar");
 define(LANG_enter,"Entrar");
+define(LANG_nologin,"Usuario ó clave inválidos");
 
 ////////////////ADMIN
 define(LANG_adlogin,"Ingrese sus credenciales de administrador");
+define(LANG_lobi,"Menú del sistema");
+define(LANG_lobiText,"Bienvenido al modo administrador");
+define(LANG_adminFields,"Mis Datos");
+
 
 ?>

@@ -15,8 +15,8 @@ class database {
   var $dbase;    // base de datos
   var $dbc;      // variable de conexion
   var $result;   /// atributo que tiene el resultado del query
-  var $nreg;    //// cantidad de registros insertados
-  var $ultimoID; /// ultimo id insertado (auto incremental)
+  private $nreg;    //// cantidad de registros insertados
+  private $ultimoID; /// ultimo id insertado (auto incremental)
  /***********************************************************************metodos y propiedades*/
 
  /************************************************************************* PROPIEDADES ****/
@@ -32,9 +32,30 @@ class database {
 
     }
  
- 
+ //////////////////////////////////getters y setters
+ /**
+  * devuelve el n de registros consultados
+  */
+    public function getNreg(){
+        
+            return $this->nreg;
+        
+    }
+    
+    /**
+     *devuelve el ultimo id insertado 
+     */
+    public function getUltimoId(){
+        
+            return $this->ultimoID;
+        
+    }
+        
+    
+    
 //********************************************************cierra conexion y liberar recursos
 
+    
 
  ///metodo para cerrar la conexion con la base de datos
   public function cerrar()

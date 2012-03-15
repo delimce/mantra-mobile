@@ -1,13 +1,10 @@
 <?php 
 
- $HOSTNAME =  "localhost";    //host
- $DBUSER   =   "curs0net_delimce";     //user
- $DBPASS   =   "copetona1384";     //pswd
- $DATABASE =   "curs0net_ujapdb" ;    // database name
-
-
+ $HOSTNAME =  "userver";    //host
+ $DBUSER   =   "delimce";     //user
+ $DBPASS   =   "funky20";     //pswd
+ $DATABASE =   "mantra_db" ;    // database name
  
  $SESSION_TIMEOUT= 1400; // one day 
-
 
 ?>
