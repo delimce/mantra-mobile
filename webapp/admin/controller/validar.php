@@ -11,6 +11,8 @@ $data = $tools->simple_db("select id,nombre,user from tbl_admin where user = '$u
 
 if($tools->getNreg()>0){
     $_SESSION['PROFILE'] = "admin"; ///perfil requerido
+    $_SESSION['USERID'] = $data["id"];
+    $_SESSION['USERNAME'] = $data["nombre"];
 }else{
     $_SESSION['PROFILE'] = "";
 }

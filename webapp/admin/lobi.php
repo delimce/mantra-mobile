@@ -22,12 +22,12 @@ $tituloCurrent = LANG_lobi;
             
             <div data-role="navbar">
 				<ul>
-					<li><a href="misdatos/index.php"  data-role="button" data-transition="fade" data-icon="home" data-iconpos="right" data-inline="true">Mis datos</a></li>
+					<li><a href="misdatos/index.php" data-ajax="false" data-role="button" data-transition="fade" data-icon="home" data-iconpos="right" data-inline="true">Mis datos</a></li>
 					<li><a href="#list" data-role="button" data-transition="fade" data-icon="search" data-iconpos="right" data-inline="true">Buscar Pedido</a></li>
 				</ul>
                 <ul>
 					<li><a href="#form" data-role="button" data-transition="fade" data-icon="info" data-iconpos="right" data-inline="true">Auditorias</a></li>
-					<li><a href="#list" data-role="button" data-transition="fade" data-icon="grid" data-iconpos="right" data-inline="true">Actualizar Maestros</a></li>
+					<li><a href="lobiMaster.php" data-role="button" data-transition="slide" data-icon="grid" data-iconpos="right" data-inline="true">Actualizar Maestros</a></li>
 				</ul>
                 
                  <ul>

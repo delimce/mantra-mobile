@@ -13,6 +13,7 @@ define(LANG_email,"Email");
 define(LANG_login,"Usuario");
 define(LANG_pass,"Clave");
 define(LANG_pass2,"Confirme clave");
+define(LANG_noPass2,"error confirmando clave");
 define(LANG_chpass,"cambiar");
 define(LANG_tel1,"Teléfono de contacto");
 define(LANG_tel2,"Teléfono Celular");
@@ -27,6 +28,18 @@ define(LANG_adlogin,"Ingrese sus credenciales de administrador");
 define(LANG_lobi,"Menú del sistema");
 define(LANG_lobiText,"Bienvenido al modo administrador");
 define(LANG_adminFields,"Mis Datos");
+define(LANG_editFields,"Modificar  Datos");
+define(LANG_editSuccess,"Datos modificados con éxito");
+
+
+
+//////////////MAESTROS
+define(LANG_masters,"Actualizar Maestros");
+define(LANG_masterSelect,"Seleccione Maestro");
+define(LANG_masterClient,"Maestro de Clientes");
+define(LANG_masterVendor,"Maestro de Vendedores");
+define(LANG_masterProducts,"Maestro de Productos");
+define(LANG_masterStock,"Maestro de Inventario");
 
 
 ?>
