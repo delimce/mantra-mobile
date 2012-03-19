@@ -51,6 +51,8 @@ include("../config/siteconfig.php");
          <form id="form1" action="lobi.php"  data-transition="slide"  method="post">
             <p><?php echo LANG_adlogin ?></p>
             
+            
+              <div data-role="fieldcontain">
              <label style="font-weight:bold" for="user"><?php echo LANG_user ?></label>
              <input type="text" data-mini="true" id="user" name="user" value=""  />
 
@@ -58,8 +60,9 @@ include("../config/siteconfig.php");
              <input type="password" data-mini="true" id="clave" name="clave" value="" />
              
              
-             <!--<p><a href="#lobi" data-role="button" data-transition="fade" data-icon="arrow-r" data-iconpos="right" data-inline="true">Aceptar</a></p>-->
-           <button type="submit" data-theme="b" data-icon="check" data-iconpos="right" id="submit" value="submit-value" data-inline="true"><?php echo LANG_enter ?></button>
+              </div>
+             
+             <button type="submit" data-theme="b" id="submit" value="submit-value" data-inline="true"><?php echo LANG_enter ?></button>
            </form>
            
 		</div>

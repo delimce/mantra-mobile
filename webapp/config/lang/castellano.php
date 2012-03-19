@@ -18,8 +18,9 @@ define(LANG_chpass,"cambiar");
 define(LANG_tel1,"Teléfono de contacto");
 define(LANG_tel2,"Teléfono Celular");
 define(LANG_tel,"Teléfono");
-define(LANG_back,"Regresar");
+define(LANG_back,"Volver");
 define(LANG_accept,"Aceptar");
+define(LANG_save,"Guardar");
 define(LANG_enter,"Entrar");
 define(LANG_nologin,"Usuario ó clave inválidos");
 
@@ -40,6 +41,17 @@ define(LANG_masterClient,"Maestro de Clientes");
 define(LANG_masterVendor,"Maestro de Vendedores");
 define(LANG_masterProducts,"Maestro de Productos");
 define(LANG_masterStock,"Maestro de Inventario");
-
+define(LANG_addNew,"Nuevo");
+define(LANG_addEdit,"Editar");
+define(LANG_deleteit,"Borrar");
+define(LANG_confirmDelete,"Esta seguro que desea borrar el registro?");
+define(LANG_prodCode,"Código");
+define(LANG_prodName,"Nombre producto");
+define(LANG_prodPrice,"Precio de venta");
+define(LANG_prodUnit,"Unidad de medida");
+define(LANG_prodActive,"Producto Activo");
+////validar
+define(LANG_prodVal1,"error: verifique que no queden campos vacios");
+define(LANG_prodVal2,"error: el campo precio solo debe ser numerico");
 
 ?>

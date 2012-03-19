@@ -13,6 +13,8 @@ if($tools->getNreg()>0){
     $_SESSION['PROFILE'] = "admin"; ///perfil requerido
     $_SESSION['USERID'] = $data["id"];
     $_SESSION['USERNAME'] = $data["nombre"];
+    $_SESSION['CUENTAID'] = 1;
+    $_SESSION['MONEDA1'] = 'Bs';
 }else{
     $_SESSION['PROFILE'] = "";
 }

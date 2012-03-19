@@ -56,16 +56,16 @@ include_once 'controller/load.php';
 			<h1><?php echo $tituloCurrent ?></h1>
 		</div>
 		<div data-role="content">
-                    <p id="notification"><?php echo LANG_editFields ?></p>
+                   <div id="titulo2"><?php echo LANG_addNew ?></div>
                         
             <form id="form1" data-transition="slide"  method="post">
             
-            
-            <label style="font-weight:bold" for="nombre"><?php echo LANG_name ?></label>
+             <div data-role="fieldcontain">
+            <label style="font-weight:bold" for="r1nombre"><?php echo LANG_name ?></label>
              <input type="text" data-mini="true" id="r1nombre" name="r1nombre" value="<?php echo $datos["nombre"] ?>"  />
             
             
-             <label style="font-weight:bold" for="user"><?php echo LANG_user ?></label>
+             <label style="font-weight:bold" for="r1user"><?php echo LANG_user ?></label>
              <input type="text" data-mini="true" id="r1user" name="r1user" value="<?php echo $datos["user"] ?>"  />
 
         	<label style="font-weight:bold" for="clave"><?php echo LANG_pass ?></label>
@@ -73,8 +73,10 @@ include_once 'controller/load.php';
             
              <label style="font-weight:bold" for="clave"><?php echo LANG_pass2 ?></label>
              <input type="password" data-mini="true" id="clave2" name="clave2" value="<?php echo $datos["pass"] ?>" />
-
-           <button data-role="submit" data-theme="b" data-icon="check" data-iconpos="right" id="submit" value="submit-value" data-inline="true"><?php echo LANG_enter ?></button>
+            <p id="notification"></p>  
+             </div>
+               
+           <button data-role="submit" data-theme="b" id="submit" value="submit-value" data-inline="true"><?php echo LANG_save ?></button>
            </form>        
               
 		</div>
