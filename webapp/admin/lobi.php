@@ -22,7 +22,7 @@ $tituloCurrent = LANG_lobi;
                                    
             <div data-role="navbar" class="nav-glyphish-example">
 				<ul>
-                                     	<li><a id="misdatos" href="misdatos/index.php" data-ajax="false" data-transition="fade" data-icon="custom">Mis datos</a></li>
+                                     	<li><a id="misdatos" href="misDatos/index.php" data-ajax="false" data-transition="fade" data-icon="custom">Mis datos</a></li>
 					<li><a href="#list" data-role="button" data-transition="fade" data-icon="search" data-iconpos="right" data-inline="true">Buscar Pedido</a></li>
 				</ul>
                 <ul>

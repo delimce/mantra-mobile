@@ -50,8 +50,22 @@ define(LANG_prodName,"Nombre producto");
 define(LANG_prodPrice,"Precio de venta");
 define(LANG_prodUnit,"Unidad de medida");
 define(LANG_prodActive,"Producto Activo");
+
+define(LANG_cliName,"Nombre");
+define(LANG_cliRIF,"RIF/CI");
+define(LANG_cliTlf,"Telefono");
+define(LANG_cliActive,"Cliente Activo");
+define(LANG_cliDir,"Dirección");
+
+define(LANG_venUser,"Usuario");
+define(LANG_venActive,"Vendedor Activo");
 ////validar
 define(LANG_prodVal1,"error: verifique que no queden campos vacios");
 define(LANG_prodVal2,"error: el campo precio solo debe ser numerico");
+define(LANG_cliVal1,"error: verifique que no esten vacios los campos... codigo,nombre y rif ");
+define(LANG_venVal1,"error: verifique que no esten vacios los campos... codigo,nombre usuario y password ");
+
+
+
 
 ?>

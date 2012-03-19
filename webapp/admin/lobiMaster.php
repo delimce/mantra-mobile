@@ -27,22 +27,22 @@ $tituloCurrent = LANG_masters;
                         
                         <div data-role="navbar">
                                  <ul>
-					<li><a href="masterProduct/index.php" data-role="button" data-transition="slide" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_masterProducts ?></a></li>
+					<li><a href="masterProduct/index.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_masterProducts ?></a></li>
 
 				</ul>       
                         
                                 <ul>
-					<li><a href="misdatos/index.php" data-ajax="false" data-role="button" data-transition="fade" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_masterVendor ?></a></li>
+					<li><a href="masterVendor/index.php" data-ajax="false" data-role="button" data-transition="fade" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_masterVendor ?></a></li>
 
 				</ul>
                             
                                 <ul>
-					<li><a href="misdatos/index.php" data-ajax="false" data-role="button" data-transition="fade" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_masterClient ?></a></li>
+					<li><a href="masterClient/index.php" data-ajax="false" data-role="button" data-transition="fade" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_masterClient ?></a></li>
 
 				</ul>
                             
                                 <ul>
-					<li><a href="misdatos/index.php" data-ajax="false" data-role="button" data-transition="fade" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_masterStock ?></a></li>
+					<li><a href="misDatos/index.php" data-ajax="false" data-role="button" data-transition="fade" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_masterStock ?></a></li>
 
 				</ul>
                         </div>
