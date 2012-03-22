@@ -51,13 +51,13 @@ include("./config/siteconfig.php");
 <!--div de login-->
 	<div data-role="page" id="login">
 		<div data-role="header">
-			<h1>Header</h1>
+                    <img  src="css/images/mantralogo.png" width="145" height="34" style="matralogo"/>
+
 		</div>
 		<div data-role="content">
                     
            <form id="form1" action="modules/lobi.php" data-transition="slide"  method="post">
-            <p><?php echo LANG_adlogin ?></p>
-            
+            <?php echo LANG_adlogin ?>           
             
               <div data-role="fieldcontain">
                   
