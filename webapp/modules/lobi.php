@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php 
 ////seguridad
-$profile = "admin";
+$profile = "admin,vendor";
 ///titulo pagina y header
 
 include("../config/siteconfig.php");

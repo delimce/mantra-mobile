@@ -4,7 +4,10 @@
 
 if(!empty($profile)){
     
-    if($_SESSION['PROFILE'] != $profile){
+    ////vector con el o los modulos requeridos
+    $perfilAcceso = explode(",",$profile);
+        
+    if(!in_array($_SESSION['PROFILE'], $perfilAcceso)){
         
         session_destroy();
         header("location: /$dirApp/index.php");

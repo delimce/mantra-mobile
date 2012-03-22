@@ -10,10 +10,12 @@ include("./config/siteconfig.php");
         {
             data = $.trim(data);
 
-            if(data==1)
-            $("#form1").submit();
-            else
+            if(data==1){
+                $("#form1").submit();
+            }else{
               alert('<?php echo LANG_nologin  ?>');
+          
+          }
         }
  
         function onError(data, status)
@@ -53,7 +55,7 @@ include("./config/siteconfig.php");
 		</div>
 		<div data-role="content">
                     
-         <form id="form1" action="lobi.php"  data-transition="slide"  method="post">
+           <form id="form1" action="modules/lobi.php" data-transition="slide"  method="post">
             <p><?php echo LANG_adlogin ?></p>
             
             
