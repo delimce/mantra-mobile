@@ -61,16 +61,16 @@ include_once('controller/loadData.php');
                  
                  ///validar
                  
-            if($("#r9codigo").val()=="" || $("#r9descripcion").val()=="" || $("#r9unidad_med").val()=="" || $("#r9precio1").val()==""){
-                alert('<?php echo LANG_prodVal1 ?>');
+             if($("#r9codigo").val()=="" || $("#r9nombre").val()=="" || $("#r9user").val()==""){
+                alert('<?php echo LANG_venVal1 ?>');
                 return false;
             }
             
-            if (isNaN($('#r9precio1').val())){
-                alert('<?php echo LANG_prodVal2 ?>');
+            if($("#clave").val()!=$("#clave2").val()){
+                alert('<?php echo LANG_noPass2 ?>');
                 return false;
-                
             }
+
                 
                 
                 var formData = $("#form1").serialize();
@@ -89,7 +89,7 @@ include_once('controller/loadData.php');
     </script>
 
 
-<?php $tituloCurrent = LANG_masterProducts; ?>
+<?php $tituloCurrent = LANG_masterVendor; ?>
 <div data-role="page" id="agregar">
 
 		<div data-role="header">
@@ -102,20 +102,27 @@ include_once('controller/loadData.php');
             <form id="form1" action="index.php" data-transition="slide"  method="post">
             
                 <div data-role="fieldcontain">
-            <label style="font-weight:bold" for="r9codigo"><?php echo LANG_prodCode ?></label>
+           <label style="font-weight:bold" for="r9codigo"><?php echo LANG_prodCode ?></label>
             <input type="text" data-mini="true" id="r9codigo" name="r9codigo" maxlength="12" value="<?php echo $datos['codigo']  ?>" />
         
-             <label style="font-weight:bold" for="r9descripcion"><?php echo LANG_prodName ?></label>
-             <input type="text" data-mini="true" id="r9descripcion" name="r9descripcion" value="<?php echo $datos['descripcion']  ?>" />
+             <label style="font-weight:bold" for="r9nombre"><?php echo LANG_cliName ?></label>
+             <input type="text" data-mini="true" id="r9nombre" name="r9nombre" value="<?php echo $datos['nombre']  ?>" />
+             
+              <label style="font-weight:bold" for="r9email"><?php echo LANG_email ?></label>
+             <input type="email" data-mini="true" id="r9email" name="r9email" value="<?php echo $datos['email']  ?>" />
 
-        	<label style="font-weight:bold" for="r9unidad_med"><?php echo LANG_prodUnit ?></label>
-             <input type="text" data-mini="true" id="r9unidad_med" name="r9unidad_med" value="<?php echo $datos['unidad_med']  ?>" />
+        	<label style="font-weight:bold" for="r9user"><?php echo LANG_venUser ?></label>
+             <input type="text" data-mini="true" id="r9user" name="r9user" value="<?php echo $datos['user']  ?>"/>
             
-             <label style="font-weight:bold" for="r9precio1"><?php echo LANG_prodPrice.' '.$_SESSION['MONEDA1'] ?></label>
-             <input type="text" data-mini="true" id="r9precio1" name="r9precio1" value="<?php echo $datos['precio1']  ?>" />
+             <label style="font-weight:bold" for="clave"><?php echo LANG_pass ?></label>
+             <input type="password" data-mini="true" id="clave" name="clave" value="<?php echo $datos['pass']  ?>"/>
+            
+             <label style="font-weight:bold" for="clave"><?php echo LANG_pass2 ?></label>
+             <input type="password" data-mini="true" id="clave2" name="clave2" value="<?php echo $datos['pass']  ?>"/>
             <p>
-                <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" <?php if($datos['activo']==1) echo 'checked="checked"' ?>  />
-		<label for="r9activo"><?php echo LANG_prodActive ?></label>   
+              <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" <?php if($datos['activo']==1) echo 'checked="checked"' ?>  />
+		<label for="r9activo"><?php echo LANG_venActive ?></label>     
+              
                 <div id="notification"></div>
              </div>
                 

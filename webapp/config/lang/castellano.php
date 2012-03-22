@@ -22,6 +22,7 @@ define(LANG_back,"Volver");
 define(LANG_accept,"Aceptar");
 define(LANG_save,"Guardar");
 define(LANG_enter,"Entrar");
+define(LANG_add,"Agregar");
 define(LANG_nologin,"Usuario ó clave inválidos");
 
 ////////////////ADMIN
@@ -40,7 +41,19 @@ define(LANG_masterSelect,"Seleccione Maestro");
 define(LANG_masterClient,"Maestro de Clientes");
 define(LANG_masterVendor,"Maestro de Vendedores");
 define(LANG_masterProducts,"Maestro de Productos");
-define(LANG_masterStock,"Maestro de Inventario");
+
+
+define(LANG_masterStock,"Manejo de Inventario");
+define(LANG_textStock,"Seleccione un producto del stock");
+define(LANG_stockDetail,"detalle del inventario del producto");
+define(LANG_stockAdd,"Añadir cantidad");
+define(LANG_stockActual,"Total Disponible:");
+
+define(LANG_stockOf,"de");
+define(LANG_stockUnit,"unid.");
+define(LANG_stockAt,"El");
+
+
 define(LANG_addNew,"Nuevo");
 define(LANG_addEdit,"Editar");
 define(LANG_deleteit,"Borrar");

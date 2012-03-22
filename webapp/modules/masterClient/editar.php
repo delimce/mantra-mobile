@@ -27,6 +27,25 @@ include_once('controller/loadData.php');
  
         $(document).ready(function() {
             
+            
+            
+              ///validar
+            
+            $('#form1').validate({
+                rules : {
+                        r9codigo : {
+                        required : true
+                    },
+                        r9nombre :  {
+                         required : true
+                         
+                    },
+                        r9rif :  {
+                        required : true
+                    }
+                     
+                }
+            });
            
             ///campo oculto de id
             $('#form1').append('<input type="hidden" name="id" id="id" value="<?php echo $id ?>" />');
@@ -60,13 +79,8 @@ include_once('controller/loadData.php');
                  
                  
                  ///validar
-                 
-             if($("#r9codigo").val()=="" || $("#r9nombre").val()=="" || $("#r9rif").val()==""){
-                alert('<?php echo LANG_cliVal1 ?>');
-                return false;
-            }
-                
-                
+                 if(!$("#form1").valid()) return false; 
+                    
                 var formData = $("#form1").serialize();
  
                 $.ajax({
@@ -106,10 +120,10 @@ include_once('controller/loadData.php');
              <input type="text" data-mini="true" id="r9rif" name="r9rif" value="<?php echo $datos['rif']  ?>" />
             
              <label style="font-weight:bold" for="r9telefono1"><?php echo LANG_cliTlf ?></label>
-             <input type="text" data-mini="true" id="r9telefono1" name="r9telefono1" value="<?php echo $datos['telefono1']  ?>" />
+             <input type="tel" data-mini="true" id="r9telefono1" name="r9telefono1" value="<?php echo $datos['telefono1']  ?>" />
              
               <label style="font-weight:bold" for="r9email"><?php echo LANG_email ?></label>
-             <input type="text" data-mini="true" id="r9email" name="r9email"  value="<?php echo $datos['email']  ?>"/>
+             <input type="email" data-mini="true" id="r9email" name="r9email"  value="<?php echo $datos['email']  ?>"/>
              
              <label style="font-weight:bold" for="r9direccion1"><?php echo LANG_cliDir ?></label>
                 <textarea id="r9direccion1" name="r9direccion1"><?php echo $datos['direccion1']  ?></textarea>

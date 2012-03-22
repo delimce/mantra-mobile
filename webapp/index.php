@@ -1,14 +1,15 @@
 <?php session_start(); ?>
 <?php 
 
-include("../config/siteconfig.php");
+include("./config/siteconfig.php");
+
 ?>
 <body>
       <script>
-        function onSuccess(data, status)
+        function onSuccess(data)
         {
             data = $.trim(data);
-//            $("#notification").text(data);
+
             if(data==1)
             $("#form1").submit();
             else
@@ -21,13 +22,17 @@ include("../config/siteconfig.php");
         }        
  
         $(document).ready(function() {
+            
+    
+            
             $("#submit").click(function(){
  
+                               
                 var formData = $("#form1").serialize();
  
                 $.ajax({
                     type: "POST",
-                    url: "controller/validar.php",
+                    url: "modules/controller/validar.php",
                     cache: false,
                     data: formData,
                     success: onSuccess,
@@ -53,11 +58,12 @@ include("../config/siteconfig.php");
             
             
               <div data-role="fieldcontain">
+                  
              <label style="font-weight:bold" for="user"><?php echo LANG_user ?></label>
-             <input type="text" data-mini="true" id="user" name="user" value=""  />
+             <input type="text" data-mini="true" id="user" name="user" />
 
-			<label style="font-weight:bold" for="clave"><?php echo LANG_pass ?></label>
-             <input type="password" data-mini="true" id="clave" name="clave" value="" />
+	     <label style="font-weight:bold" for="clave"><?php echo LANG_pass ?></label>
+             <input type="password" data-mini="true" id="clave" name="clave" />
              
              
               </div>

@@ -15,4 +15,6 @@ $tituloPage = $tituloCurrent;
 	<link rel="stylesheet" href="/<?php echo $dirApp ?>css/jquery.mobile-1.0.1.css" />
 	<script src="/<?php echo $dirApp ?>jquery/jquery-1.6.4.min.js"></script>
 	<script src="/<?php echo $dirApp ?>jquery/jquery.mobile-1.0.1.min.js"></script>
+        <script type="text/javascript" src="/<?php echo $dirApp ?>jquery/jquery.validate.min.js"></script>
+
 </head>

@@ -41,10 +41,7 @@ $tituloCurrent = LANG_masters;
 
 				</ul>
                             
-                                <ul>
-					<li><a href="misDatos/index.php" data-ajax="false" data-role="button" data-transition="fade" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_masterStock ?></a></li>
-
-				</ul>
+                              
                         </div>
                         
     

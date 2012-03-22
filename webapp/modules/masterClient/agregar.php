@@ -18,16 +18,34 @@ include("../../config/siteconfig.php");
         }
  
         $(document).ready(function() {
+            
+            
+             ///validar
+            
+            $('#form1').validate({
+                rules : {
+                        r9codigo : {
+                        required : true
+                    },
+                        r9nombre :  {
+                         required : true
+                         
+                    },
+                        r9rif :  {
+                        required : true
+                    }
+                     
+                }
+            });
+            
+            
+            
             $("#submit").click(function(){
                  
                  
                  ///validar
                  
-            if($("#r9codigo").val()=="" || $("#r9nombre").val()=="" || $("#r9rif").val()==""){
-                alert('<?php echo LANG_cliVal1 ?>');
-                return false;
-            }
-            
+                 if(!$("#form1").valid()) return false;     
            
                 var formData = $("#form1").serialize();
  
@@ -68,10 +86,10 @@ include("../../config/siteconfig.php");
              <input type="text" data-mini="true" id="r9rif" name="r9rif"/>
             
              <label style="font-weight:bold" for="r9telefono1"><?php echo LANG_cliTlf ?></label>
-             <input type="text" data-mini="true" id="r9telefono1" name="r9telefono1"/>
+             <input type="tel" data-mini="true" id="r9telefono1" name="r9telefono1"/>
              
               <label style="font-weight:bold" for="r9email"><?php echo LANG_email ?></label>
-             <input type="text" data-mini="true" id="r9email" name="r9email"  />
+             <input type="email" data-mini="true" id="r9email" name="r9email"  />
              
              
              <label style="font-weight:bold" for="r9direccion1"><?php echo LANG_cliDir ?></label>

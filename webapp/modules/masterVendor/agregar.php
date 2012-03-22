@@ -18,20 +18,23 @@ include("../../config/siteconfig.php");
         }
  
         $(document).ready(function() {
+            
+            
+                        
+            
             $("#submit").click(function(){
                  
                  
                  ///validar
                  
-            if($("#r9codigo").val()=="" || $("#r9descripcion").val()=="" || $("#r9unidad_med").val()=="" || $("#r9precio1").val()==""){
-                alert('<?php echo LANG_prodVal1 ?>');
+            if($("#r9codigo").val()=="" || $("#r9nombre").val()=="" || $("#r9user").val()==""){
+                alert('<?php echo LANG_venVal1 ?>');
                 return false;
             }
             
-            if (isNaN($('#r9precio1').val())){
-                alert('<?php echo LANG_prodVal2 ?>');
+            if($("#clave").val()!=$("#clave2").val()){
+                alert('<?php echo LANG_noPass2 ?>');
                 return false;
-                
             }
 
                 var formData = $("#form1").serialize();
@@ -50,7 +53,7 @@ include("../../config/siteconfig.php");
     </script>
 
 
-<?php $tituloCurrent = LANG_masterProducts; ?>
+<?php $tituloCurrent = LANG_masterVendor; ?>
 <div data-role="page" id="agregar">
 
 		<div data-role="header">
@@ -66,17 +69,24 @@ include("../../config/siteconfig.php");
             <label style="font-weight:bold" for="r9codigo"><?php echo LANG_prodCode ?></label>
             <input type="text" data-mini="true" id="r9codigo" name="r9codigo" maxlength="12" />
         
-             <label style="font-weight:bold" for="r9descripcion"><?php echo LANG_prodName ?></label>
-             <input type="text" data-mini="true" id="r9descripcion" name="r9descripcion"  />
+             <label style="font-weight:bold" for="r9nombre"><?php echo LANG_cliName ?></label>
+             <input type="text" data-mini="true" id="r9nombre" name="r9nombre"  />
+             
+              <label style="font-weight:bold" for="r9email"><?php echo LANG_email ?></label>
+             <input type="email" data-mini="true" id="r9email" name="r9email"  />
 
-        	<label style="font-weight:bold" for="r9unidad_med"><?php echo LANG_prodUnit ?></label>
-             <input type="text" data-mini="true" id="r9unidad_med" name="r9unidad_med"/>
+        	<label style="font-weight:bold" for="r9user"><?php echo LANG_venUser ?></label>
+             <input type="text" data-mini="true" id="r9user" name="r9user"/>
             
-             <label style="font-weight:bold" for="r9precio1"><?php echo LANG_prodPrice.' '.$_SESSION['MONEDA1'] ?></label>
-             <input type="text" data-mini="true" id="r9precio1" name="r9precio1"/>
+             <label style="font-weight:bold" for="clave"><?php echo LANG_pass ?></label>
+             <input type="password" data-mini="true" id="clave" name="clave" />
+            
+             <label style="font-weight:bold" for="clave"><?php echo LANG_pass2 ?></label>
+             <input type="password" data-mini="true" id="clave2" name="clave2" />
             <p>
              <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" />
-		<label for="r9activo"><?php echo LANG_prodActive ?></label>   
+		<label for="r9activo"><?php echo LANG_venActive ?></label>   
+              
                 
              </div>
                 

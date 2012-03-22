@@ -36,14 +36,26 @@ include_once 'controller/loadData.php';
             ///campo oculto de id producto
             $('#form1').append('<input type="hidden" name="id" id="id" value="<?php echo $id ?>" />');
            
-                  
+            
+             ///validar
+                $("#form1").validate({
+                      
+                     rules: {
+                        r9cantidad :  {
+                        required : true,
+                        digits : true,
+                        min : 1
+                        
+                        }
+                        }
+                      
+                  })  
+            
                     
             $("#agregar").click(function(){
                  
-                 
-                 ///validar
-                  $("#form1").validate();  
-                  
+               if(!$("#form1").valid()) return false;
+                
                 
                 var formData = $("#form1").serialize();
  
@@ -57,6 +69,8 @@ include_once 'controller/loadData.php';
  
                 return false;
             });
+            
+            
         });
     </script>
 
@@ -93,7 +107,7 @@ include_once 'controller/loadData.php';
                    
                    <form id="form1" action="detalle.php" data-transition="slide"  method="post"> 
                     <div data-theme="a" class="ui-bar ui-grid-c">
-				<div class="ui-block-c"><input type="number" id="r9cantidad" name="r9cantidad" class="required number"></div>	 
+				<div class="ui-block-c"><input type="number" id="r9cantidad" name="r9cantidad"></div>	 
 				<div class="ui-block-d"><div style="margin:8px 0 0 13px;"><button id="agregar" data-theme="b"><?php echo LANG_add  ?></button></div></div>  
                     </div>
                    </form> 

@@ -7,7 +7,7 @@ if(!empty($profile)){
     if($_SESSION['PROFILE'] != $profile){
         
         session_destroy();
-        header("location: /$dirApp/$profile/index.php");
+        header("location: /$dirApp/index.php");
         
     }
     
