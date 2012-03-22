@@ -24,8 +24,33 @@ include_once 'controller/load.php';
         }
  
         $(document).ready(function() {
+            
+            
+             $('#form1').validate({
+                rules : {
+                        r1nombre : {
+                        required : true
+                    },
+                        r1user :  {
+                        required : true
+                    },
+                        clave :  {
+                        required : true
+                    },
+                        r1email :  {
+                        email: true
+                    }
+                     
+                }
+            });
+            
+            
+            
             $("#submit").click(function(){
                 
+            
+             if(!$("#form1").valid()) return false; 
+            
             if($("#clave").val()!=$("#clave2").val()){
                 alert('<?php echo LANG_noPass2 ?>');
                 return false;
@@ -64,7 +89,9 @@ include_once 'controller/load.php';
             <label style="font-weight:bold" for="r1nombre"><?php echo LANG_name ?></label>
              <input type="text" data-mini="true" id="r1nombre" name="r1nombre" value="<?php echo $datos["nombre"] ?>"  />
             
-            
+            <label style="font-weight:bold" for="r1email"><?php echo LANG_email ?></label>
+             <input type="email" id="r1email" name="r1email" value="<?php echo $datos["email"] ?>" >
+             
              <label style="font-weight:bold" for="r1user"><?php echo LANG_user ?></label>
              <input type="text" data-mini="true" id="r1user" name="r1user" value="<?php echo $datos["user"] ?>"  />
 

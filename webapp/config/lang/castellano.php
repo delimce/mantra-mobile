@@ -26,7 +26,7 @@ define(LANG_add,"Agregar");
 define(LANG_nologin,"Usuario ó clave inválidos");
 
 ////////////////ADMIN
-define(LANG_adlogin,"Ingrese sus credenciales de administrador");
+define(LANG_adlogin,"Ingrese sus credenciales de usuario");
 define(LANG_lobi,"Menú del sistema");
 define(LANG_lobiText,"Bienvenido al modo administrador");
 define(LANG_adminFields,"Mis Datos");

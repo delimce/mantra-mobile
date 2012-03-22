@@ -33,6 +33,9 @@ include("../../config/siteconfig.php");
                     },
                         r9rif :  {
                         required : true
+                    },
+                    r9email :  {
+                        email : true
                     }
                      
                 }

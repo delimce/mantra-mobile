@@ -1,5 +1,4 @@
-<?php session_start(); ?>
-<?php 
+<?php session_start(); 
 ////seguridad
 $profile = "admin,vendor";
 ///titulo pagina y header
@@ -24,8 +23,13 @@ $tituloCurrent = LANG_lobi;
             <div data-role="navbar" class="nav-glyphish-example">
 				<ul>
                                      	<li><a id="misdatos" href="misDatos/index.php" data-ajax="false" data-transition="fade" data-icon="custom">Mis datos</a></li>
-					<li><a href="#list" data-role="button" data-transition="fade" data-icon="search" data-iconpos="right" data-inline="true">Buscar Pedido</a></li>
+					<li><a id="buscarp" href="#list" data-role="button" data-transition="fade" data-icon="search" data-iconpos="right" data-inline="true">Buscar Pedido</a></li>
 				</ul>
+                                <ul>
+					<li><a id="pedidos" href="#form" data-role="button" data-transition="fade" data-icon="custom" data-iconpos="right" data-inline="true">Auditorias</a></li>
+					<li><a id="maestros" href="lobiMaster.php" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Actualizar Maestros</a></li>
+				</ul>
+                
                                 <ul>
 					<li><a id="auditorias" href="#form" data-role="button" data-transition="fade" data-icon="custom" data-iconpos="right" data-inline="true">Auditorias</a></li>
 					<li><a id="maestros" href="lobiMaster.php" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Actualizar Maestros</a></li>
@@ -39,6 +43,11 @@ $tituloCurrent = LANG_lobi;
             
             
 		</div>
+    
+                <div data-role="footer">
+			<h4><?php echo $_SESSION['CUENTA'] ?></h4>
+		</div>
+    
 </div>
 <!--LOBI-->
 

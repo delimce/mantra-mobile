@@ -42,6 +42,9 @@ include_once('controller/loadData.php');
                     },
                         r9rif :  {
                         required : true
+                    },
+                    r9email :  {
+                        email : true
                     }
                      
                 }
