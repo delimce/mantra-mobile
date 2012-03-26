@@ -16,6 +16,9 @@ $tool->abrir_transaccion();
 
     if(!isset($_POST['r9activo']))
         $tool->query("update tbl_producto set activo = 0 where id = $id  and cuenta_id = $cuenta ");
+    
+    if(!isset($_POST['r9paga_impuesto']))
+        $tool->query("update tbl_producto set paga_impuesto = 0 where id = $id  and cuenta_id = $cuenta ");
 
 $tool->cerrar_transaccion();
 

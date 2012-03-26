@@ -125,14 +125,14 @@
 
       $this->query($query);  //llamando las funciones de la clase database heredada
 
-      if($this->nreg>0){
+      if($this->getNreg()>0){
               
      $combo = '<select name="'.$id.'" id="'.$id.'"';
      if($onchange)$combo.=' onChange="'.$onchange.'"';
      if($multiple)$combo.=' multiple size = "'.($this->nreg/2+1).'" ';
      if($desabilita)$combo.=' disabled="disabled"';
 	 if($estilo)$combo.=' class="'.$estilo.'"';
-     $combo.= '>';
+     $combo.= ' data-native-menu="false">';
      if($select) $combo.= '<option value="">'.$select.'</option>';
      if(!$seleccion)$seleccion = $_REQUEST[$id];
 

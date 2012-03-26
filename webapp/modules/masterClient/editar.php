@@ -1,10 +1,12 @@
 <?php session_start();
 ////seguridad
-$profile = "admin";
+$profile = "admin,vendor";
 ///titulo pagina y header
 
 include("../../config/siteconfig.php");
 include_once('controller/loadData.php');
+
+ require_once("controller/loadVendor.php");
 
 ?>
 <body>
@@ -129,11 +131,22 @@ include_once('controller/loadData.php');
              <input type="email" data-mini="true" id="r9email" name="r9email"  value="<?php echo $datos['email']  ?>"/>
              
              <label style="font-weight:bold" for="r9direccion1"><?php echo LANG_cliDir ?></label>
-                <textarea id="r9direccion1" name="r9direccion1"><?php echo $datos['direccion1']  ?></textarea>
+                <textarea data-mini="true" id="r9direccion1" name="r9direccion1"><?php echo $datos['direccion1']  ?></textarea>
+               
+               <label style="font-weight:bold" for="r9direccion2"><?php echo LANG_cliDir2 ?></label>
+                <textarea data-mini="true" id="r9direccion1" name="r9direccion2"><?php echo $datos['direccion2']  ?></textarea>  
+                
             <p>
                 <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" <?php if($datos['activo']==1) echo 'checked="checked"' ?>  />
 		<label for="r9activo"><?php echo LANG_cliActive ?></label>  
                 
+                
+                        
+             <label style="font-weight:bold" for="r9vendedor_id" class="select"><?php echo LANG_cliBelongTo ?></label>
+				
+             <?php echo $tool->combo_db("r9vendedor_id",$queryv,"nombre","id",$porDefecto,$seleccionado,false,'',false,$desactivado); ?>
+                             
+             
              </div>
                 <div id="notification"></div>
                  <button data-role="submit" data-theme="b" id="submit" value="submit-value" data-inline="true"><?php echo LANG_save ?></button>

@@ -1,9 +1,11 @@
 <?php session_start();
 ////seguridad
-$profile = "admin";
+$profile = "admin,vendor";
 ///titulo pagina y header
 
 include("../../config/siteconfig.php");
+
+require("controller/loadVendor.php");
 
 ?>
 <body>
@@ -97,12 +99,21 @@ include("../../config/siteconfig.php");
              
              <label style="font-weight:bold" for="r9direccion1"><?php echo LANG_cliDir ?></label>
                 <textarea id="r9direccion1" name="r9direccion1"></textarea>
-
-             
-            <p>
+               
+              <label style="font-weight:bold" for="r9direccion2"><?php echo LANG_cliDir2 ?></label>
+                <textarea id="r9direccion1" name="r9direccion2"></textarea>
                 
+                
+            <p>
+              
              <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" />
-		<label for="r9activo"><?php echo LANG_cliActive ?></label>   
+	     <label for="r9activo"><?php echo LANG_cliActive ?></label>    
+                
+                     
+             <label style="font-weight:bold" for="r9vendedor_id" class="select"><?php echo LANG_cliBelongTo ?></label>
+				
+             <?php echo $tool->combo_db("r9vendedor_id",$queryv,"nombre","id",$porDefecto,$seleccionado,false,'',false,$desactivado); ?>
+                             
                 
              </div>
                 
@@ -117,4 +128,5 @@ include("../../config/siteconfig.php");
 
     
 </body>
-</html>   
+</html>
+<?php $tool->cerrar(); ?>

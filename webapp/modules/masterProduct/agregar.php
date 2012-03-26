@@ -5,6 +5,8 @@ $profile = "admin";
 
 include("../../config/siteconfig.php");
 
+include_once('controller/loadUnit.php');
+
 ?>
 <body>
  
@@ -91,11 +93,25 @@ include("../../config/siteconfig.php");
              <label style="font-weight:bold" for="r9descripcion"><?php echo LANG_prodName ?></label>
              <input type="text" data-mini="true" id="r9descripcion" name="r9descripcion"  />
 
-        	<label style="font-weight:bold" for="r9unidad_med"><?php echo LANG_prodUnit ?></label>
-             <input type="text" data-mini="true" id="r9unidad_med" name="r9unidad_med"/>
-            
+            <label style="font-weight:bold" for="r9unidad_med"><?php echo LANG_prodUnit ?></label>
+             		
+             <?php echo $tool->combo_db("r9unidad_med",$queryu,"titulo","id",$porDefecto,$seleccionado,false,'',false,$desactivado); ?>
+
+ 
              <label style="font-weight:bold" for="r9precio1"><?php echo LANG_prodPrice.' '.$_SESSION['MONEDA1'] ?></label>
              <input type="text" data-mini="true" id="r9precio1" name="r9precio1"/>
+             
+             <label style="font-weight:bold" for="r9precio2"><?php echo LANG_prodBuy.' '.$_SESSION['MONEDA1'] ?></label>
+             <input type="text" data-mini="true" id="r9precio2" name="r9precio2"/>
+             
+             <label style="font-weight:bold" for="r9precio3"><?php echo LANG_prodSug.' '.$_SESSION['MONEDA1'] ?></label>
+             <input type="text" data-mini="true" id="r9precio3" name="r9precio3"/>
+             
+               <input type="checkbox" name="r9paga_impuesto" id="r9paga_impuesto" value="1" class="custom" />
+		<label for="r9paga_impuesto"><?php echo LANG_prodPay ?></label> 
+             
+             
+             
             <p>
              <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" />
 		<label for="r9activo"><?php echo LANG_prodActive ?></label>   

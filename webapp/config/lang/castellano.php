@@ -23,6 +23,7 @@ define(LANG_accept,"Aceptar");
 define(LANG_save,"Guardar");
 define(LANG_enter,"Entrar");
 define(LANG_add,"Agregar");
+define(LANG_all,"Todos");
 define(LANG_nologin,"Usuario ó clave inválidos");
 
 ////////////////ADMIN
@@ -41,6 +42,10 @@ define(LANG_masterSelect,"Seleccione Maestro");
 define(LANG_masterClient,"Maestro de Clientes");
 define(LANG_masterVendor,"Maestro de Vendedores");
 define(LANG_masterProducts,"Maestro de Productos");
+define(LANG_masterUnit,"Maestro de Presentacion");
+
+define(LANG_UniTitle,"Titulo de Presentacion");
+define(LANG_UnitDesc,"Descripcion");
 
 
 define(LANG_masterStock,"Manejo de Inventario");
@@ -60,8 +65,11 @@ define(LANG_deleteit,"Borrar");
 define(LANG_confirmDelete,"Esta seguro que desea borrar el registro?");
 define(LANG_prodCode,"Código");
 define(LANG_prodName,"Nombre producto");
-define(LANG_prodPrice,"Precio de venta");
-define(LANG_prodUnit,"Unidad de medida");
+define(LANG_prodPrice,"Precio de Venta (PVP)");
+define(LANG_prodBuy,"Precio de Compra");
+define(LANG_prodSug,"Precio sugerido");
+define(LANG_prodPay,"Aplica IVA?");
+define(LANG_prodUnit,"Presentacion");
 define(LANG_prodActive,"Producto Activo");
 
 define(LANG_cliName,"Nombre");
@@ -69,6 +77,8 @@ define(LANG_cliRIF,"RIF/CI");
 define(LANG_cliTlf,"Telefono");
 define(LANG_cliActive,"Cliente Activo");
 define(LANG_cliDir,"Dirección");
+define(LANG_cliDir2,"Punto de Ref.");
+define(LANG_cliBelongTo,"Asignado al vendedor: ");
 
 define(LANG_venUser,"Usuario");
 define(LANG_venActive,"Vendedor Activo");

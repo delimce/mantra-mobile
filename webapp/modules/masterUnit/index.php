@@ -1,6 +1,6 @@
 <?php session_start();
 ////seguridad
-$profile = "admin,vendor";
+$profile = "admin";
 ///titulo pagina y header
 
 include("../../config/siteconfig.php");
@@ -9,11 +9,11 @@ include_once 'controller/load.php';
 
 ?>
 
-    <?php $tituloCurrent = LANG_masterClient; ?>    
+    <?php $tituloCurrent = LANG_masterUnit; ?>    
 <!--div de pagina-->
-	<div data-role="page" id="maestroc">
+	<div data-role="page" id="inventarioI">
 		<div data-role="header">
-                        <a href="<?php echo $regreso ?>" data-icon="back"><?php echo LANG_back ?></a>
+                        <a href="../lobiMaster.php" data-icon="back"><?php echo LANG_back ?></a>
 			<h1><?php echo $tituloCurrent ?></h1>
                         <a href="agregar.php" data-icon="pluss" data-ajax="false" data-theme="b"><?php echo LANG_addNew ?></a>                    
                         
@@ -24,12 +24,10 @@ include_once 'controller/load.php';
                              <?php while ($row = $tool->db_vector_nom($tool->result)) { ?>
                                 <li><a class="check" data-ajax="false" href="editar.php?id=<?php echo $row["id"] ?>">
                                     
-                                        <div style="color:blue"><?php echo $row["nombre"] ?><br></div>
+                                        <div style="color:blue"><?php echo $row["titulo"] ?><br></div>
                                     <fieldset style="font-size: 12px">
-                                        <b>codigo:</b> <?php echo $row["codigo"] ?>
-                                        <b>Rif</b> <?php echo $row["rif"] ?>
-                                         
-                                        
+                                        <?php echo $row["descripcion"] ?>
+    
                                     </fieldset>
                                     </a></li>
                                 
