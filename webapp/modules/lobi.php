@@ -37,7 +37,7 @@ $tituloCurrent = LANG_lobi;
                 
                                  <ul>
 					
-					<li><a id="crearp" href="lobiMaster.php" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Nuevo Pedido</a></li>
+					<li><a id="crearp" href="lobiMaster.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Nuevo Pedido</a></li>
                                         <li><a id="clientes" href="masterClient/index.php" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Manejo de Clientes</a></li>
                                 </ul>
                 

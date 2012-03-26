@@ -10,8 +10,9 @@ if(!empty($profile)){
     if(!in_array($_SESSION['PROFILE'], $perfilAcceso)){
         
         session_destroy();
-        header("location: /$dirApp/index.php");
         
+        header("location: /$dirApp/index.php");
+        die();
     }
     
 }

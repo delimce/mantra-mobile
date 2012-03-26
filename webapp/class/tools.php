@@ -133,7 +133,7 @@
      if($desabilita)$combo.=' disabled="disabled"';
 	 if($estilo)$combo.=' class="'.$estilo.'"';
      $combo.= ' data-native-menu="false">';
-     if($select) $combo.= '<option value="">'.$select.'</option>';
+     if($select) $combo.= '<option value="0">'.$select.'</option>';
      if(!$seleccion)$seleccion = $_REQUEST[$id];
 
     while ($row = $this->db_vector_nom($this->result)) {
