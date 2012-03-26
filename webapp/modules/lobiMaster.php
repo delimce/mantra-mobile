@@ -26,6 +26,12 @@ $tituloCurrent = LANG_masters;
                         
                         
                         <div data-role="navbar">
+                                <ul>
+					<li><a href="masterProdCat/index.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_masterProdCat ?></a></li>
+
+				</ul> 
+                            
+                            
                                  <ul>
 					<li><a href="masterProduct/index.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_masterProducts ?></a></li>
 

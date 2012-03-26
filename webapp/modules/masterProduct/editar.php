@@ -1,11 +1,12 @@
 <?php session_start();
 ////seguridad
-$profile = "admin,vendor";
+$profile = "admin";
 ///titulo pagina y header
 
 include("../../config/siteconfig.php");
 include_once('controller/loadData.php');
-include_once('controller/loadUnit.php');
+include_once('controller/loadUnit.php'); ///unidades
+include_once('controller/loadCat.php'); ///categorias
 
 ?>
 <body>
@@ -39,9 +40,6 @@ include_once('controller/loadUnit.php');
                         required : true
                     },
                         r9descripcion :  {
-                        required : true
-                    },
-                        r9unidad_med :  {
                         required : true
                     },
                         r9precio1 :  {
@@ -119,11 +117,6 @@ include_once('controller/loadUnit.php');
              <label style="font-weight:bold" for="r9descripcion"><?php echo LANG_prodName ?></label>
              <input type="text" data-mini="true" id="r9descripcion" name="r9descripcion" value="<?php echo $datos['descripcion']  ?>" />
 
-             
-              <label style="font-weight:bold" for="r9unidad_med"><?php echo LANG_prodUnit ?></label>
-             		
-             <?php echo $tool->combo_db("r9unidad_med",$queryu,"titulo","id",$porDefecto,$seleccionado,false,'',false,$desactivado); ?>
-
                           
              <label style="font-weight:bold" for="r9precio1"><?php echo LANG_prodPrice.' '.$_SESSION['MONEDA1'] ?></label>
              <input type="text" data-mini="true" id="r9precio1" name="r9precio1" value="<?php echo $datos['precio1']  ?>" />
@@ -134,14 +127,30 @@ include_once('controller/loadUnit.php');
              
              <label style="font-weight:bold" for="r9precio3"><?php echo LANG_prodSug.' '.$_SESSION['MONEDA1'] ?></label>
              <input type="text" data-mini="true" id="r9precio3" name="r9precio3" value="<?php echo $datos['precio3']  ?>"/>
+            
              
-              <input type="checkbox" name="r9paga_impuesto" id="r9paga_impuesto" value="1" class="custom" <?php if($datos['paga_impuesto']==1) echo 'checked="checked"' ?>  />
-		<label for="r9paga_impuesto"><?php echo LANG_prodPay ?></label> 
+               <label style="font-weight:bold" for="r9unidad_med"><?php echo LANG_prodUnit ?></label>
+             		
+             <?php echo $tool->combo_db("r9unidad_med",$queryu,"titulo","id",$porDefecto,$seleccionado,false,LANG_prodValUnit,false,$desactivado); ?>
+
+               
+              <label style="font-weight:bold" for="categoriap"><?php echo LANG_catProd ?></label>             		
+             <?php echo $tool->combo_db("categoriap",$queryc,"nombre","id",$porDefectoc,$seleccionadoc,false,LANG_prodValCat,false,$desactivadoc); ?>
+
              
              
              <p>
+                 
+                  
+              <input type="checkbox" name="r9paga_impuesto" id="r9paga_impuesto" value="1" class="custom" <?php if($datos['paga_impuesto']==1) echo 'checked="checked"' ?>  />
+		<label for="r9paga_impuesto"><?php echo LANG_prodPay ?></label> 
+             
+                 
                 <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" <?php if($datos['activo']==1) echo 'checked="checked"' ?>  />
-		<label for="r9activo"><?php echo LANG_prodActive ?></label>   
+		<label for="r9activo"><?php echo LANG_prodActive ?></label>  
+                
+                
+                
                 <div id="notification"></div>
              </div>
                 
@@ -158,3 +167,4 @@ include_once('controller/loadUnit.php');
     
 </body>
 </html>   
+<?php $tool->cerrar(); ?>

@@ -86,7 +86,7 @@ include_once 'controller/loadData.php';
 		<div data-role="content">
                     
                      <p>
-                     <div style="color:blue;font-weight: bold"><?php echo $producto ?></div>
+                     <div style="color:blue;font-weight: bold"><?php echo $producto["descripcion"] ?></div>
                      <div id="titulo2"><?php echo LANG_stockDetail ?></div>
                     </p>
                       
@@ -94,7 +94,7 @@ include_once 'controller/loadData.php';
                 <?php while ($row = $tool->db_vector_nom($tool->result)) {  ?>
                    <div class="ui-grid-b" style="font-size: 13px;font-weight: bold">
                             <div class="ui-block-a"><?php echo $row["accion"] ?> <?php echo LANG_stockOf ?></div>
-                            <div class="ui-block-b"><?php echo $row["cantidad"] ?> <?php echo LANG_stockUnit ?></div>
+                            <div class="ui-block-b"><?php echo $row["cantidad"] ?> <?php echo $producto["unidad"] ?></div>
                             <div class="ui-block-c"><?php echo LANG_stockAt ?> <?php echo $row["fecha"] ?></div>
                            <div class="ui-block-a"><!-- TODO: eliminar ultimo reg de historia de inventario--></div>
                            <?php if($row["operacion"]=="sum") $total+=$row["cantidad"]; else $total-=$row["cantidad"]; ?>

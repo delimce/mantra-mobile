@@ -7,7 +7,18 @@ $id = $tool->getvar("id",$_GET);
 if(empty($id))$tool->redirect ('index.php');
 
 
-        $producto = $tool->simple_db("select descripcion from tbl_producto where id = $id and cuenta_id = {$_SESSION['CUENTAID']} ");
+        
+        $producto = $tool->simple_db("SELECT 
+                                        p.descripcion,
+                                        u.titulo as unidad
+                                        FROM
+                                        tbl_producto p
+                                        INNER JOIN tbl_unidad u ON (p.unidad_med = u.id)
+                                        AND (p.cuenta_id = u.cuenta_id)
+                                        WHERE
+                                        p.id = $id AND 
+                                        p.cuenta_id = {$_SESSION['CUENTAID']}");
+  
         $tool->query("SELECT 
                             date(i.fecha) as fecha,
                             i.accion,

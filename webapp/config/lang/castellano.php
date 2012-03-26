@@ -39,6 +39,7 @@ define(LANG_editSuccess,"Datos modificados con éxito");
 //////////////MAESTROS
 define(LANG_masters,"Actualizar Maestros");
 define(LANG_masterSelect,"Seleccione Maestro");
+define(LANG_masterProdCat,"Maestro Categorias de producto");
 define(LANG_masterClient,"Maestro de Clientes");
 define(LANG_masterVendor,"Maestro de Vendedores");
 define(LANG_masterProducts,"Maestro de Productos");
@@ -80,10 +81,17 @@ define(LANG_cliDir,"Dirección");
 define(LANG_cliDir2,"Punto de Ref.");
 define(LANG_cliBelongTo,"Asignado al vendedor: ");
 
+define(LANG_catTitle,"Nombre de categoria");
+define(LANG_catProd,"Categoria");
+define(LANG_catDesc,"Descripcion");
+define(LANG_catActive,"Categoria Activa");
+
 define(LANG_venUser,"Usuario");
 define(LANG_venActive,"Vendedor Activo");
 ////validar
 define(LANG_prodVal1,"error: verifique que no queden campos vacios");
+define(LANG_prodValUnit,"Advertencia: debe crear las unidades de medida ó presentación");
+define(LANG_prodValCat,"Advertencia: debe crear al menos una categoria de producto");
 define(LANG_prodVal2,"error: el campo precio solo debe ser numerico");
 define(LANG_cliVal1,"error: verifique que no esten vacios los campos... codigo,nombre y rif ");
 define(LANG_venVal1,"error: verifique que no esten vacios los campos... codigo,nombre usuario y password ");
