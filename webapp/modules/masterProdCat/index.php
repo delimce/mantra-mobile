@@ -20,15 +20,15 @@ include_once 'controller/load.php';
 		</div>
 		<div data-role="content">
                     
-                         <ul data-role="listview" data-inset="true" data-filter="true">
+                         <ul data-role="listview" data-theme="c" data-inset="true" data-filter="true">
                              <?php while ($row = $tool->db_vector_nom($tool->result)) { ?>
                                 <li><a class="check" data-ajax="false" href="editar.php?id=<?php echo $row["id"] ?>">
                                     
-                                        <div style="color:blue"><?php echo $row["nombre"] ?><br></div>
-                                    <fieldset style="font-size: 12px">
+                                        <div style="color:blue"><?php echo $row["nombre"] ?><span class="ui-li-count"><?php echo $row["cant"] ?></span><br></div>
+                                    <p>
                                         <?php echo $row["descripcion"] ?>
     
-                                    </fieldset>
+                                    </p>
                                     </a></li>
                                 
                               <?php } ?>  

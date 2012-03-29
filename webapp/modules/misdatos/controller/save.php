@@ -17,6 +17,9 @@ $clave1 = $tool->simple_db("select pass from $tabla where id = {$_SESSION['USERI
 $clave2 = $tool->getvar("clave",$_POST);
 if($clave1!=$clave2) $_POST['r1pass'] = md5($clave2);
 
+////cambiando nombre en variable de sesion
+$_SESSION['USERNAME'] = $_POST['r1nombre'];
+
 //////////////////////
 
 $tool->update_data("r","1",$tabla,$_POST,"id = {$_SESSION['USERID']} ");

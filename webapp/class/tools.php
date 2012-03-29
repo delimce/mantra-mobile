@@ -132,7 +132,7 @@
      if($multiple)$combo.=' multiple size = "'.($this->nreg/2+1).'" ';
      if($desabilita)$combo.=' disabled="disabled"';
 	 if($estilo)$combo.=' class="'.$estilo.'"';
-     $combo.= ' data-native-menu="false">';
+     $combo.= ' data-native-menu="false" data-mini="true">';
      if($select) $combo.= '<option value="0">'.$select.'</option>';
      if(!$seleccion)$seleccion = $_REQUEST[$id];
 

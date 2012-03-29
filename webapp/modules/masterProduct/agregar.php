@@ -15,7 +15,7 @@ include_once('controller/loadCat.php');  ///categorias
     <script>
         function onSuccess()
         {
-              $("#form1").submit();
+               $(location).attr('href','index.php');
           
            
         }

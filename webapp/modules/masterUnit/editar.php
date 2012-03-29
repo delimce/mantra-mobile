@@ -62,7 +62,7 @@ include_once('controller/loadData.php');
                             });
                         
                         
-                        $("#form1").submit();
+                         $(location).attr('href','index.php');
                     }
 
                     return false;  

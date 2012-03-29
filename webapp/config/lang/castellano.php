@@ -25,11 +25,13 @@ define(LANG_enter,"Entrar");
 define(LANG_add,"Agregar");
 define(LANG_all,"Todos");
 define(LANG_nologin,"Usuario ó clave inválidos");
+define(LANG_profile,"Perfil:");
 
 ////////////////ADMIN
 define(LANG_adlogin,"Ingrese sus credenciales de usuario");
 define(LANG_lobi,"Menú del sistema");
-define(LANG_lobiText,"Bienvenido al modo administrador");
+define(LANG_lobiText,"Bienvenid@:");
+define(LANG_lobiProfile,"Perfil:");
 define(LANG_adminFields,"Mis Datos");
 define(LANG_editFields,"Modificar  Datos");
 define(LANG_editSuccess,"Datos modificados con éxito");

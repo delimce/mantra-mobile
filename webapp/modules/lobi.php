@@ -18,11 +18,12 @@ $tituloCurrent = LANG_lobi;
 			<h1><?php echo $tituloCurrent ?></h1>
 		</div>
 		<div data-role="content">
-			<p><?php echo LANG_lobiText ?></p>
+			<p><h5><?php echo '<b>'.LANG_lobiText.'</b> '.$_SESSION['USERNAME'] ?></h5></p>
+                <p><h5><?php echo '<b>'.LANG_profile.'</b> '.$_SESSION['PROFILE'] ?></h5></p>
                                    
             <div data-role="navbar" class="nav-glyphish-example">
 				<ul>
-                                     	<li><a id="misdatos" href="misDatos/index.php" data-ajax="false" data-transition="fade" data-icon="custom">Mis datos</a></li>
+                                     	<li><a id="misdatos" href="misDatos/index.php" data-ajax="false" data-transition="slide" data-icon="custom">Mis datos</a></li>
 					<li><a id="buscarp" href="#list" data-role="button" data-transition="fade" data-icon="search" data-iconpos="right" data-inline="true">Buscar Pedido</a></li>
 				</ul>
                 

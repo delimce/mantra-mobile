@@ -81,7 +81,7 @@ include_once 'controller/load.php';
 			<h1><?php echo $tituloCurrent ?></h1>
 		</div>
 		<div data-role="content">
-                   <div id="titulo2"><?php echo LANG_addNew ?></div>
+                   <div id="titulo2"><?php echo LANG_editFields ?></div>
                         
             <form id="form1" data-transition="slide"  method="post">
             

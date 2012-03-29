@@ -25,10 +25,10 @@ include_once 'controller/load.php';
                                 <li><a class="check" data-ajax="false" href="editar.php?id=<?php echo $row["id"] ?>">
                                     
                                         <div style="color:blue"><?php echo $row["titulo"] ?><br></div>
-                                    <fieldset style="font-size: 12px">
+                                    <p>
                                         <?php echo $row["descripcion"] ?>
     
-                                    </fieldset>
+                                    </p>
                                     </a></li>
                                 
                               <?php } ?>  

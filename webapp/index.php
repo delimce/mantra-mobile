@@ -11,7 +11,7 @@ include("./config/siteconfig.php");
             data = $.trim(data);
 
             if(data==1){
-                $("#form1").submit();
+                $(location).attr('href','modules/lobi.php');
             }else{
               alert('<?php echo LANG_nologin  ?>');
           
@@ -56,7 +56,7 @@ include("./config/siteconfig.php");
 		</div>
 		<div data-role="content">
                     
-           <form id="form1" action="modules/lobi.php" data-transition="slide"  method="post">
+           <form id="form1" action="modules/lobi.php" data-transition="slide" method="post">
             <?php echo LANG_adlogin ?>           
             
               <div data-role="fieldcontain">

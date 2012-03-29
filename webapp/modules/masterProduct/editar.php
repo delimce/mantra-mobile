@@ -68,7 +68,7 @@ include_once('controller/loadCat.php'); ///categorias
                             });
                         
                         
-                        $("#form1").submit();
+                         $(location).attr('href','index.php');
                     }
 
                     return false;  

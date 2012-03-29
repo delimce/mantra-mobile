@@ -14,7 +14,7 @@ require("controller/loadVendor.php");
     <script>
         function onSuccess()
         {
-              $("#form1").submit();
+               $(location).attr('href','index.php');
           
            
         }
