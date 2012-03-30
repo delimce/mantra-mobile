@@ -74,7 +74,7 @@ include_once 'controller/load.php';
 
 <!--misDatos-->
 <?php $tituloCurrent = LANG_adminFields; ?>
-<div data-role="page" id="misdatos">
+<div data-role="page" id="midata">
 
 		<div data-role="header">
                         <a href="../lobi.php" data-icon="back"><?php echo LANG_back ?></a>
@@ -83,7 +83,7 @@ include_once 'controller/load.php';
 		<div data-role="content">
                    <div id="titulo2"><?php echo LANG_editFields ?></div>
                         
-            <form id="form1" data-transition="slide"  method="post">
+            <form id="form1" method="post">
             
              <div data-role="fieldcontain">
             <label style="font-weight:bold" for="r1nombre"><?php echo LANG_name ?></label>

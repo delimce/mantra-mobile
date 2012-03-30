@@ -24,7 +24,7 @@ $tituloCurrent = LANG_lobi;
             <div data-role="navbar" class="nav-glyphish-example">
 				<ul>
                                      	<li><a id="misdatos" href="misDatos/index.php" data-ajax="false" data-transition="slide" data-icon="custom">Mis datos</a></li>
-					<li><a id="buscarp" href="#list" data-role="button" data-transition="fade" data-icon="search" data-iconpos="right" data-inline="true">Buscar Pedido</a></li>
+					<li><a id="buscarp" href="#list" data-role="button" data-transition="slide" data-icon="search" data-iconpos="right" data-inline="true">Buscar Pedido</a></li>
 				</ul>
                 
               <?php if($_SESSION['PROFILE']=="admin"){ ///solo para el admin ?>  
@@ -38,7 +38,7 @@ $tituloCurrent = LANG_lobi;
                 
                                  <ul>
 					
-					<li><a id="crearp" href="lobiMaster.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Nuevo Pedido</a></li>
+					<li><a id="crearp" href="orders/crear.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Nuevo Pedido</a></li>
                                         <li><a id="clientes" href="masterClient/index.php" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Manejo de Clientes</a></li>
                                 </ul>
                 

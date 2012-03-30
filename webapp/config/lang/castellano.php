@@ -22,7 +22,10 @@ define(LANG_back,"Volver");
 define(LANG_accept,"Aceptar");
 define(LANG_save,"Guardar");
 define(LANG_enter,"Entrar");
+define(LANG_units,"Unidades");
 define(LANG_add,"Agregar");
+define(LANG_cant,"cantidad");
+define(LANG_select,"Seleccionar");
 define(LANG_all,"Todos");
 define(LANG_nologin,"Usuario ó clave inválidos");
 define(LANG_profile,"Perfil:");
@@ -42,6 +45,7 @@ define(LANG_editSuccess,"Datos modificados con éxito");
 define(LANG_masters,"Actualizar Maestros");
 define(LANG_masterSelect,"Seleccione Maestro");
 define(LANG_masterProdCat,"Maestro Categorias de producto");
+define(LANG_masterClientCat,"Maestro Zonas"); ///categorias de clientes
 define(LANG_masterClient,"Maestro de Clientes");
 define(LANG_masterVendor,"Maestro de Vendedores");
 define(LANG_masterProducts,"Maestro de Productos");
@@ -66,9 +70,10 @@ define(LANG_addNew,"Nuevo");
 define(LANG_addEdit,"Editar");
 define(LANG_deleteit,"Borrar");
 define(LANG_confirmDelete,"Esta seguro que desea borrar el registro?");
+define(LANG_prod,"Producto");
 define(LANG_prodCode,"Código");
 define(LANG_prodName,"Nombre producto");
-define(LANG_prodPrice,"Precio de Venta (PVP)");
+define(LANG_prodPrice,"Precio de Venta");
 define(LANG_prodBuy,"Precio de Compra");
 define(LANG_prodSug,"Precio sugerido");
 define(LANG_prodPay,"Aplica IVA?");
@@ -90,10 +95,22 @@ define(LANG_catActive,"Categoria Activa");
 
 define(LANG_venUser,"Usuario");
 define(LANG_venActive,"Vendedor Activo");
+
+
+/////////////pedidos
+define(LANG_ordersNew,"Crear pedido");
+define(LANG_ordersClient,"Cliente");
+define(LANG_ordersAddProduct,"Añadir producto");
+
+
+
+
+
 ////validar
 define(LANG_prodVal1,"error: verifique que no queden campos vacios");
 define(LANG_prodValUnit,"Advertencia: debe crear las unidades de medida ó presentación");
 define(LANG_prodValCat,"Advertencia: debe crear al menos una categoria de producto");
+define(LANG_prodValCli,"Advertencia: debe crear al menos una categoria de Cliente");
 define(LANG_prodVal2,"error: el campo precio solo debe ser numerico");
 define(LANG_cliVal1,"error: verifique que no esten vacios los campos... codigo,nombre y rif ");
 define(LANG_venVal1,"error: verifique que no esten vacios los campos... codigo,nombre usuario y password ");

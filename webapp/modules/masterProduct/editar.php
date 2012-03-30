@@ -45,6 +45,11 @@ include_once('controller/loadCat.php'); ///categorias
                         r9precio1 :  {
                         required : true,
                         number: true
+                     },
+                        r9unidad_cant :  {
+                        required : true,
+                        digits : true,
+                        min : 1
                     }
                      
                 }
@@ -122,17 +127,20 @@ include_once('controller/loadCat.php'); ///categorias
              <input type="text" data-mini="true" id="r9precio1" name="r9precio1" value="<?php echo $datos['precio1']  ?>" />
            
                        
-             <label style="font-weight:bold" for="r9precio2"><?php echo LANG_prodBuy.' '.$_SESSION['MONEDA1'] ?></label>
-             <input type="text" data-mini="true" id="r9precio2" name="r9precio2" value="<?php echo $datos['precio2']  ?>"/>
+<!--             <label style="font-weight:bold" for="r9precio2"><?php echo LANG_prodBuy.' '.$_SESSION['MONEDA1'] ?></label>
+             <input type="text" data-mini="true" id="r9precio2" name="r9precio2" value="<?php echo $datos['precio2']  ?>"/>-->
              
              <label style="font-weight:bold" for="r9precio3"><?php echo LANG_prodSug.' '.$_SESSION['MONEDA1'] ?></label>
              <input type="text" data-mini="true" id="r9precio3" name="r9precio3" value="<?php echo $datos['precio3']  ?>"/>
             
              
-               <label style="font-weight:bold" for="r9unidad_med"><?php echo LANG_prodUnit ?></label>
-             		
+             <label style="font-weight:bold" for="r9unidad_med"><?php echo LANG_prodUnit ?></label>		
              <?php echo $tool->combo_db("r9unidad_med",$queryu,"titulo","id",$porDefecto,$seleccionado,false,LANG_prodValUnit,false,$desactivado); ?>
 
+             <label style="font-weight:bold" for="r9unidad_cant"><?php echo LANG_units ?></label>
+             <input type="text" data-mini="true" id="r9unidad_cant" name="r9unidad_cant" value="<?php echo $datos['unidad_cant']  ?>"/>
+             
+             
                
               <label style="font-weight:bold" for="categoriap"><?php echo LANG_catProd ?></label>             		
              <?php echo $tool->combo_db("categoriap",$queryc,"nombre","id",$porDefectoc,$seleccionadoc,false,LANG_prodValCat,false,$desactivadoc); ?>

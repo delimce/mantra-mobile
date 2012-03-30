@@ -6,9 +6,6 @@ $profile = "admin";
 include("../../config/siteconfig.php");
 include_once('controller/loadData.php');
 
- require_once("controller/loadVendor.php");
- include_once('controller/loadCat.php'); ///categorias
-
 ?>
 <body>
  
@@ -36,18 +33,11 @@ include_once('controller/loadData.php');
             
             $('#form1').validate({
                 rules : {
-                        r9codigo : {
+                        r9nombre : {
                         required : true
                     },
-                        r9nombre :  {
-                         required : true
-                         
-                    },
-                        r9rif :  {
+                        r9descripcion :  {
                         required : true
-                    },
-                    r9email :  {
-                        email : true
                     }
                      
                 }
@@ -86,7 +76,8 @@ include_once('controller/loadData.php');
                  
                  ///validar
                  if(!$("#form1").valid()) return false; 
-                    
+                            
+                
                 var formData = $("#form1").serialize();
  
                 $.ajax({
@@ -103,7 +94,7 @@ include_once('controller/loadData.php');
     </script>
 
 
-<?php $tituloCurrent = LANG_masterClient; ?>
+<?php $tituloCurrent = LANG_masterClientCat; ?>
 <div data-role="page" id="agregar">
 
 		<div data-role="header">
@@ -116,43 +107,17 @@ include_once('controller/loadData.php');
             <form id="form1" action="index.php" data-transition="slide"  method="post">
             
                 <div data-role="fieldcontain">
-           <label style="font-weight:bold" for="r9codigo"><?php echo LANG_prodCode ?></label>
-           <input type="text" data-mini="true" id="r9codigo" name="r9codigo" maxlength="12" value="<?php echo $datos['codigo']  ?>" />
-        
-             <label style="font-weight:bold" for="r9nombre"><?php echo LANG_cliName ?></label>
-             <input type="text" data-mini="true" id="r9nombre" name="r9nombre" value="<?php echo $datos['nombre']  ?>"  />
+                   
+             <label style="font-weight:bold" for="r9nombre"><?php echo LANG_catTitle ?></label>
+             <input type="text" data-mini="true" id="r9nombre" name="r9nombre" value="<?php echo $datos['nombre'] ?>" />
 
-        	<label style="font-weight:bold" for="r9rif"><?php echo LANG_cliRIF ?></label>
-             <input type="text" data-mini="true" id="r9rif" name="r9rif" value="<?php echo $datos['rif']  ?>" />
-            
-             <label style="font-weight:bold" for="r9telefono1"><?php echo LANG_cliTlf ?></label>
-             <input type="tel" data-mini="true" id="r9telefono1" name="r9telefono1" value="<?php echo $datos['telefono1']  ?>" />
-             
-              <label style="font-weight:bold" for="r9email"><?php echo LANG_email ?></label>
-             <input type="email" data-mini="true" id="r9email" name="r9email"  value="<?php echo $datos['email']  ?>"/>
-             
-             <label style="font-weight:bold" for="categoriac"><?php echo LANG_catProd ?></label>             		
-             <?php echo $tool->combo_db("categoriac",$queryc,"nombre","id",$porDefectoc,$seleccionadoc,false,LANG_prodValCli,false,$desactivadoc); ?>
-
-             
-             
-             <label style="font-weight:bold" for="r9direccion1"><?php echo LANG_cliDir ?></label>
-                <textarea data-mini="true" id="r9direccion1" name="r9direccion1"><?php echo $datos['direccion1']  ?></textarea>
-               
-               <label style="font-weight:bold" for="r9direccion2"><?php echo LANG_cliDir2 ?></label>
-                <textarea data-mini="true" id="r9direccion1" name="r9direccion2"><?php echo $datos['direccion2']  ?></textarea>  
+               <label style="font-weight:bold" for="r9descripcion"><?php echo LANG_catDesc ?></label>
+               <textarea id="r9descripcion" name="r9descripcion"><?php echo $datos['descripcion'] ?></textarea>
+               <p>
+              
+             <input type="checkbox" name="r9activa" id="r9activa" value="1" class="custom" <?php if($datos['activa']==1) echo 'checked="checked"' ?>/>
+	     <label for="r9activa"><?php echo LANG_catActive ?></label>  
                 
-            <p>
-                <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" <?php if($datos['activo']==1) echo 'checked="checked"' ?>  />
-		<label for="r9activo"><?php echo LANG_cliActive ?></label>  
-                
-                
-                        
-             <label style="font-weight:bold" for="r9vendedor_id" class="select"><?php echo LANG_cliBelongTo ?></label>
-				
-             <?php echo $tool->combo_db("r9vendedor_id",$queryv,"nombre","id",$porDefecto,$seleccionado,false,'',false,$desactivado); ?>
-                             
-             
              </div>
                 <div id="notification"></div>
                  <button data-role="submit" data-theme="b" id="submit" value="submit-value" data-inline="true"><?php echo LANG_save ?></button>

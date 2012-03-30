@@ -9,9 +9,11 @@ if($_SESSION['PROFILE']!="admin"){
     
     $queryc.=" and activo = 1 and vendedor_id in (0,{$_SESSION['USERID']})";
     $regreso = "../lobi.php";
+    $link = "readOnly.php?id=";
     
 }else{
     $regreso = "../lobiMaster.php";
+    $link = "editar.php?id=";
     
     
 }

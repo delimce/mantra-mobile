@@ -11,15 +11,15 @@ $tool = new formulario('db');
 $cuenta = $_SESSION['CUENTAID'];
 $id = $tool->getvar("id", $_POST);
 
-$tool->abrir_transaccion();
-    $tool->update_data("r","9","tbl_cliente",$_POST,"id = $id  and cuenta_id = $cuenta ");
-
-    if(!isset($_POST['r9activo']))
-        $tool->query("update tbl_cliente set activo = 0 where id = $id  and cuenta_id = $cuenta ");
-
- require_once("saveCat.php");    
     
+    $tool->abrir_transaccion();
+    $tool->update_data("r","9","tbl_clientcategoria",$_POST,"id = $id  and cuenta_id = $cuenta ");
+
+    if(!isset($_POST['r9activa']))
+        $tool->query("update tbl_clientcategoria set activa = 0 where id = $id  and cuenta_id = $cuenta ");
+
 $tool->cerrar_transaccion();
+    
 
 $tool->cerrar();
 

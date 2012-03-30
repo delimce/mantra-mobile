@@ -6,6 +6,7 @@ $profile = "admin,vendor";
 include("../../config/siteconfig.php");
 
 require("controller/loadVendor.php");
+include_once('controller/loadCat.php');  ///categorias
 
 ?>
 <body>
@@ -95,6 +96,11 @@ require("controller/loadVendor.php");
              
               <label style="font-weight:bold" for="r9email"><?php echo LANG_email ?></label>
              <input type="email" data-mini="true" id="r9email" name="r9email"  />
+             
+             
+              <label style="font-weight:bold" for="categoriac"><?php echo LANG_catProd ?></label>             		
+             <?php echo $tool->combo_db("categoriac",$queryc,"nombre","id",$porDefectoc,$seleccionadoc,false,LANG_prodValCli,false,$desactivadoc); ?>
+
              
              
              <label style="font-weight:bold" for="r9direccion1"><?php echo LANG_cliDir ?></label>
