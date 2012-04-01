@@ -112,7 +112,7 @@ include_once('controller/loadCat.php');  ///categorias
              <?php echo $tool->combo_db("r9unidad_med",$queryu,"titulo","id",$porDefecto,$seleccionado,false,LANG_prodValUnit,false,$desactivado); ?>
   
                <label style="font-weight:bold" for="r9unidad_cant"><?php echo LANG_units ?></label>
-             <input type="text" data-mini="true" id="r9unidad_cant" name="r9unidad_cant"/>
+             <input type="text" data-mini="true" id="r9unidad_cant" name="r9unidad_cant" value="1"/>
                 
               <label style="font-weight:bold" for="categoriap"><?php echo LANG_catProd ?></label>             		
              <?php echo $tool->combo_db("categoriap",$queryc,"nombre","id",$porDefectoc,$seleccionadoc,false,LANG_prodValCat,false,$desactivadoc); ?>

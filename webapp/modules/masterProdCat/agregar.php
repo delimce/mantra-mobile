@@ -4,6 +4,7 @@ $profile = "admin";
 ///titulo pagina y header
 
 include("../../config/siteconfig.php");
+include 'controller/loadData.php';
 
 ?>
 <body>
@@ -29,6 +30,9 @@ include("../../config/siteconfig.php");
                     },
                         r9descripcion :  {
                         required : true
+                    },
+                        r9monto :  {
+                        number: true
                     }
                      
                 }
@@ -84,8 +88,14 @@ include("../../config/siteconfig.php");
 
                <label style="font-weight:bold" for="r9descripcion"><?php echo LANG_catDesc ?></label>
                <textarea id="r9descripcion" name="r9descripcion"></textarea>
-               <p>
-              
+                                 
+             <label style="font-weight:bold" for="r9tipo_cargo"><?php echo LANG_prodCatExtra ?></label>
+              <?php echo $tool->combo_array("r9tipo_cargo",$tipoLabel,$tipovalues); ?>  
+             
+             <label style="font-weight:bold" for="r9nombre"><?php echo LANG_prodCatExtraPercet ?></label>
+             <input type="text" data-mini="true" id="r9monto" name="r9monto" maxlength="4" value="0.0"  />
+                   
+             <p> 
              <input type="checkbox" name="r9activa" id="r9activa" value="1" class="custom" />
 	     <label for="r9activa"><?php echo LANG_catActive ?></label>  
                 

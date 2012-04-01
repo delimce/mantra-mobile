@@ -5,7 +5,6 @@ $tool = new tools("db");
                             cat.id,
                             cat.nombre,
                             cat.descripcion,
-                            cat.descuento,
                             count(pc.producto_id) as cant
                             FROM
                             tbl_prodcategoria cat

@@ -79,6 +79,11 @@ define(LANG_prodSug,"Precio sugerido");
 define(LANG_prodPay,"Aplica IVA?");
 define(LANG_prodUnit,"Presentacion");
 define(LANG_prodActive,"Producto Activo");
+define(LANG_prodCatExtra,"tipo de cargo");
+define(LANG_prodCatExtraPercet,"% cargo");
+define(LANG_prodCatExtraLabel,"No aplica,recargo,descuento");
+
+
 
 define(LANG_cliName,"Nombre");
 define(LANG_cliRIF,"RIF/CI");

@@ -182,8 +182,8 @@
      if($multiple)$combo.=' multiple size = "'.(count($array)/2+1).'" ';
      if($desabilita)$combo.=' disabled="disabled"';
 	 if($estilo)$combo.=' class="'.$estilo.'"';
-     $combo.= '>';
-     if($select) $combo.= '<option value="">'.$select.'</option>';
+     $combo.= 'data-native-menu="false" data-mini="true">';
+     if($select) $combo.= '<option value="0">'.$select.'</option>';
      if(!$seleccion)$seleccion = $_REQUEST[$id];
      $i=0;
 
@@ -314,7 +314,7 @@
 
  ///// llena un vector de elementos separados por comas un vector
 
-   function llenar_array($ELEMENTOS){
+ public function llenar_array($ELEMENTOS){
 
     $elementos = explode(",",$ELEMENTOS);
 

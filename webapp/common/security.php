@@ -1,6 +1,6 @@
 <?php
 
-///la variable $profile debe llamarse igual a la carpeta del entorno de usuario (admin,vendor)
+///la variable $profile debe llamarse igual al perfil de usuario (admin,vendor)
 
 if(!empty($profile)){
     

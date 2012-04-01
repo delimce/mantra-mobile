@@ -38,6 +38,9 @@ include_once('controller/loadData.php');
                     },
                         r9descripcion :  {
                         required : true
+                    },
+                        r9monto :  {
+                        number: true
                     }
                      
                 }
@@ -113,6 +116,14 @@ include_once('controller/loadData.php');
 
                <label style="font-weight:bold" for="r9descripcion"><?php echo LANG_catDesc ?></label>
                <textarea id="r9descripcion" name="r9descripcion"><?php echo $datos['descripcion'] ?></textarea>
+               
+                <label style="font-weight:bold" for="r9tipo_cargo"><?php echo LANG_prodCatExtra ?></label>
+              <?php echo $tool->combo_array("r9tipo_cargo",$tipoLabel,$tipovalues,false,$seleccionado); ?>  
+             
+             <label style="font-weight:bold" for="r9nombre"><?php echo LANG_prodCatExtraPercet ?></label>
+             <input type="text" data-mini="true" id="r9monto" name="r9monto" maxlength="4" value="<?php echo $datos['monto'] ?>"  />
+     
+               
                <p>
               
              <input type="checkbox" name="r9activa" id="r9activa" value="1" class="custom" <?php if($datos['activa']==1) echo 'checked="checked"' ?>/>
