@@ -32,7 +32,8 @@ include 'controller/loadData.php';
                         required : true
                     },
                         r9monto :  {
-                        number: true
+                        number: true,
+                        max: 100
                     }
                      
                 }
@@ -96,8 +97,8 @@ include 'controller/loadData.php';
              <input type="text" data-mini="true" id="r9monto" name="r9monto" maxlength="4" value="0.0"  />
                    
              <p> 
-             <input type="checkbox" name="r9activa" id="r9activa" value="1" class="custom" />
-	     <label for="r9activa"><?php echo LANG_catActive ?></label>  
+             <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" />
+	     <label for="r9activo"><?php echo LANG_catActive ?></label>  
                 
              </div>
                 

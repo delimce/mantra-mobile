@@ -5,17 +5,15 @@
 
 include("../../config/siteconfig.php");
 
-$tools = new tools('db');
+$tools = new factoryDAO('db');
 
 $id = $_SESSION['SESIONID'];
-$cuenta_id = $_SESSION['CUENTAID'];
-$tools->query("update tbl_acceso set sesion = 'Finalizada' where id = $id and cuenta_id = $cuenta_id ");
+
+$tools->setFinSesion($id);
 
 $tools->cerrar();
 
 ///////////////
-
-
 
  session_destroy();
 

@@ -4,7 +4,7 @@ $tool = new tools("db");
 $cuenta = $_SESSION['CUENTAID'];
 
 
-$queryv = "select nombre,id from tbl_vendedor where cuenta_id = $cuenta and activo = 1 and borrado = 0";
+$queryv = factoryDAO::comboVendors($cuenta);
 
 if($_SESSION['PROFILE']=="admin"){
 $porDefecto = LANG_all;

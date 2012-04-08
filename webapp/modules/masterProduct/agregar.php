@@ -13,6 +13,31 @@ include_once('controller/loadCat.php');  ///categorias
  
     
     <script>
+        
+        
+        //////funcion para el calculo del precio sugerido
+        function precioSugerido(precio,cant,idcatego){
+            
+            
+                        
+         var cat =  $.ajax({
+                    type: "POST",
+                    url: "controller/montoCatego.php",
+                    data: ({id: idcatego}) ,
+                    async: false
+                   
+                }).responseText;
+            
+            
+            var valor = (precio/cant) + ((precio/cant) * (cat/100));
+            
+            
+            return valor.toFixed(2);
+            
+        }        
+        
+        
+        
         function onSuccess()
         {
                $(location).attr('href','index.php');
@@ -41,6 +66,10 @@ include_once('controller/loadCat.php');  ///categorias
                         required : true,
                         digits : true,
                         min : 1
+                    },
+                        categoriap :  {
+                        required : true,
+                        min : 1
                     }
                      
                 }
@@ -49,6 +78,25 @@ include_once('controller/loadCat.php');  ///categorias
             
             
             
+            ///////EVENTOS PARA EL CALCULO DE PRECIO SUGERIDO
+            ////ejecuta funcion al cambiar el precio
+            $("#r9precio1").live("change" , function() {
+                $("#r9precio3").val(precioSugerido($("#r9precio1").val(),$("#r9unidad_cant").val(),$("#categoriap").val()));
+               
+            });
+            
+            ////ejecuta funcion al cambiar las unidades
+             $("#r9unidad_cant").live("change" , function() {
+                $("#r9precio3").val(precioSugerido($("#r9precio1").val(),$("#r9unidad_cant").val(),$("#categoriap").val())); 
+            });
+            
+            ////ejecuta funcion al cambiar la categoria
+            $("#categoriap").change(function() {
+                $("#r9precio3").val(precioSugerido($("#r9precio1").val(),$("#r9unidad_cant").val(),$("#categoriap").val()));
+            });
+                        //////////////////////////////////////////////
+            
+                    
             
             $("#submit").click(function(){
                  
@@ -136,7 +184,6 @@ include_once('controller/loadCat.php');  ///categorias
               
 		</div>
 </div>
-
 
 
     

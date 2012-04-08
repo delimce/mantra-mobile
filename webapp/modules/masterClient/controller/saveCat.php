@@ -3,8 +3,11 @@
 ///guardar las categorias del producto
 
 /////caso de categoria unica.
-$catego = $tool->getvar("categoriac",$_POST);
-$tool->query("delete from tbl_cliente_categoria where cliente_id = $id and cuenta_id = {$_SESSION['CUENTAID']} ");
+$catego = $tool2->getvar("categoriac",$_POST);
+$tool->setTable("tbl_cliente_categoria");
+
+$tool->deleteData($id,"cliente_id");
+
 //////////
 $vector[0] = $_SESSION['CUENTAID'];
 $vector[1] = $id;

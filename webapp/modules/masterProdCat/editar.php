@@ -40,7 +40,8 @@ include_once('controller/loadData.php');
                         required : true
                     },
                         r9monto :  {
-                        number: true
+                        number: true,
+                        max: 100
                     }
                      
                 }
@@ -118,7 +119,7 @@ include_once('controller/loadData.php');
                <textarea id="r9descripcion" name="r9descripcion"><?php echo $datos['descripcion'] ?></textarea>
                
                 <label style="font-weight:bold" for="r9tipo_cargo"><?php echo LANG_prodCatExtra ?></label>
-              <?php echo $tool->combo_array("r9tipo_cargo",$tipoLabel,$tipovalues,false,$seleccionado); ?>  
+              <?php echo $tool2->combo_array("r9tipo_cargo",$tipoLabel,$tipovalues,false,$seleccionado); ?>  
              
              <label style="font-weight:bold" for="r9nombre"><?php echo LANG_prodCatExtraPercet ?></label>
              <input type="text" data-mini="true" id="r9monto" name="r9monto" maxlength="4" value="<?php echo $datos['monto'] ?>"  />
@@ -126,8 +127,8 @@ include_once('controller/loadData.php');
                
                <p>
               
-             <input type="checkbox" name="r9activa" id="r9activa" value="1" class="custom" <?php if($datos['activa']==1) echo 'checked="checked"' ?>/>
-	     <label for="r9activa"><?php echo LANG_catActive ?></label>  
+             <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" <?php if($datos['activo']==1) echo 'checked="checked"' ?>/>
+	     <label for="r9activo"><?php echo LANG_catActive ?></label>  
                 
              </div>
                 <div id="notification"></div>

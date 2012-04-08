@@ -167,4 +167,5 @@ include_once('controller/loadData.php');
 
     
 </body>
-</html>   
+</html>
+<?php $tool->cerrar(); ?>

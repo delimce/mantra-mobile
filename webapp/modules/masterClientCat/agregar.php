@@ -86,8 +86,8 @@ include("../../config/siteconfig.php");
                <textarea id="r9descripcion" name="r9descripcion"></textarea>
                <p>
               
-             <input type="checkbox" name="r9activa" id="r9activa" value="1" class="custom" />
-	     <label for="r9activa"><?php echo LANG_catActive ?></label>  
+             <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" />
+	     <label for="r9activo"><?php echo LANG_catActive ?></label>  
                 
              </div>
                 

@@ -1,6 +1,7 @@
 <?php 
-$tool = new tools("db");
+$tool = new factoryDAO("db");
+$tool->setTable("tbl_producto");
+$tool->getAllData("descripcion");
 
-$tool->query("select * from tbl_producto where cuenta_id = {$_SESSION['CUENTAID']} and borrado = 0 order by descripcion ");
 
 ?>

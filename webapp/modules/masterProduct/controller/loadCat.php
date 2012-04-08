@@ -1,6 +1,6 @@
 <?php
 
-$queryc = "select nombre,id from tbl_prodcategoria where cuenta_id = $cuenta and borrado = 0 and activa = 1";
+$queryc = "select nombre,id from tbl_prodcategoria where cuenta_id = $cuenta and borrado = 0 and activo = 1";
 
 /////busqueda de las categorias del producto
 

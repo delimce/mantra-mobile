@@ -1,18 +1,21 @@
 <?php 
-$tool = new formulario("db");
+$tool2 = new formulario();
 
-$id = $tool->getvar("id",$_GET);
+$id = $tool2->getvar("id",$_GET);
+
+$tool = new factoryDAO("db");
+$tool->setTable("tbl_prodcategoria");
 
 if(!empty($id))
-$datos = $tool->simple_db("select * from tbl_prodcategoria where cuenta_id = {$_SESSION['CUENTAID']} and id = $id ");
+$datos = $tool->getAllDataByPk ($id);
 
 $tool->cerrar();
 
 
 ///////para el cargo en productos
 
-$tipoLabel = $tool->llenar_array(LANG_prodCatExtraLabel);
-$tipovalues = $tool->llenar_array("N/A,recargo,descuento");
+$tipoLabel = $tool2->llenar_array(LANG_prodCatExtraLabel);
+$tipovalues = $tool2->llenar_array("N/A,recargo,descuento");
 
 $seleccionado = $datos['tipo_cargo'];
 

@@ -3,14 +3,17 @@
 $profile = "admin";
 include("../../../config/siteconfig.php");
 
-$tool = new formulario('db');
+$tool = new formulario();
 
-$cuenta = $_SESSION['CUENTAID'];
+
 $id = $tool->getvar("id", $_POST);
 
-$tool->query("update tbl_unidad set borrado = 1, fecha_borrado = NOW() where id = $id and cuenta_id = $cuenta ");
 
+$factory = new factoryDAO('db');
+$factory->setTable("tbl_unidad");
 
-$tool->cerrar();
+$factory->setBorrado($id);
+
+$factory->cerrar();
 
 ?>

@@ -26,8 +26,8 @@ include_once 'controller/load.php';
                                     
                                         <div style="color:blue"><?php echo $row["descripcion"] ?><br></div>
                                     <fieldset style="font-size: 12px">
-                                        <b>Codigo:</b> <?php echo $row["codigo"] ?>
-                                        <b>Precio (PVP)</b> <?php echo $_SESSION['MONEDA1'] ?> <?php echo number_format($row["precio1"],2) ?>
+                                        <b><?php echo LANG_prodCode  ?>:</b> <?php echo $row["codigo"] ?>
+                                        <b><?php echo LANG_prodPrice  ?></b> <?php echo $_SESSION['MONEDA1'] ?> <?php echo number_format($row["precio1"],2) ?>
                                          
                                         
                                     </fieldset>

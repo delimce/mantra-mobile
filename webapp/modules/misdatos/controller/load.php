@@ -1,14 +1,16 @@
 <?php 
-$tool = new tools("db");
-
+$tool = new factoryDAO("db");
 
 /////consulta de la tabla segun el perfil
-if($_SESSION['PROFILE']=="admin")
-    $tabla = "tbl_admin";
-else
-    $tabla = "tbl_vendedor";
+if($_SESSION['PROFILE']=="admin"){
+   
+   $datos = $tool->getAllDataAdminByPk($_SESSION['USERID']);
+   
+}else{
+    $tool->setTable ("tbl_vendedor");
+    $datos = $tool->getAllDataByPk($_SESSION['USERID']);
+}
 
-$datos = $tool->simple_db("select * from $tabla where id = {$_SESSION['USERID']}");
 
 $tool->cerrar();
 

@@ -13,7 +13,8 @@ else
     $tabla = "tbl_vendedor";
 
 ///clave
-$clave1 = $tool->simple_db("select pass from $tabla where id = {$_SESSION['USERID']} ");
+
+$clave1 = $tool->simple_db(factoryDAO::getDataPassword($tabla,$_SESSION['USERID']));
 $clave2 = $tool->getvar("clave",$_POST);
 if($clave1!=$clave2) $_POST['r1pass'] = md5($clave2);
 

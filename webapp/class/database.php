@@ -169,8 +169,17 @@ class database {
    }
 
 
+   
+   /////////////setea el ultimo Id de un insert
+   
+   public function setUltimoID($id){
+       
+       $this->ultimoID = $id;
+       
+   }
 
- //// Metodo que retorna el ultimo id de de un insert
+
+    //// Metodo que retorna el ultimo id de de un insert
 
    public function ultimo_id()
    {

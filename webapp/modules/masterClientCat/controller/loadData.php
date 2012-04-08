@@ -1,10 +1,13 @@
 <?php 
-$tool = new formulario("db");
+$tool = new formulario();
 
 $id = $tool->getvar("id",$_GET);
 
-$datos = $tool->simple_db("select * from tbl_clientcategoria where cuenta_id = {$_SESSION['CUENTAID']} and id = $id ");
+$factory = new factoryDAO("db");
+$factory->setTable("tbl_clientcategoria");
 
-$tool->cerrar();
+$datos = $factory->getAllDataByPk($id);
+
+$factory->cerrar();
 
 ?>
