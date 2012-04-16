@@ -108,7 +108,7 @@ include_once 'controller/loadData.php';
                    <form id="form1" action="detalle.php" data-transition="slide"  method="post"> 
                     <div data-theme="a" class="ui-bar ui-grid-c">
 				<div class="ui-block-c"><input type="number" id="r9cantidad" name="r9cantidad"></div>	 
-				<div class="ui-block-d"><div style="margin:8px 0 0 13px;"><button id="agregar" data-theme="b"><?php echo LANG_add  ?></button></div></div>  
+				<div class="ui-block-d"><div style="margin:8px 0 0 13px;"><button id="agregar" data-theme="a"><?php echo LANG_add  ?></button></div></div>  
                     </div>
                    </form> 
                     

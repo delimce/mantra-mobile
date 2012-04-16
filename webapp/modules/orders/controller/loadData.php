@@ -4,21 +4,20 @@ $tool = new tools("db");
 $cuenta = $_SESSION['CUENTAID'];
 
 
-    $queryc = "select nombre,id from tbl_cliente where cuenta_id = $cuenta and activo = 1 and borrado = 0 and vendedor_id in (0,{$_SESSION['USERID']})";
-
+    $queryc = factoryDAO::getComboClientByVendor($cuenta,$_SESSION['USERID']);
     if($_SESSION['PROFILE']=="admin"){
     $porDefecto = LANG_all;
     $seleccionado = $datos['vendedor_id'];
     $desactivado = false;
     }else{
     $porDefecto = LANG_select;
-    $seleccionado = 0;
+    $seleccionado = $_SESSION['PEDIDO_CLIENTEID'];
     $desactivado = false;
 
     }
     
     
-    $querycp = "select nombre,id from tbl_prodcategoria where cuenta_id = $cuenta and activa = 1 and borrado = 0 order by nombre";
+    $querycp = factoryDAO::getComboCatProd($cuenta);
 
     
     $porDefecto2 = LANG_select;

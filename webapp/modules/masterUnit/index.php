@@ -11,7 +11,7 @@ include_once 'controller/load.php';
 
     <?php $tituloCurrent = LANG_masterUnit; ?>    
 <!--div de pagina-->
-	<div data-role="page" id="inventarioI">
+	<div data-role="page" id="mestroVendor">
 		<div data-role="header">
                         <a href="../lobiMaster.php" data-icon="back"><?php echo LANG_back ?></a>
 			<h1><?php echo $tituloCurrent ?></h1>
@@ -38,7 +38,6 @@ include_once 'controller/load.php';
 		</div>
 		             
 	</div>
-<!--div de login-->    
    
  
 </body>

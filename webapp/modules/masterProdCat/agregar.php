@@ -91,13 +91,13 @@ include 'controller/loadData.php';
                <textarea id="r9descripcion" name="r9descripcion"></textarea>
                                  
              <label style="font-weight:bold" for="r9tipo_cargo"><?php echo LANG_prodCatExtra ?></label>
-              <?php echo $tool->combo_array("r9tipo_cargo",$tipoLabel,$tipovalues); ?>  
+              <?php echo $tool2->combo_array("r9tipo_cargo",$tipoLabel,$tipovalues); ?>  
              
              <label style="font-weight:bold" for="r9nombre"><?php echo LANG_prodCatExtraPercet ?></label>
              <input type="text" data-mini="true" id="r9monto" name="r9monto" maxlength="4" value="0.0"  />
                    
              <p> 
-             <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" />
+             <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" checked="checked" />
 	     <label for="r9activo"><?php echo LANG_catActive ?></label>  
                 
              </div>

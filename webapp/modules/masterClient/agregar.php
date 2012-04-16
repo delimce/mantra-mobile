@@ -102,17 +102,19 @@ include_once('controller/loadCat.php');  ///categorias
              <?php echo $tool->combo_db("categoriac",$queryc,"nombre","id",$porDefectoc,$seleccionadoc,false,LANG_prodValCli,false,$desactivadoc); ?>
 
              
-             
+             <div id="dir1">
              <label style="font-weight:bold" for="r9direccion1"><?php echo LANG_cliDir ?></label>
                 <textarea id="r9direccion1" name="r9direccion1"></textarea>
-               
+             </div>
+              
+              <div id="dir2">
               <label style="font-weight:bold" for="r9direccion2"><?php echo LANG_cliDir2 ?></label>
-                <textarea id="r9direccion1" name="r9direccion2"></textarea>
-                
+                <textarea id="r9direccion2" name="r9direccion2"></textarea>
+              </div> 
                 
             <p>
               
-             <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" />
+                <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" checked="checked" />
 	     <label for="r9activo"><?php echo LANG_cliActive ?></label>    
                 
                      

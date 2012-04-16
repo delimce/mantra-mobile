@@ -45,6 +45,8 @@ include_once('controller/loadCat.php');  ///categorias
            
         }
  
+ 
+        /////acciones jquery
         $(document).ready(function() {
             
             
@@ -172,7 +174,7 @@ include_once('controller/loadCat.php');  ///categorias
 		<label for="r9paga_impuesto"><?php echo LANG_prodPay ?></label> 
                  
                 
-             <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" />
+             <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" checked="checked" />
 		<label for="r9activo"><?php echo LANG_prodActive ?></label>  
                 
                 

@@ -19,7 +19,7 @@ include_once 'controller/load.php';
                         
 		</div>
 		<div data-role="content">
-                    
+                   
                          <ul data-role="listview" data-theme="c" data-inset="true" data-filter="true">
                              <?php while ($row = $tool->db_vector_nom($tool->result)) { ?>
                                 <li><a class="check" data-ajax="false" href="editar.php?id=<?php echo $row["id"] ?>">

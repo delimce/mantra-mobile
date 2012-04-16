@@ -149,7 +149,7 @@
 
     }else{
 
-            $combo = '<b>'.$noreg.'</b>';
+            $combo = $noreg;
     }
 
 

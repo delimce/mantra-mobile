@@ -26,10 +26,10 @@ include_once 'controller/load.php';
                                     
                                         <div style="color:blue"><?php echo $row["descripcion"] ?><br></div>
                                     <fieldset style="font-size: 12px">
-                                        <b><?php echo LANG_prodCode  ?>:</b> <?php echo $row["codigo"] ?>
-                                        <b><?php echo LANG_prodPrice  ?></b> <?php echo $_SESSION['MONEDA1'] ?> <?php echo number_format($row["precio1"],2) ?>
-                                         
-                                        
+                                        <?php echo $row["presentacion"] ?>,
+                                        <?php echo LANG_prodPrice  ?>&nbsp;<?php echo $_SESSION['MONEDA1'] ?>&nbsp; <?php echo number_format($row["precio1"],2) ?>
+                                        <?php echo LANG_prodSug  ?>&nbsp;<?php echo $_SESSION['MONEDA1'] ?>&nbsp; <?php echo number_format($row["precio3"],2) ?>
+        
                                     </fieldset>
                                     </a></li>
                                 

@@ -39,7 +39,14 @@ define(LANG_adminFields,"Mis Datos");
 define(LANG_editFields,"Modificar  Datos");
 define(LANG_editSuccess,"Datos modificados con éxito");
 
-
+////SETUP
+define(LANG_setup,"Preferencias");
+define(LANG_setupDesc,"Modificar Preferencias");
+define(LANG_setupAcount,"Nombre de cuenta");
+define(LANG_setupBanner,"Titulo encabezado");
+define(LANG_setupFooter,"Titulo piso");
+define(LANG_setupMoneda1,"Siglas moneda");
+define(LANG_setupImpIva,"Impuesto IVA");
 
 //////////////MAESTROS
 define(LANG_masters,"Actualizar Maestros");
@@ -74,8 +81,8 @@ define(LANG_prod,"Producto");
 define(LANG_prodCode,"Código");
 define(LANG_prodName,"Nombre producto");
 define(LANG_prodPrice,"Precio de Venta");
-define(LANG_prodBuy,"Precio de Compra");
-define(LANG_prodSug,"Precio sugerido");
+define(LANG_prodBuy,"Precio");
+define(LANG_prodSug,"PVS");
 define(LANG_prodPay,"Aplica IVA?");
 define(LANG_prodUnit,"Presentacion");
 define(LANG_prodActive,"Producto Activo");
@@ -103,9 +110,40 @@ define(LANG_venActive,"Vendedor Activo");
 
 
 /////////////pedidos
+define(LANG_ordersList,"Lista de pedidos");
 define(LANG_ordersNew,"Crear pedido");
+define(LANG_ordersCheck,"Datos del pedido");
 define(LANG_ordersClient,"Cliente");
-define(LANG_ordersAddProduct,"Añadir producto");
+define(LANG_ordersAddProduct,"Añadir / Editar / Borrar");
+define(LANG_ordersAddEdit,"Agregar / Editar");
+define(LANG_ordersDeleteItem,"Borrar");
+define(LANG_ordersUndo,"Deshacer");
+define(LANG_ordersNext,"Continuar");
+define(LANG_ordersOk,"Procesar pedido");
+
+
+define(LANG_ordersClient,"Cliente");
+define(LANG_ordersVendor,"Vendedor");
+define(LANG_ordersNumber,"Pedido #");
+define(LANG_ordersSubtotal,"Sub total");
+define(LANG_ordersDate,"Fecha");
+define(LANG_ordersStatus,"Estatus");
+define(LANG_ordersStatus1,"Procesado");
+define(LANG_ordersStatus2,"Para entregar");
+define(LANG_ordersStatus210,"Anulado");
+
+
+define(LANG_ordersTotalProd,"Total Productos");
+define(LANG_ordersTotalImp,"Iva");
+define(LANG_ordersTotal,"Total");
+
+
+define(LANG_ordersDetail,"Detalle de pedido");
+define(LANG_ordersDeleteConfirm,"Confirma que desea borrar del pedido este item?");
+define(LANG_ordersUndoConfirm,"Confirma que desea Deshacer el pedido");
+define(LANG_ordersItems,"Items de pedido");
+define(LANG_SelectCatProd,"Seleccione una categoria de producto para ver la lista");
+define(LANG_NoProdForCat,"No existen productos para esta categoria");
 
 
 

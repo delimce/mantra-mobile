@@ -84,7 +84,7 @@ include("../../config/siteconfig.php");
              <label style="font-weight:bold" for="clave"><?php echo LANG_pass2 ?></label>
              <input type="password" data-mini="true" id="clave2" name="clave2" />
             <p>
-             <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" />
+             <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" checked="checked" />
 		<label for="r9activo"><?php echo LANG_venActive ?></label>   
               
                 

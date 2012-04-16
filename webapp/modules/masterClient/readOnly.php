@@ -44,13 +44,15 @@ include_once('controller/loadData.php');
              <?php echo $tool->combo_db("categoriac",$queryc,"nombre","id",$porDefectoc,$seleccionadoc,false,LANG_prodValCli,false,true); ?>
 
              
-             
+             <div id="dir1">
              <label style="font-weight:bold" for="r9direccion1"><?php echo LANG_cliDir ?></label>
                 <textarea data-mini="true" id="r9direccion1" name="r9direccion1" READONLY><?php echo $datos['direccion1']  ?></textarea>
-               
+             </div>
+            
+             <div id="dir2">
                <label style="font-weight:bold" for="r9direccion2"><?php echo LANG_cliDir2 ?></label>
-                <textarea data-mini="true" id="r9direccion1" name="r9direccion2"  READONLY><?php echo $datos['direccion2']  ?></textarea>  
-                
+                <textarea data-mini="true" id="r9direccion2" name="r9direccion2"  READONLY><?php echo $datos['direccion2']  ?></textarea>  
+             </div>   
             <p>
                 <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" <?php if($datos['activo']==1) echo 'checked="checked"' ?>  DISABLED/>
 		<label for="r9activo"><?php echo LANG_cliActive ?></label>  

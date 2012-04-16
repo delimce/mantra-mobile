@@ -24,7 +24,7 @@ $tituloCurrent = LANG_lobi;
             <div data-role="navbar" class="nav-glyphish-example">
 				<ul>
                                      	<li><a id="misdatos" href="misDatos/index.php" data-ajax="false" data-transition="slide" data-icon="custom">Mis datos</a></li>
-					<li><a id="buscarp" href="#list" data-role="button" data-transition="slide" data-icon="search" data-iconpos="right" data-inline="true">Buscar Pedido</a></li>
+					<li><a id="buscarp" href="orders/index.php" data-role="button" data-transition="slide" data-icon="search" data-iconpos="right" data-inline="true">Buscar Pedido</a></li>
 				</ul>
                 
               <?php if($_SESSION['PROFILE']=="admin"){ ///solo para el admin ?>  
@@ -45,12 +45,11 @@ $tituloCurrent = LANG_lobi;
               <?php } ?>                     
                 
                                 <ul>
-					<li><a id="auditorias" href="#form" data-role="button" data-transition="fade" data-icon="custom" data-iconpos="right" data-inline="true">Auditorias</a></li>
-					<li><a id="cerrar" href="controller/logout.php" data-ajax="false" data-role="button" data-transition="fade" data-icon="delete" data-iconpos="right" data-inline="true">Cerrar Sesión</a></li>
+					<li><a id="setup1" href="setup/index.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true"><?php echo LANG_setup ?></a></li>
+					<li><a id="cerrar" href="controller/logout.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="delete" data-iconpos="right" data-inline="true">Cerrar Sesión</a></li>
 				</ul>
 			</div>
-            
-            
+                           
 		</div>
     
                 <div data-role="footer">

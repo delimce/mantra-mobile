@@ -1,0 +1,9 @@
+<?php
+
+unset($_SESSION['PEDIDO_PRODID']); 
+unset($_SESSION['PEDIDO_PRODNOMBRE']);
+unset($_SESSION['PEDIDO_PRODCANT']);
+unset($_SESSION['PEDIDO_PRODPRECIO']);
+unset($_SESSION['PEDIDO_CLIENTEID']);
+
+?>
