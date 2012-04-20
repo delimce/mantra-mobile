@@ -47,6 +47,23 @@ include_once 'controller/loadData.php';
         $(document).ready(function() {
             
             
+            
+            ///validar
+                $("#form2").validate({
+                      
+                     rules: {
+                        cantidad :  {
+                        required : true,
+                        digits : true,
+                        min : 1
+                        
+                        }
+                        }
+                      
+                  })  
+            
+            
+            
             //////siguiente paso
             $("#next").click(function(){
                 
@@ -93,7 +110,7 @@ include_once 'controller/loadData.php';
                         
                          
                         
-                        var formData = $("#form1").serialize();
+                        var formData = $("#form2").serialize();
                          $.ajax({
                                 type: "POST",
                                 url: "controller/deleteItem.php",
@@ -125,9 +142,9 @@ include_once 'controller/loadData.php';
                  
                  ///validar
                  
-                // if(!$("#form1").valid()) return false;     
+                if(!$("#form2").valid()) return false;     
            
-                var formData = $("#form1").serialize();
+                var formData = $("#form2").serialize();
  
                 $.ajax({
                     type: "POST",
@@ -194,7 +211,7 @@ include_once 'controller/loadData.php';
             <div data-role="collapsible" data-content-theme="c">
                 <h3><?php echo LANG_ordersAddProduct ?></h3>
                     
-                <form id="form1" data-transition="slide"  method="post"> 
+                <form id="form2" data-transition="slide"  method="post"> 
                     
                     <div data-role="fieldcontain">
                         
@@ -205,8 +222,7 @@ include_once 'controller/loadData.php';
                             
                         <label style="font-weight:bold" for="producto" class="select"><?php echo LANG_prod ?></label>
                         <div id="listaproductos">
-                            
-                            <?php echo LANG_SelectCatProd ?>
+                             <?php echo LANG_SelectCatProd ?>
                                     
                         </div>
                         <div>

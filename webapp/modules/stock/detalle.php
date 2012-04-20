@@ -22,8 +22,7 @@ include_once 'controller/loadData.php';
             
 //           $("#notification").text(data);
 //           $("#notification").css({color:"blue", fontWeight:"bold"});
-//           
-           
+     
            
         }
         

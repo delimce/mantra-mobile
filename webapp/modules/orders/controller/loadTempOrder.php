@@ -1,17 +1,15 @@
 <?php 
 
-$traer = new formulario();
-
-
-///////validar no poder ver el temp si no existen items creados 
-//if(!isset($_SESSION['PEDIDO_PRODID']) || empty($_SESSION['PEDIDO_PRODID'])){
-//    
-//    $traer->redirect("crear.php");
-//    
-//}
+/////validar no poder ver el temp si no existen items creados 
+if(!isset($_SESSION['PEDIDO_PRODID']) || empty($_SESSION['PEDIDO_PRODID'])){
+    
+    header("location: crear.php");
+    
+}
 
 ///////////
 
+$traer = new formulario();
 $tool = new factoryDAO("db");
 $cliente = $tool->getNameClient($_SESSION['PEDIDO_CLIENTEID']);
 $vendedor = $tool->getNameVendor($_SESSION['USERID']);

@@ -27,6 +27,7 @@ define(LANG_add,"Agregar");
 define(LANG_cant,"cantidad");
 define(LANG_select,"Seleccionar");
 define(LANG_all,"Todos");
+define(LANG_totalReg,"Total de registros: ");
 define(LANG_nologin,"Usuario ó clave inválidos");
 define(LANG_profile,"Perfil:");
 
@@ -130,7 +131,7 @@ define(LANG_ordersDate,"Fecha");
 define(LANG_ordersStatus,"Estatus");
 define(LANG_ordersStatus1,"Procesado");
 define(LANG_ordersStatus2,"Para entregar");
-define(LANG_ordersStatus210,"Anulado");
+define(LANG_ordersStatus10,"Anulado");
 
 
 define(LANG_ordersTotalProd,"Total Productos");
@@ -140,6 +141,12 @@ define(LANG_ordersTotal,"Total");
 
 define(LANG_ordersDetail,"Detalle de pedido");
 define(LANG_ordersDeleteConfirm,"Confirma que desea borrar del pedido este item?");
+define(LANG_ordersCancelConfirm,"Confirma que desea Cancelar este pedido?");
+define(LANG_ordersCancel,"Cancelar pedido");
+define(LANG_ordersCanceled,"<b>Pedido Cancelado</b>");
+define(LANG_ordersCanceledCause,"<b>Motivo de cancelación:</b>");
+define(LANG_ordersCanceledText,"<b>Este pedido ha sido cancelado y el inventario actualizado</b>");
+define(LANG_ordersCancelInfo,"Motivo de cancelación");
 define(LANG_ordersUndoConfirm,"Confirma que desea Deshacer el pedido");
 define(LANG_ordersItems,"Items de pedido");
 define(LANG_SelectCatProd,"Seleccione una categoria de producto para ver la lista");

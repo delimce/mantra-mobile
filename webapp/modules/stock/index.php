@@ -19,6 +19,7 @@ include_once 'controller/load.php';
 		</div>
 		<div data-role="content">
                      <p><div id="titulo2"><?php echo LANG_textStock ?></div></p>
+                     <p><?php echo LANG_totalReg.$tool->getNreg(); ?></p>
                          <ul data-role="listview" data-inset="true" data-filter="true">
                              <?php while ($row = $tool->db_vector_nom($tool->result)) { ?>
                                 <li><a class="check" data-ajax="false" href="detalle.php?id=<?php echo $row["id"] ?>">

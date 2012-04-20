@@ -8,6 +8,17 @@ $traer = new formulario();
 $idProd = $traer->getvar("producto", $_POST);
 $cantProd = $traer->getvar("cantidad", $_POST);
 
+
+/////////sino me vienen id de productos
+if(empty($idProd)){
+    
+    require_once 'printOrder.php';
+    die();
+    
+}
+
+
+
 ///////*****VARIABLES DE SESION ARA ALMACENAR ITEMS DE LOS PEDIDOS
 require("initOrder.php");
 

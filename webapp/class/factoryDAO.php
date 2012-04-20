@@ -227,6 +227,7 @@ class factoryDAO extends  database {
                         WHERE
                         c.categoria_id = $catid and p.cuenta_id = $this->cuentaID and p.activo = 1 and p.borrado = 0";
          
+         
         return $tools2->combo_db("producto", $query, "descripcion", "id",false,false,false,LANG_NoProdForCat);
         
     }
@@ -285,6 +286,23 @@ class factoryDAO extends  database {
         
     }
     
+    ////function que cancela el pedido *****ORDER
+    
+    public function cancelOrder($id,$motivo){
+        
+        $this->abrir_transaccion();
+        
+        $this->sql = "update tbl_pedido set estatus = 10, fecha_anulado = NOW(), motivo_anulado = '$motivo'  where id = $id and cuenta_id = $this->cuentaID ";
+        $this->commit();
+        
+        $this->sql = "delete from tbl_inventario where ref_pedido = $id and cuenta_id = $this->cuentaID";
+        $this->commit();
+        
+        
+        $this->cerrar_transaccion();
+    }
+    
+    
     /////////////traerme el valor del Impuesto Iva
     public function getIva($idcuenta){
         
@@ -334,6 +352,9 @@ class factoryDAO extends  database {
          if($idVendor) $this->sql.= " and p.vendedor_id = ".$idVendor;
          
         
+         ////ordenar
+         $this->sql.= " order by p.estatus,id asc";
+         
          $this->commit();
         
         
@@ -349,6 +370,8 @@ class factoryDAO extends  database {
          $query = "SELECT 
                         p.id,
                         (CASE p.estatus WHEN 1 THEN '".LANG_ordersStatus1."' WHEN 2 THEN '".LANG_ordersStatus2."' WHEN 10 THEN '".LANG_ordersStatus10."' END ) as estatus,
+                        p.estatus as nestatus,
+                        p.motivo_anulado as motivo,
                         c.nombre as cnombre,
                         c.codigo as ccodigo,
                         v.nombre as vnombre,
@@ -470,7 +493,7 @@ class factoryDAO extends  database {
                         tbl_prodcategoria AS cat
                         LEFT OUTER JOIN tbl_producto_categoria AS PC ON cat.id = PC.categoria_id AND cat.cuenta_id = PC.cuenta_id
                         WHERE
-                        PC.activo = 1 and PC.borrado = 0 and cat.borrado = 0 and cat.activa = 1 AND cat.cuenta_id = $this->cuentaID
+                        cat.activo = 1 and cat.borrado = 0 and cat.cuenta_id = $this->cuentaID
                         GROUP BY
                         cat.id
                         ORDER BY

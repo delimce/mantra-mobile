@@ -28,16 +28,20 @@ $tituloCurrent = LANG_lobi;
 				</ul>
                 
               <?php if($_SESSION['PROFILE']=="admin"){ ///solo para el admin ?>  
+                              
                                 <ul>
-					
 					<li><a id="maestros" href="lobiMaster.php" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Actualizar Maestros</a></li>
                                         <li><a id="inventario" href="stock/index.php" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Manejar Inventario</a></li>
                                 </ul>
                 
-             <?php }else{ ///parael vendedor ?>   
+                                 <ul>
+					<li><a id="setup1" href="setup/index.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true"><?php echo LANG_setup ?></a></li>
+					<li><a id="auditorias" href="history/index.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Auditorias</a></li>
+				</ul>
+                
+             <?php }else{ ///para el vendedor ?>   
                 
                                  <ul>
-					
 					<li><a id="crearp" href="orders/crear.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Nuevo Pedido</a></li>
                                         <li><a id="clientes" href="masterClient/index.php" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Manejo de Clientes</a></li>
                                 </ul>
