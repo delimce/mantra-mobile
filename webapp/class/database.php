@@ -69,7 +69,17 @@ class database {
  ///metodo para liberar el objeto que retorna el valor del query
    public function liberar ()
    {//cierra la conexion
-     @mysqli_free_result($this->result);
+   //  @mysqli_free_result($this->result);
+     
+    ///para liberar la conexion en el caso de usar stored procedures 
+     while (mysqli_more_results($this->dbc)) {
+            if (mysqli_next_result($this->dbc)) {
+                $this->result = mysqli_use_result($this->dbc);
+                @mysqli_free_result($this->result);
+            }
+        } 
+     
+     
 
    }
 

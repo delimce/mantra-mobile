@@ -48,6 +48,12 @@ $tituloCurrent = LANG_masters;
 				</ul>
                             
                                 <ul>
+					<li><a href="masterDispatch/index.php"  data-role="button" data-transition="slide" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_masterDispatch ?></a></li>
+
+				</ul>
+                            
+                            
+                                <ul>
 					<li><a href="masterClient/index.php"  data-role="button" data-transition="slide" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_masterClient ?></a></li>
 
 				</ul>

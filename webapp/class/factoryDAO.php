@@ -92,9 +92,25 @@ class factoryDAO extends  database {
                         tbl_vendedor AS v
                         INNER JOIN tbl_cuenta AS c ON v.cuenta_id = c.id
                         where v.user='$usuario' and v.pass = md5('$clave') and c.activo=1 and v.activo = 1 AND v.borrado = 0
+                        )UNION
+                        (SELECT
+                        d.id,
+                        d.nombre,
+                        d.user,
+                        c.nombre as cnombre,
+                        c.site_titulo,
+                        c.banner_titulo,
+                        c.footer_titulo,
+                        c.moneda1,
+                        c.id as cid,
+                        'dispatch' as profile
+                        FROM
+                        tbl_despachador AS d
+                        INNER JOIN tbl_cuenta AS c ON d.cuenta_id = c.id
+                        where d.user='$usuario' and d.pass = md5('$clave') and c.activo=1 and d.activo = 1 AND d.borrado = 0
                         )";
 
-        
+//        return "call sp_login('$usuario','$clave')";
                
     }
 
@@ -360,6 +376,20 @@ class factoryDAO extends  database {
         
     }
     
+    
+    
+    //////traer moneda
+    
+    public function getMoneda(){
+        
+         $tools2 = new tools();
+         $tools2->dbc = $this->dbc;
+         
+         $query = "select moneda1 from tbl_cuenta where id = $this->cuentaID";
+         
+         return $tools2->simple_db($query);
+        
+    }
     
     
     //////////traer los datos encabezados del pedido ***ORDERS

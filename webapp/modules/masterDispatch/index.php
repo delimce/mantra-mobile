@@ -9,9 +9,9 @@ include_once 'controller/load.php';
 
 ?>
 
-    <?php $tituloCurrent = LANG_masterVendor; ?>    
+    <?php $tituloCurrent = LANG_masterDispatch; ?>    
 <!--div de pagina-->
-	<div data-role="page" id="masterVendor">
+	<div data-role="page" id="masterdispatch">
 		<div data-role="header">
                         <a href="../lobiMaster.php" data-icon="back"><?php echo LANG_back ?></a>
 			<h1><?php echo $tituloCurrent ?></h1>

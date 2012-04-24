@@ -56,6 +56,7 @@ define(LANG_masterProdCat,"Maestro Categorias de producto");
 define(LANG_masterClientCat,"Maestro Zonas"); ///categorias de clientes
 define(LANG_masterClient,"Maestro de Clientes");
 define(LANG_masterVendor,"Maestro de Vendedores");
+define(LANG_masterDispatch,"Maestro de Despachadores");
 define(LANG_masterProducts,"Maestro de Productos");
 define(LANG_masterUnit,"Maestro de Presentacion");
 
@@ -108,6 +109,7 @@ define(LANG_catActive,"Categoria Activa");
 
 define(LANG_venUser,"Usuario");
 define(LANG_venActive,"Vendedor Activo");
+define(LANG_disActive,"Despachador Activo");
 
 
 /////////////pedidos

@@ -1,6 +1,6 @@
 <?php session_start(); 
 ////seguridad
-$profile = "admin,vendor";
+$profile = "admin,vendor,dispatch";
 ///titulo pagina y header
 
 include("../config/siteconfig.php");
@@ -39,7 +39,7 @@ $tituloCurrent = LANG_lobi;
 					<li><a id="auditorias" href="history/index.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Auditorias</a></li>
 				</ul>
                 
-             <?php }else{ ///para el vendedor ?>   
+             <?php }else if($_SESSION['PROFILE']=="vendor"){ ///para el vendedor ?>   
                 
                                  <ul>
 					<li><a id="crearp" href="orders/crear.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Nuevo Pedido</a></li>

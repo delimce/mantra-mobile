@@ -23,7 +23,7 @@ include_once 'controller/load.php';
                              <?php while ($row = $tool->db_vector_nom($tool->result)) { ?>
                                 <li><a class="check" data-ajax="false" href="orderDetails.php?id=<?php echo $row["id"] ?>">
                                         <div><b><?php echo LANG_ordersNumber ?></b> <?php echo $row["id"] ?></div>
-                                        <div><b><?php echo LANG_ordersDate ?> </b><?php echo $row["fecha"] ?> <b>  <?php echo LANG_ordersClient ?> </b> <?php echo $row["cnombre"] ?>  <b> <?php echo LANG_ordersTotal ?> </b> <?php echo $row["total"] ?></div>
+                                        <div><b><?php echo LANG_ordersDate ?> </b><?php echo $row["fecha"] ?> <b>  <?php echo LANG_ordersClient ?> </b> <?php echo $row["cnombre"] ?>  <b> <?php echo LANG_ordersTotal.' '.$moneda ?> </b> <?php echo $row["total"] ?></div>
                                         <div><b><?php echo LANG_ordersStatus ?> </b><?php echo $row["estatus"] ?></div>
                                     </a></li>
                                 

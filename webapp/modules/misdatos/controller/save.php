@@ -1,16 +1,18 @@
 <?php session_start();
 
-$profile = "admin,vendor";
+$profile = "admin,vendor,dispatch";
 include("../../../config/siteconfig.php");
 
 $tool = new formulario('db');
 
 //////validaciones etc...
 /////edicion de la tabla segun el perfil
-if($_SESSION['PROFILE']=="admin")
+if ($_SESSION['PROFILE'] == "admin")
     $tabla = "tbl_admin";
-else
+else if ($_SESSION['PROFILE'] == "vendor")
     $tabla = "tbl_vendedor";
+else
+    $tabla = "tbl_despachador";
 
 ///clave
 
