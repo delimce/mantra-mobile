@@ -6,6 +6,7 @@ $traer = new formulario();
 
  $_SESSION['PEDIDO_CLIENTEID'] = $traer->getvar("id", $_POST);
 
-    
+require_once("resetOrder.php");
+
 
 ?>

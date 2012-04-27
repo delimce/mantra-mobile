@@ -52,7 +52,16 @@ include_once('controller/loadData.php');
              <div id="dir2">
                <label style="font-weight:bold" for="r9direccion2"><?php echo LANG_cliDir2 ?></label>
                 <textarea data-mini="true" id="r9direccion2" name="r9direccion2"  READONLY><?php echo $datos['direccion2']  ?></textarea>  
-             </div>   
+             </div>  
+             
+             
+              <label style="font-weight:bold" for="r9tipo_cargo"><?php echo LANG_prodCatExtra ?></label>
+              <?php echo formulario::combo_array("r9tipo_cargo",$tipoLabel,$tipovalues,false,$seleccionadoP,false,false,false,true); ?>  
+             
+             <label style="font-weight:bold" for="r9monto"><?php echo LANG_prodCatExtraPercet ?></label>
+             <input type="text" data-mini="true" id="r9monto" name="r9monto" maxlength="4" value="<?php echo $datos['monto'] ?>"  READONLY/>
+             
+             
             <p>
                 <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" <?php if($datos['activo']==1) echo 'checked="checked"' ?>  DISABLED/>
 		<label for="r9activo"><?php echo LANG_cliActive ?></label>  

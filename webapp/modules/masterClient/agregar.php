@@ -112,6 +112,15 @@ include_once('controller/loadCat.php');  ///categorias
                 <textarea id="r9direccion2" name="r9direccion2"></textarea>
               </div> 
                 
+              
+              <label style="font-weight:bold" for="r9tipo_cargo"><?php echo LANG_prodCatExtra ?></label>
+              <?php echo formulario::combo_array("r9tipo_cargo",$tipoLabel,$tipovalues); ?>  
+             
+             <label style="font-weight:bold" for="r9monto"><?php echo LANG_prodCatExtraPercet ?></label>
+             <input type="text" data-mini="true" id="r9monto" name="r9monto" maxlength="4" value="0.0"  />
+
+          
+              
             <p>
               
                 <input type="checkbox" name="r9activo" id="r9activo" value="1" class="custom" checked="checked" />

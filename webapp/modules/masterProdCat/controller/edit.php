@@ -3,11 +3,10 @@
 $profile = "admin";
 include("../../../config/siteconfig.php");
 
-$tool2 = new formulario();
 
 //////validaciones etc...
 
-$id = $tool2->getvar("id", $_POST);
+$id = formulario::getvar("id", $_POST);
 
     
 $tool = new factoryDAO("db");

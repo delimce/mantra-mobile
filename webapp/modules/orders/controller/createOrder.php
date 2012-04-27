@@ -77,6 +77,8 @@ foreach ($_SESSION['PEDIDO_PRODID'] as $i => $value) {
 $tool->cerrar_transaccion();
 
 include("resetOrder.php"); ///resetiando los datos temporales del pedido
+unset($_SESSION['PEDIDO_CLIENTEID']); ///limpiando la variable de cliente
+
 $tool->cerrar();
 
 

@@ -3,10 +3,7 @@
 $profile = "admin";
 include("../../../config/siteconfig.php");
 
-$tool = new formulario();
-
-
-$id = $tool->getvar("id", $_POST);
+$id = formulario::getvar("id", $_POST);
 
 $factory = new factoryDAO('db');
 $factory->setTable("tbl_prodcategoria");

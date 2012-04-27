@@ -8,7 +8,7 @@ $traer = new formulario();
 $idProd = $traer->getvar("producto", $_POST);
 
 ////***********valido que existe el elemento para borrarlo
-if(in_array($idProd, $_SESSION['PEDIDO_PRODID'])){ ////si no ha sido añadido el producto
+if(@in_array($idProd, $_SESSION['PEDIDO_PRODID'])){ ////si no ha sido añadido el producto
     
     $pos = array_search($idProd, $_SESSION['PEDIDO_PRODID']);
     

@@ -32,12 +32,37 @@ include_once 'controller/loadData.php';
         /////funcion que setea el cliente
         function setClienteId(idcli){
             
+            if(idcli>0){   
+                 $("#agregarP").show();
+                 $("#continuaR").show();
+             }else{
+                $("#agregarP").hide();
+                $("#continuaR").hide();
+                
+             }
+            
+            
             $.ajax({
                 type: "POST",
                 url: "controller/setClient.php",
                 data: ({id: idcli}),
-                success:false
+                 success: function(data){
+                     $("#items").html(data);
+                     
+                     var myselect = $("#categoriap");
+                        myselect[0].selectedIndex = 0;
+                        myselect.selectmenu('refresh');
+                        $("#listaproductos").text('<?php echo LANG_SelectCatProd ?>');
+                       
+                },
+                complete: function() {
+                    $('#items').listview('refresh');
+                    
+                } 
             })
+            
+            
+            
             
         }
         
@@ -46,7 +71,13 @@ include_once 'controller/loadData.php';
         ////accion jquery
         $(document).ready(function() {
             
+            ////////validacion para seleccionar siempre el cliente
+            <?php if(empty($_SESSION['PEDIDO_CLIENTEID'])){ ?>
+                    
+                    $("#agregarP").hide();
+                    $("#continuaR").hide();
             
+            <?php } ?>
             
             ///validar
                 $("#form2").validate({
@@ -189,13 +220,13 @@ include_once 'controller/loadData.php';
         <div data-role="header">
             <a href="../lobi.php" data-icon="back"><?php echo LANG_back ?></a>
             <h1><?php echo $tituloCurrent ?></h1>
-            <a href="viewOrder.php" data-theme="b" data-ajax="false" data-icon="check"><?php echo LANG_ordersNext ?></a>    
+            <a id="continuaR" href="viewOrder.php" data-theme="b" data-ajax="false" data-icon="check"><?php echo LANG_ordersNext ?></a>    
         </div>
         <div data-role="content">
             
-            <label style="font-weight:bold" for="cliente_id" class="select"><?php echo LANG_ordersClient ?></label>
+            <label style="font-weight:bold" for="cliente_id" class="select"><?php echo LANG_ordersClientSelect ?></label>
                 
-            <?php echo $tool->combo_db("cliente_id", $queryc, "nombre", "id", $porDefecto, $seleccionado, false, '', false, $desactivado); ?>
+            <?php echo $tool->combo_db("cliente_id", $queryc, "nombre", "id", $porDefecto, $seleccionado, false, LANG_ordersNoClient, false, $desactivado); ?>
                              
             <?php echo LANG_ordersItems ?>
             
@@ -208,7 +239,7 @@ include_once 'controller/loadData.php';
                 
              <!--                para añadir productos    -->
                 
-            <div data-role="collapsible" data-content-theme="c">
+            <div id="agregarP" data-role="collapsible" data-content-theme="c">
                 <h3><?php echo LANG_ordersAddProduct ?></h3>
                     
                 <form id="form2" data-transition="slide"  method="post"> 

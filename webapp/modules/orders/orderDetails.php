@@ -1,7 +1,7 @@
 <?php
 session_start();
 ////seguridad
-$profile = "vendor,admin,courier";
+$profile = "vendor,admin,dispatch";
 ///titulo pagina y header
 
 include("../../config/siteconfig.php");
@@ -84,9 +84,21 @@ require_once 'controller/dataOrder.php';
             
              <div><b><?php echo LANG_ordersNumber  ?>:</b> <?php echo $cabecera["id"];  ?></div> 
             <div><b><?php echo LANG_ordersDate  ?>:</b> <?php echo $cabecera["fecha"];  ?></div> 
+             <div><b><?php echo LANG_hour  ?>:</b> <?php echo $cabecera["hora"];  ?></div> 
             <div><b><?php echo LANG_ordersClient  ?>:</b> <?php echo $cabecera["cnombre"].' ('.$cabecera["ccodigo"].')'; ?></div> 
             <div><b><?php echo LANG_ordersVendor  ?>:</b> <?php echo $cabecera["vnombre"].' ('.$cabecera["vcodigo"].')'; ?></div>
-             <div id="estatus"><b><?php echo LANG_ordersStatus  ?>:</b> <?php echo $cabecera["estatus"] ?></div>
+            <div id="estatus"><b><?php echo LANG_ordersStatus  ?>:</b> 
+                <?php switch ($cabecera["nestatus"]) {
+                    case 1:
+                        echo LANG_ordersStatus1;
+                        break;
+                    case 2:
+                        echo LANG_ordersStatus2;
+                        break;
+                    case 10:
+                        echo LANG_ordersStatus10;
+                        break;
+                } ?></div>
             <p></p>
              
              
@@ -97,7 +109,7 @@ require_once 'controller/dataOrder.php';
                 <li>
             <b><?php echo LANG_prod ?>:</b><?php echo $row["descripcion"] ?>
             <fieldset style="font-size: 12px">
-                <b><?php echo LANG_cant ?>:</b> <?php echo $row["cantidad"]; ?> <b><?php echo LANG_prodPrice ?></b> <?php echo $dataPref["moneda1"] ?>  <?php echo $row["precio"]  ?>   <b><?php echo LANG_ordersSubtotal ?>:</b> <?php echo $dataPref["moneda1"] ?>  <?php echo $row["subtotal"]  ?> 
+                <b><?php echo LANG_cant ?>:</b> <?php echo $row["cantidad"]; ?> <b><?php echo LANG_prodPrice ?></b> <?php echo $moneda ?>  <?php echo $row["precio"]  ?>   <b><?php echo LANG_ordersSubtotal ?>:</b> <?php echo $moneda ?>  <?php echo $row["subtotal"]  ?> 
                 
             </fieldset>
             </li>
@@ -108,9 +120,9 @@ require_once 'controller/dataOrder.php';
             
             
               <hr>
-            <div style="text-align: right"><?php echo LANG_ordersTotalProd ?> <?php echo $dataPref["moneda1"] ?>: <?php echo $cabecera["stotal"] ?></div>
-            <div style="text-align: right"><?php echo LANG_ordersTotalImp ?> <?php echo $dataPref["moneda1"] ?>: <?php echo $cabecera["totaliva"]  ?></div>
-            <div style="text-align: right;"><b><?php echo LANG_ordersTotal ?> <?php echo $dataPref["moneda1"] ?>: <?php  echo $cabecera["total"] ?></b></div>
+            <div style="text-align: right"><?php echo LANG_ordersTotalProd ?> <?php echo $moneda ?>: <?php echo $cabecera["stotal"] ?></div>
+            <div style="text-align: right"><?php echo LANG_ordersTotalImp ?> <?php echo $moneda ?>: <?php echo $cabecera["totaliva"]  ?></div>
+            <div style="text-align: right;"><b><?php echo LANG_ordersTotal ?> <?php echo $moneda ?>: <?php  echo $cabecera["total"] ?></b></div>
              
 <!--             box para cancelar el pedido-->
              

@@ -121,7 +121,7 @@ include_once('controller/loadData.php');
                 <label style="font-weight:bold" for="r9tipo_cargo"><?php echo LANG_prodCatExtra ?></label>
               <?php echo $tool2->combo_array("r9tipo_cargo",$tipoLabel,$tipovalues,false,$seleccionado); ?>  
              
-             <label style="font-weight:bold" for="r9nombre"><?php echo LANG_prodCatExtraPercet ?></label>
+             <label style="font-weight:bold" for="r9monto"><?php echo LANG_prodCatExtraPercet ?></label>
              <input type="text" data-mini="true" id="r9monto" name="r9monto" maxlength="4" value="<?php echo $datos['monto'] ?>"  />
      
                

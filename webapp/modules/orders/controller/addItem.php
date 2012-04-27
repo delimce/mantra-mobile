@@ -3,10 +3,9 @@
 $profile = "vendor";
 include("../../../config/siteconfig.php");
 
-$traer = new formulario();
 
-$idProd = $traer->getvar("producto", $_POST);
-$cantProd = $traer->getvar("cantidad", $_POST);
+$idProd = formulario::getvar("producto", $_POST);
+$cantProd = formulario::getvar("cantidad", $_POST);
 
 
 /////////sino me vienen id de productos

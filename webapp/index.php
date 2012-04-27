@@ -23,10 +23,10 @@ include("./config/siteconfig.php");
             // handle an error
         }        
  
+  
         $(document).ready(function() {
             
-    
-            
+                
             $("#submit").click(function(){
  
                                

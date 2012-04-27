@@ -26,6 +26,7 @@ define(LANG_units,"Unidades");
 define(LANG_add,"Agregar");
 define(LANG_cant,"cantidad");
 define(LANG_select,"Seleccionar");
+define(LANG_hour,"Hora");
 define(LANG_all,"Todos");
 define(LANG_totalReg,"Total de registros: ");
 define(LANG_nologin,"Usuario ó clave inválidos");
@@ -47,7 +48,9 @@ define(LANG_setupAcount,"Nombre de cuenta");
 define(LANG_setupBanner,"Titulo encabezado");
 define(LANG_setupFooter,"Titulo piso");
 define(LANG_setupMoneda1,"Siglas moneda");
+define(LANG_setupServerDatetime,"Fecha server");
 define(LANG_setupImpIva,"Impuesto IVA");
+define(LANG_setupDifHour,"Dif.hora server (min)");
 
 //////////////MAESTROS
 define(LANG_masters,"Actualizar Maestros");
@@ -122,18 +125,20 @@ define(LANG_ordersAddEdit,"Agregar / Editar");
 define(LANG_ordersDeleteItem,"Borrar");
 define(LANG_ordersUndo,"Deshacer");
 define(LANG_ordersNext,"Continuar");
-define(LANG_ordersOk,"Procesar pedido");
+define(LANG_ordersOk,"Crear pedido");
 
 
 define(LANG_ordersClient,"Cliente");
+define(LANG_ordersNoClient,"No existen clientes asignados o creados en el sistema");
+define(LANG_ordersClientSelect,"Seleccione el cliente");
 define(LANG_ordersVendor,"Vendedor");
 define(LANG_ordersNumber,"Pedido #");
 define(LANG_ordersSubtotal,"Sub total");
 define(LANG_ordersDate,"Fecha");
 define(LANG_ordersStatus,"Estatus");
-define(LANG_ordersStatus1,"Procesado");
-define(LANG_ordersStatus2,"Para entregar");
-define(LANG_ordersStatus10,"Anulado");
+define(LANG_ordersStatus1,"<span style=\"color:blue\">Nuevo</span>");
+define(LANG_ordersStatus2,"Procesado");
+define(LANG_ordersStatus10,"<span style=\"color:red\">Anulado</span>");
 
 
 define(LANG_ordersTotalProd,"Total Productos");
@@ -153,9 +158,6 @@ define(LANG_ordersUndoConfirm,"Confirma que desea Deshacer el pedido");
 define(LANG_ordersItems,"Items de pedido");
 define(LANG_SelectCatProd,"Seleccione una categoria de producto para ver la lista");
 define(LANG_NoProdForCat,"No existen productos para esta categoria");
-
-
-
 
 
 ////validar

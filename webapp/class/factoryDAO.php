@@ -59,59 +59,59 @@ class factoryDAO extends  database {
 
         public function getDataLogin($usuario,$clave){
         
-        return "(SELECT
-                        a.id,
-                        a.nombre,
-                        a.user,
-                        c.nombre as cnombre,
-                        c.site_titulo,
-                        c.banner_titulo,
-                        c.footer_titulo,
-                        c.moneda1,
-                        c.id as cid,
-                        'admin' as profile
-                        FROM
-                        tbl_admin AS a
-                        INNER JOIN tbl_cuenta_admin AS ca ON a.id = ca.admin_id
-                        INNER JOIN tbl_cuenta AS c ON ca.cuenta_id = c.id
-                        where a.user='$usuario' and a.pass = md5('$clave') and c.activo=1
-                        )
-                        UNION
-                        (SELECT
-                        v.id,
-                        v.nombre,
-                        v.user,
-                        c.nombre as cnombre,
-                        c.site_titulo,
-                        c.banner_titulo,
-                        c.footer_titulo,
-                        c.moneda1,
-                        c.id as cid,
-                        'vendor' as profile
-                        FROM
-                        tbl_vendedor AS v
-                        INNER JOIN tbl_cuenta AS c ON v.cuenta_id = c.id
-                        where v.user='$usuario' and v.pass = md5('$clave') and c.activo=1 and v.activo = 1 AND v.borrado = 0
-                        )UNION
-                        (SELECT
-                        d.id,
-                        d.nombre,
-                        d.user,
-                        c.nombre as cnombre,
-                        c.site_titulo,
-                        c.banner_titulo,
-                        c.footer_titulo,
-                        c.moneda1,
-                        c.id as cid,
-                        'dispatch' as profile
-                        FROM
-                        tbl_despachador AS d
-                        INNER JOIN tbl_cuenta AS c ON d.cuenta_id = c.id
-                        where d.user='$usuario' and d.pass = md5('$clave') and c.activo=1 and d.activo = 1 AND d.borrado = 0
-                        )";
+//        return "(SELECT
+//                        a.id,
+//                        a.nombre,
+//                        a.user,
+//                        c.nombre as cnombre,
+//                        c.site_titulo,
+//                        c.banner_titulo,
+//                        c.footer_titulo,
+//                        c.moneda1,
+//                        c.id as cid,
+//                        'admin' as profile
+//                        FROM
+//                        tbl_admin AS a
+//                        INNER JOIN tbl_cuenta_admin AS ca ON a.id = ca.admin_id
+//                        INNER JOIN tbl_cuenta AS c ON ca.cuenta_id = c.id
+//                        where a.user='$usuario' and a.pass = md5('$clave') and c.activo=1
+//                        )
+//                        UNION
+//                        (SELECT
+//                        v.id,
+//                        v.nombre,
+//                        v.user,
+//                        c.nombre as cnombre,
+//                        c.site_titulo,
+//                        c.banner_titulo,
+//                        c.footer_titulo,
+//                        c.moneda1,
+//                        c.id as cid,
+//                        'vendor' as profile
+//                        FROM
+//                        tbl_vendedor AS v
+//                        INNER JOIN tbl_cuenta AS c ON v.cuenta_id = c.id
+//                        where v.user='$usuario' and v.pass = md5('$clave') and c.activo=1 and v.activo = 1 AND v.borrado = 0
+//                        )UNION
+//                        (SELECT
+//                        d.id,
+//                        d.nombre,
+//                        d.user,
+//                        c.nombre as cnombre,
+//                        c.site_titulo,
+//                        c.banner_titulo,
+//                        c.footer_titulo,
+//                        c.moneda1,
+//                        c.id as cid,
+//                        'dispatch' as profile
+//                        FROM
+//                        tbl_despachador AS d
+//                        INNER JOIN tbl_cuenta AS c ON d.cuenta_id = c.id
+//                        where d.user='$usuario' and d.pass = md5('$clave') and c.activo=1 and d.activo = 1 AND d.borrado = 0
+//                        )";
 
-//        return "call sp_login('$usuario','$clave')";
-               
+        return "call sp_login('$usuario','$clave')";
+                      
     }
 
 
@@ -169,16 +169,18 @@ class factoryDAO extends  database {
     
     public function getInventario(){
         
-        $this->sql = "SELECT 
-                        p.id,
-                        p.descripcion,
-                        SUM(CASE WHEN i.operacion = 'sum' THEN i.cantidad ELSE 0 END) - SUM(CASE WHEN i.operacion = 'res' THEN i.cantidad ELSE 0 END) AS cantidad
-                        FROM
-                        tbl_producto p
-                        LEFT OUTER JOIN tbl_inventario i ON (p.id = i.producto_id)
-                        AND (p.cuenta_id = i.cuenta_id)
-                        where p.cuenta_id = $this->cuentaID and p.borrado = 0
-                        GROUP BY p.id ";
+//        $this->sql = "SELECT 
+//                        p.id,
+//                        p.descripcion,
+//                        SUM(CASE WHEN i.operacion = 'sum' THEN i.cantidad ELSE 0 END) - SUM(CASE WHEN i.operacion = 'res' THEN i.cantidad ELSE 0 END) AS cantidad
+//                        FROM
+//                        tbl_producto p
+//                        LEFT OUTER JOIN tbl_inventario i ON (p.id = i.producto_id)
+//                        AND (p.cuenta_id = i.cuenta_id)
+//                        where p.cuenta_id = $this->cuentaID and p.borrado = 0
+//                        GROUP BY p.id ";
+        
+        $this->sql = "call sp_traer_inventario($this->cuentaID)";
         
         $this->commit();
         
@@ -231,18 +233,29 @@ class factoryDAO extends  database {
         
          $tools2 = new tools();
          $tools2->dbc = $this->dbc;
-         $query = "SELECT 
-                        p.id,
-                        concat(p.descripcion,', ',u.titulo,' precio venta: ',p.precio1,' PVS: ',precio3) as descripcion
-                        FROM
-                        tbl_producto p
-                        LEFT OUTER JOIN tbl_unidad u ON (p.unidad_med = u.id)
-                        AND (p.cuenta_id = u.cuenta_id)
-                        INNER JOIN tbl_producto_categoria c ON (p.id = c.producto_id)
-                        AND (p.cuenta_id = c.cuenta_id)
-                        WHERE
-                        c.categoria_id = $catid and p.cuenta_id = $this->cuentaID and p.activo = 1 and p.borrado = 0";
+         ////trayendo montos que afecten la lista de precios
          
+         $clienteId = empty($_SESSION['PEDIDO_CLIENTEID']) ? 0 : $_SESSION['PEDIDO_CLIENTEID'];    
+//         $monto = $tools2->simple_db("select monto from tbl_cliente where id = $clienteId and cuenta_id = $this->cuentaID ");
+//         
+//         //////
+//         
+//         
+//         $query = "SELECT 
+//                        p.id,
+//                        concat(p.descripcion,', ',u.titulo,' precio venta: ',format(fc_porcentaje(p.precio1,$monto),2),' PVS: ',format(precio3,2)) as descripcion
+//                        FROM
+//                        tbl_producto p
+//                        LEFT OUTER JOIN tbl_unidad u ON (p.unidad_med = u.id)
+//                        AND (p.cuenta_id = u.cuenta_id)
+//                        INNER JOIN tbl_producto_categoria c ON (p.id = c.producto_id)
+//                        AND (p.cuenta_id = c.cuenta_id)
+//                        WHERE
+//                        c.categoria_id = $catid and p.cuenta_id = $this->cuentaID and p.activo = 1 and p.borrado = 0
+//                    order by p.descripcion";
+         
+        
+        $query = "call sp_traer_prod_venta($catid,$this->cuentaID,$clienteId)"; 
          
         return $tools2->combo_db("producto", $query, "descripcion", "id",false,false,false,LANG_NoProdForCat);
         
@@ -253,11 +266,22 @@ class factoryDAO extends  database {
     
     public function getProdDataStock($id){
         
-         $this->sql = "select descripcion,precio1 from tbl_producto where id = $id and cuenta_id = $this->cuentaID and activo = 1 and borrado = 0 ";
-                
+    
+                 
         $tools = new tools();
         
         $tools->dbc = $this->dbc;
+        
+         /////////alteracion de los precios
+                
+         $clienteId = empty($_SESSION['PEDIDO_CLIENTEID']) ? 0 : $_SESSION['PEDIDO_CLIENTEID'];    
+//         $monto = $tools->simple_db("select monto from tbl_cliente where id = $clienteId and cuenta_id = $this->cuentaID ");
+//         
+//         //////
+//        
+//         $this->sql = "select descripcion,fc_porcentaje(precio1,$monto) as precio1 from tbl_producto where id = $id and cuenta_id = $this->cuentaID and activo = 1 and borrado = 0 ";
+//       
+         $this->sql ="call sp_traer_prod_data_orden($clienteId,$id,$this->cuentaID)";
         
         $data = $tools->simple_db($this->sql);
          
@@ -270,12 +294,26 @@ class factoryDAO extends  database {
     
     public function getOrderTempData($productos){
         
+        
+         $tools = new tools();
+        
+        $tools->dbc = $this->dbc;
+        
+         /////////alteracion de los precios
+                
+         $clienteId = empty($_SESSION['PEDIDO_CLIENTEID']) ? 0 : $_SESSION['PEDIDO_CLIENTEID'];    
+         $monto = $tools->simple_db("select monto from tbl_cliente where id = $clienteId and cuenta_id = $this->cuentaID ");
+         
+         //////
+        
+        
+        
         $prods = implode(",",$productos);
         
         $this->sql = "SELECT 
                         p.id,
                         p.descripcion,
-                        p.precio1,
+                        fc_porcentaje(p.precio1,$monto) as precio1,
                         p.paga_impuesto as civa
                         FROM
                         tbl_producto p
@@ -369,7 +407,7 @@ class factoryDAO extends  database {
          
         
          ////ordenar
-         $this->sql.= " order by p.estatus,id asc";
+         $this->sql.= " order by p.estatus,fecha desc";
          
          $this->commit();
         
@@ -397,27 +435,28 @@ class factoryDAO extends  database {
         
          $tools2 = new tools();
          $tools2->dbc = $this->dbc;
-         $query = "SELECT 
-                        p.id,
-                        (CASE p.estatus WHEN 1 THEN '".LANG_ordersStatus1."' WHEN 2 THEN '".LANG_ordersStatus2."' WHEN 10 THEN '".LANG_ordersStatus10."' END ) as estatus,
-                        p.estatus as nestatus,
-                        p.motivo_anulado as motivo,
-                        c.nombre as cnombre,
-                        c.codigo as ccodigo,
-                        v.nombre as vnombre,
-                        v.codigo as vcodigo,
-                        format(p.subtotal,2) as stotal,
-                        format(p.subtotaliva,2) as totaliva,
-                        format(p.total,2) as total,
-                        date_format(p.fecha_creado,'%d/%m/%Y') as fecha
-                        FROM
-                        tbl_pedido p
-                        INNER JOIN tbl_cliente c ON (p.cuenta_id = c.cuenta_id)
-                        AND (p.cliente_id = c.id)
-                        INNER JOIN tbl_vendedor v ON (p.cuenta_id = v.cuenta_id)
-                        AND (p.vendedor_id = v.id)
-                        WHERE
-                        p.cuenta_id = $this->cuentaID and p.borrado = 0 and p.id = $id";
+//         $query = "SELECT 
+//                        p.id,
+//                        p.estatus as nestatus,
+//                        p.motivo_anulado as motivo,
+//                        c.nombre as cnombre,
+//                        c.codigo as ccodigo,
+//                        v.nombre as vnombre,
+//                        v.codigo as vcodigo,
+//                        format(p.subtotal,2) as stotal,
+//                        format(p.subtotaliva,2) as totaliva,
+//                        format(p.total,2) as total,
+//                        date_format(p.fecha_creado,'%d/%m/%Y') as fecha
+//                        FROM
+//                        tbl_pedido p
+//                        INNER JOIN tbl_cliente c ON (p.cuenta_id = c.cuenta_id)
+//                        AND (p.cliente_id = c.id)
+//                        INNER JOIN tbl_vendedor v ON (p.cuenta_id = v.cuenta_id)
+//                        AND (p.vendedor_id = v.id)
+//                        WHERE
+//                        p.cuenta_id = $this->cuentaID and p.borrado = 0 and p.id = $id";
+         
+         $query = "call sp_traer_pedido($id,$this->cuentaID)";
          
         return $tools2->simple_db($query);
         
@@ -426,17 +465,19 @@ class factoryDAO extends  database {
 
     public function  getDataOrderDetail($id){
         
-       $this->sql = "SELECT 
-                p.descripcion,
-                d.cantidad,
-                format(d.precio,2) as precio,
-                format(d.subtotal,2) as subtotal
-                FROM
-                tbl_pedido_detalle d
-                INNER JOIN tbl_producto p ON (d.cuenta_id = p.cuenta_id)
-                AND (d.producto_id = p.id)
-                WHERE
-                d.cuenta_id = $this->cuentaID and d.pedido_id = $id ";
+//       $this->sql = "SELECT 
+//                p.descripcion,
+//                d.cantidad,
+//                format(d.precio,2) as precio,
+//                format(d.subtotal,2) as subtotal
+//                FROM
+//                tbl_pedido_detalle d
+//                INNER JOIN tbl_producto p ON (d.cuenta_id = p.cuenta_id)
+//                AND (d.producto_id = p.id)
+//                WHERE
+//                d.cuenta_id = $this->cuentaID and d.pedido_id = $id ";
+        
+        $this->sql = "call sp_traer_pedido_detalle($id,$this->cuentaID)";
         
         $this->commit();
     }
@@ -636,13 +677,12 @@ class factoryDAO extends  database {
     }
 
 
-
     
     ///////////////combo que muestra la lista de cllientes por vendedor asignado ****STOCK
     
     public function getComboClientByVendor($cuenta,$vendor){
         
-        return "select nombre,id from tbl_cliente where cuenta_id = $cuenta and activo = 1 and borrado = 0 and vendedor_id in (0,$vendor)";
+        return "select nombre,id from tbl_cliente where cuenta_id = $cuenta and activo = 1 and borrado = 0 and vendedor_id in (0,$vendor) order by nombre";
         
         
     }
