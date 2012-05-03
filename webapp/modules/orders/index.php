@@ -24,7 +24,17 @@ include_once 'controller/load.php';
                                 <li><a class="check" data-ajax="false" href="orderDetails.php?id=<?php echo $row["id"] ?>">
                                         <div><b><?php echo LANG_ordersNumber ?></b> <?php echo $row["id"] ?></div>
                                         <div><b><?php echo LANG_ordersDate ?> </b><?php echo $row["fecha"] ?> <b>  <?php echo LANG_ordersClient ?> </b> <?php echo $row["cnombre"] ?>  <b> <?php echo LANG_ordersTotal.' '.$moneda ?> </b> <?php echo $row["total"] ?></div>
-                                        <div><b><?php echo LANG_ordersStatus ?> </b><?php echo $row["estatus"] ?></div>
+                                        <div><b><?php echo LANG_ordersStatus ?> </b><?php switch ($row["estatus"]) {
+                                                                                                    case 1:
+                                                                                                        echo LANG_ordersStatus1;
+                                                                                                        break;
+                                                                                                    case 2:
+                                                                                                        echo LANG_ordersStatus2;
+                                                                                                        break;
+                                                                                                    case 10:
+                                                                                                        echo LANG_ordersStatus10;
+                                                                                                        break;
+                                                                                                } ?></div>
                                     </a></li>
                                 
                               <?php } ?>  

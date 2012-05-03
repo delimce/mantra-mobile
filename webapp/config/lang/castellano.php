@@ -135,9 +135,11 @@ define(LANG_ordersVendor,"Vendedor");
 define(LANG_ordersNumber,"Pedido #");
 define(LANG_ordersSubtotal,"Sub total");
 define(LANG_ordersDate,"Fecha");
+define(LANG_ordersDateDispatch,"Fecha despacho");
+define(LANG_ordersDispatchBy,"Despachado por");
 define(LANG_ordersStatus,"Estatus");
 define(LANG_ordersStatus1,"<span style=\"color:blue\">Nuevo</span>");
-define(LANG_ordersStatus2,"Procesado");
+define(LANG_ordersStatus2,"<span style=\"color:green\">Procesado</span>");
 define(LANG_ordersStatus10,"<span style=\"color:red\">Anulado</span>");
 
 
@@ -149,7 +151,10 @@ define(LANG_ordersTotal,"Total");
 define(LANG_ordersDetail,"Detalle de pedido");
 define(LANG_ordersDeleteConfirm,"Confirma que desea borrar del pedido este item?");
 define(LANG_ordersCancelConfirm,"Confirma que desea Cancelar este pedido?");
+define(LANG_ordersProcessConfirm,"Procesar este pedido?");
 define(LANG_ordersCancel,"Cancelar pedido");
+define(LANG_ordersProcess,"Procesar pedido");
+define(LANG_ordersPrint,"Imprimir");
 define(LANG_ordersCanceled,"<b>Pedido Cancelado</b>");
 define(LANG_ordersCanceledCause,"<b>Motivo de cancelación:</b>");
 define(LANG_ordersCanceledText,"<b>Este pedido ha sido cancelado y el inventario actualizado</b>");

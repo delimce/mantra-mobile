@@ -18,6 +18,18 @@ require_once 'controller/dataOrder.php';
      ////accion jquery
         $(document).ready(function() {
             
+            
+            
+            /////para no mostrar los totales si es un despachador
+             <?php if($_SESSION['PROFILE']=="dispatch"){ ?>
+                    
+                    $("#muestraTotal").hide();
+                                
+            <?php } ?>
+            
+            
+            
+            
                           
               ///validar
                 $("#form2").validate({
@@ -30,9 +42,37 @@ require_once 'controller/dataOrder.php';
                         }
                       
                   })  
+              
+
+               $("#print2").click(function (){
+                   $("#imprime").printArea();
+                })    
+
+            
+             ////procesar pedido
+             $("#process").click(function(){
+                 
+                  var answer = confirm("<?php echo LANG_ordersProcessConfirm ?>")
+                    if (answer){
+                        
+                           $.ajax({
+                                type: "POST",
+                                url: "controller/process.php",
+                                data: ({id: <?php echo $id  ?>}) ,
+                                success: function(data){
+                                    $(location).attr('href','index.php');
+                                }
+
+                            })                      
+                        
+                    }
+                 
+             })
             
             
             
+            
+            /////cancelar pedido
              $("#cancel").click(function(){
                  
                  
@@ -82,11 +122,19 @@ require_once 'controller/dataOrder.php';
         
         <div data-role="content">
             
+            <div id="imprime">
+            
              <div><b><?php echo LANG_ordersNumber  ?>:</b> <?php echo $cabecera["id"];  ?></div> 
             <div><b><?php echo LANG_ordersDate  ?>:</b> <?php echo $cabecera["fecha"];  ?></div> 
              <div><b><?php echo LANG_hour  ?>:</b> <?php echo $cabecera["hora"];  ?></div> 
             <div><b><?php echo LANG_ordersClient  ?>:</b> <?php echo $cabecera["cnombre"].' ('.$cabecera["ccodigo"].')'; ?></div> 
-            <div><b><?php echo LANG_ordersVendor  ?>:</b> <?php echo $cabecera["vnombre"].' ('.$cabecera["vcodigo"].')'; ?></div>
+            <div><b><?php echo LANG_ordersVendor ?>:</b> <?php echo $cabecera["vnombre"].' ('.$cabecera["vcodigo"].')'; ?></div>
+          
+           <?php if($cabecera["nestatus"]>1){ ?>
+           <div><b><?php echo LANG_ordersDispatchBy  ?>:</b> <?php echo $cabecera["dnombre"].' ('.$cabecera["dcodigo"].')'; ?></div>
+           <div><b><?php echo LANG_ordersDateDispatch  ?>:</b> <?php echo $cabecera["fechades"];  ?></div> 
+           <?php } ?>
+           
             <div id="estatus"><b><?php echo LANG_ordersStatus  ?>:</b> 
                 <?php switch ($cabecera["nestatus"]) {
                     case 1:
@@ -102,16 +150,16 @@ require_once 'controller/dataOrder.php';
             <p></p>
              
              
-             <ul id="items" data-role="listview">
+             <ul id="items">
              <?php while ($row = $tool->db_vector_nom($tool->result)) { ?>
             
             
                 <li>
             <b><?php echo LANG_prod ?>:</b><?php echo $row["descripcion"] ?>
-            <fieldset style="font-size: 12px">
-                <b><?php echo LANG_cant ?>:</b> <?php echo $row["cantidad"]; ?> <b><?php echo LANG_prodPrice ?></b> <?php echo $moneda ?>  <?php echo $row["precio"]  ?>   <b><?php echo LANG_ordersSubtotal ?>:</b> <?php echo $moneda ?>  <?php echo $row["subtotal"]  ?> 
-                
-            </fieldset>
+            
+                <b><?php echo LANG_cant ?>:</b> <?php echo $row["cantidad"]; ?>
+<!--                <b><?php echo LANG_prodPrice ?></b> <?php echo $moneda ?>  <?php echo $row["precio"]  ?>   <b><?php echo LANG_ordersSubtotal ?>:</b> <?php echo $moneda ?>  <?php echo $row["subtotal"]  ?> -->
+   
             </li>
             
              <?php } ?> 
@@ -120,13 +168,42 @@ require_once 'controller/dataOrder.php';
             
             
               <hr>
+              
+             <div id="muestraTotal">
             <div style="text-align: right"><?php echo LANG_ordersTotalProd ?> <?php echo $moneda ?>: <?php echo $cabecera["stotal"] ?></div>
             <div style="text-align: right"><?php echo LANG_ordersTotalImp ?> <?php echo $moneda ?>: <?php echo $cabecera["totaliva"]  ?></div>
             <div style="text-align: right;"><b><?php echo LANG_ordersTotal ?> <?php echo $moneda ?>: <?php  echo $cabecera["total"] ?></b></div>
-             
+            </div>   
+              
+        </div>   
 <!--             box para cancelar el pedido-->
              
-             <?php if($cabecera["nestatus"]<3) include_once 'cancelar.php'; else if ($cabecera["nestatus"]==10) include_once 'motivo.php'; ?>  
+             <?php 
+             
+             
+             ////si es despachador y es pedido nuevo
+              if($cabecera["nestatus"]==1 && $_SESSION["PROFILE"]=="dispatch"){
+                  
+                    include_once 'procesar.php';
+             
+              ////si es admin y es pedido nuevo
+              }else if($cabecera["nestatus"]==1 && $_SESSION["PROFILE"]=="admin"){
+                                  
+                    include_once 'cancelar.php'; 
+                    
+             /////si el pedido esta procesado       
+             }else if ($cabecera["nestatus"]==2){
+                 
+                    include_once 'imprimir.php'; 
+             
+             ////si el pedido esta cancelado
+             }else if ($cabecera["nestatus"]==10){
+                 
+                    include_once 'motivo.php';
+              
+             } 
+             
+             ?>  
 
 
 

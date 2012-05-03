@@ -8,7 +8,11 @@ $moneda = $tool->getMoneda();
 if($_SESSION['PROFILE']=="vendor")
 
     $tool->getAllDataOrder($_SESSION['USERID']);
-else
+else if ($_SESSION['PROFILE']=="dispatch")
+    
+    $tool->getDataOrderDispath ();
+    
+else    
     $tool->getAllDataOrder();
 
 ?>

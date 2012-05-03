@@ -302,7 +302,7 @@ class factoryDAO extends  database {
          /////////alteracion de los precios
                 
          $clienteId = empty($_SESSION['PEDIDO_CLIENTEID']) ? 0 : $_SESSION['PEDIDO_CLIENTEID'];    
-         $monto = $tools->simple_db("select monto from tbl_cliente where id = $clienteId and cuenta_id = $this->cuentaID ");
+         $monto = $tools->simple_db("select monto,tipo_cargo from tbl_cliente where id = $clienteId and cuenta_id = $this->cuentaID ");
          
          //////
         
@@ -313,7 +313,7 @@ class factoryDAO extends  database {
         $this->sql = "SELECT 
                         p.id,
                         p.descripcion,
-                        fc_porcentaje(p.precio1,$monto) as precio1,
+                        fc_porcentaje(p.precio1,{$monto['monto']},'{$monto['tipo_cargo']}') as precio1,
                         p.paga_impuesto as civa
                         FROM
                         tbl_producto p
@@ -357,6 +357,18 @@ class factoryDAO extends  database {
     }
     
     
+    ////function que processa el pedido *****ORDER
+    ////necesita el id del pedido y el id del despachador
+    public function processOrder($id,$despachador){
+        
+        $this->sql = "update tbl_pedido set estatus = 2, fecha_despacho = NOW(), despachador_id = $despachador  where id = $id and cuenta_id = $this->cuentaID "; 
+        $this->commit();
+    }
+
+
+    
+    
+    
     /////////////traerme el valor del Impuesto Iva
     public function getIva($idcuenta){
         
@@ -390,7 +402,7 @@ class factoryDAO extends  database {
 
          $this->sql = "SELECT 
                         p.id,
-                        (CASE p.estatus WHEN 1 THEN '".LANG_ordersStatus1."' WHEN 2 THEN '".LANG_ordersStatus2."' WHEN 10 THEN '".LANG_ordersStatus10."' END ) as estatus,
+                        p.estatus,
                         c.nombre as cnombre,
                         c.codigo as ccodigo,
                         format(p.total,2) as total,
@@ -416,6 +428,30 @@ class factoryDAO extends  database {
     
     
     
+    //////trae la data de todos los pedidos para el despachador ***ORDERS 
+    
+    ///el despachador puede ver los pedidos estatus "nuevo" y los "procesados" si son del dia actual, al siguiente dia no salen los procesados.
+    public function getDataOrderDispath(){
+        
+        $this->sql = "SELECT 
+                        p.id,
+                        p.estatus,
+                        c.nombre as cnombre,
+                        c.codigo as ccodigo,
+                        format(p.total,2) as total,
+                        date_format(p.fecha_creado,'%d/%m/%Y') as fecha
+                        FROM
+                        tbl_pedido p
+                        INNER JOIN tbl_cliente c ON (p.cuenta_id = c.cuenta_id)
+                        AND (p.cliente_id = c.id)
+                        WHERE
+                        p.cuenta_id = $this->cuentaID and (p.borrado = 0 and p.estatus = 1) or (p.estatus = 2 and p.borrado = 0 and date(NOW()) = date(p.fecha_creado) )
+                        order by p.estatus,fecha desc";
+        
+        $this->commit();
+    }
+    
+    
     //////traer moneda
     
     public function getMoneda(){
@@ -435,27 +471,7 @@ class factoryDAO extends  database {
         
          $tools2 = new tools();
          $tools2->dbc = $this->dbc;
-//         $query = "SELECT 
-//                        p.id,
-//                        p.estatus as nestatus,
-//                        p.motivo_anulado as motivo,
-//                        c.nombre as cnombre,
-//                        c.codigo as ccodigo,
-//                        v.nombre as vnombre,
-//                        v.codigo as vcodigo,
-//                        format(p.subtotal,2) as stotal,
-//                        format(p.subtotaliva,2) as totaliva,
-//                        format(p.total,2) as total,
-//                        date_format(p.fecha_creado,'%d/%m/%Y') as fecha
-//                        FROM
-//                        tbl_pedido p
-//                        INNER JOIN tbl_cliente c ON (p.cuenta_id = c.cuenta_id)
-//                        AND (p.cliente_id = c.id)
-//                        INNER JOIN tbl_vendedor v ON (p.cuenta_id = v.cuenta_id)
-//                        AND (p.vendedor_id = v.id)
-//                        WHERE
-//                        p.cuenta_id = $this->cuentaID and p.borrado = 0 and p.id = $id";
-         
+        
          $query = "call sp_traer_pedido($id,$this->cuentaID)";
          
         return $tools2->simple_db($query);
