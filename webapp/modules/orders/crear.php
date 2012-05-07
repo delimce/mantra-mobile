@@ -136,7 +136,7 @@ include_once 'controller/loadData.php';
             
              $("#borrar").click(function(){
                 
-                     var answer = confirm("<?php echo LANG_ordersDeleteConfirm ?>")
+                     var answer = confirm("<?php echo LANG_ordersDeleteItemConfirm ?>")
                     if (answer){
                         
                          

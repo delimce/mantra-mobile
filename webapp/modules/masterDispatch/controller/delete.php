@@ -8,7 +8,9 @@ $tool->setTable("tbl_despachador");
 
 $id = formulario::getvar("id", $_POST);
 
-$tool->setBorrado($id);
+
+$tool->setBorradoPurgado($id); ////borra
+
 
 $tool->cerrar();
 

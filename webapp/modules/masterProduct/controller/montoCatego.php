@@ -1,6 +1,6 @@
 <?php session_start();
 
-$profile = "admin";
+$profile = "admin,dispatch";
 include("../../../config/siteconfig.php");
 
 $tool = new formulario("db");

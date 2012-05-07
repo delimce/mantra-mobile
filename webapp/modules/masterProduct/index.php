@@ -1,6 +1,6 @@
 <?php session_start();
 ////seguridad
-$profile = "admin";
+$profile = "admin,dispatch";
 ///titulo pagina y header
 
 include("../../config/siteconfig.php");
@@ -13,7 +13,7 @@ include_once 'controller/load.php';
 <!--div de pagina-->
 	<div data-role="page" id="maestrop">
 		<div data-role="header">
-                        <a href="../lobiMaster.php" data-icon="back"><?php echo LANG_back ?></a>
+                        <a href="<?php echo $regreso ?>" data-icon="back"><?php echo LANG_back ?></a>
 			<h1><?php echo $tituloCurrent ?></h1>
                         <a href="agregar.php" data-icon="pluss" data-ajax="false" data-theme="b"><?php echo LANG_addNew ?></a>                    
                         
@@ -22,7 +22,7 @@ include_once 'controller/load.php';
                     <p><?php echo LANG_totalReg.$tool->getNreg(); ?></p>
                          <ul data-role="listview" data-inset="true" data-filter="true">
                              <?php while ($row = $tool->db_vector_nom($tool->result)) { ?>
-                                <li><a class="check" data-ajax="false" href="editar.php?id=<?php echo $row["id"] ?>">
+                                <li><a class="check" data-ajax="false" href="<?php echo $link.$row["id"];  ?>">
                                     
                                         <div style="color:blue"><?php echo $row["descripcion"] ?><br></div>
                                     <fieldset style="font-size: 12px">

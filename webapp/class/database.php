@@ -140,6 +140,14 @@ class database {
 
    }
 
+   
+   /////funcion para setear el puntero: result a una posicion especifica
+   public function setPointerResult($pos){
+       
+       
+       @mysqli_data_seek($this->result, $pos);
+       
+   }
 
 
    /// propiedad que cambia la conexion a una nueva database o server  con solo invocarla se

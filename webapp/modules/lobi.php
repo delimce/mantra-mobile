@@ -36,8 +36,15 @@ $tituloCurrent = LANG_lobi;
                 
                                  <ul>
 					<li><a id="setup1" href="setup/index.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true"><?php echo LANG_setup ?></a></li>
-					<li><a id="auditorias" href="history/index.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Auditorias</a></li>
+					<li><a id="auditorias" href="monitor/index.php" data-ajax="false" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true"><?php echo LANG_monitorVisit ?></a></li>
 				</ul>
+             
+             <?php }else if($_SESSION['PROFILE']=="dispatch"){ ///para el vendedor ?>    
+                
+                                <ul>
+					<li><a id="maestros" href="masterProduct/index.php" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Productos</a></li>
+                                        <li><a id="inventario" href="stock/index.php" data-role="button" data-transition="slide" data-icon="custom" data-iconpos="right" data-inline="true">Manejar Inventario</a></li>
+                                </ul>
                 
              <?php }else if($_SESSION['PROFILE']=="vendor"){ ///para el vendedor ?>   
                 

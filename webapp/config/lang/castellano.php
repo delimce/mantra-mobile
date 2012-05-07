@@ -24,6 +24,7 @@ define(LANG_save,"Guardar");
 define(LANG_enter,"Entrar");
 define(LANG_units,"Unidades");
 define(LANG_add,"Agregar");
+define(LANG_preview,"Vista previa");
 define(LANG_cant,"cantidad");
 define(LANG_select,"Seleccionar");
 define(LANG_hour,"Hora");
@@ -33,6 +34,7 @@ define(LANG_nologin,"Usuario ó clave inválidos");
 define(LANG_profile,"Perfil:");
 
 ////////////////ADMIN
+define(LANG_admin,"Administrador");
 define(LANG_adlogin,"Ingrese sus credenciales de usuario");
 define(LANG_lobi,"Menú del sistema");
 define(LANG_lobiText,"Bienvenid@:");
@@ -96,7 +98,7 @@ define(LANG_prodCatExtraPercet,"% cargo");
 define(LANG_prodCatExtraLabel,"No aplica,recargo,descuento");
 
 
-
+define(LANG_vendor,"Vendedor");
 define(LANG_cliName,"Nombre");
 define(LANG_cliRIF,"RIF/CI");
 define(LANG_cliTlf,"Telefono");
@@ -148,12 +150,16 @@ define(LANG_ordersTotalImp,"Iva");
 define(LANG_ordersTotal,"Total");
 
 
+define(LANG_dispatch,"Despachador");
 define(LANG_ordersDetail,"Detalle de pedido");
-define(LANG_ordersDeleteConfirm,"Confirma que desea borrar del pedido este item?");
+define(LANG_ordersDeleteItemConfirm,"Confirma que desea borrar del pedido este item?");
 define(LANG_ordersCancelConfirm,"Confirma que desea Cancelar este pedido?");
+define(LANG_ordersDeleteConfirm,"Confirma que desea BORRAR este pedido?");
+
 define(LANG_ordersProcessConfirm,"Procesar este pedido?");
 define(LANG_ordersCancel,"Cancelar pedido");
 define(LANG_ordersProcess,"Procesar pedido");
+define(LANG_ordersDelete,"Borrar pedido");
 define(LANG_ordersPrint,"Imprimir");
 define(LANG_ordersCanceled,"<b>Pedido Cancelado</b>");
 define(LANG_ordersCanceledCause,"<b>Motivo de cancelación:</b>");
@@ -163,6 +169,16 @@ define(LANG_ordersUndoConfirm,"Confirma que desea Deshacer el pedido");
 define(LANG_ordersItems,"Items de pedido");
 define(LANG_SelectCatProd,"Seleccione una categoria de producto para ver la lista");
 define(LANG_NoProdForCat,"No existen productos para esta categoria");
+
+
+////auditoria
+define(LANG_monitorVisit,"Auditoria");
+define(LANG_monitorSelect,"Seleccione la opcion");
+define(LANG_monitorAccess,"Accesos");
+define(LANG_monitorAccessByPerson,"Accesos por persona");
+define(LANG_monitorAccessOf,"Ultimos Accesos");
+define(LANG_monitorTotalAccess,"Accesos totales: ");
+define(LANG_monitorAccessbyCount,"Accesos de la cuenta: ");
 
 
 ////validar

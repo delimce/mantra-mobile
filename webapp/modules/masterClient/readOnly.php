@@ -20,7 +20,7 @@ include_once('controller/loadData.php');
 			<h1><?php echo $tituloCurrent ?></h1>
 		</div>
 		<div data-role="content">
-                    <div id="titulo2"><?php echo LANG_addEdit ?></div>
+                    <div id="titulo2"><?php echo LANG_preview ?></div>
                         
             <form id="form1" action="index.php" data-transition="slide"  method="post">
             

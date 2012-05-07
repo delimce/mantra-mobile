@@ -26,9 +26,10 @@ if($tools->getNreg()>0){
     $vector[2] = $_SESSION['PROFILE'];
     $vector[3] = $_SESSION['USERID'];
     $vector[4] =  @date("Y-m-d H:i:s");
+    $vector[5] =  $_SERVER['HTTP_USER_AGENT'];
     
     
-    $tools->insertar2("tbl_acceso", "cuenta_id,ipaddress,perfil,userid,fecha", $vector);
+    $tools->insertar2("tbl_acceso", "cuenta_id,ipaddress,perfil,userid,fecha,cliente_info", $vector);
     
     $_SESSION['SESIONID'] = $tools->getUltimoId(); ///id del acceso
     

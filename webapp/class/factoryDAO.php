@@ -419,7 +419,7 @@ class factoryDAO extends  database {
          
         
          ////ordenar
-         $this->sql.= " order by p.estatus,fecha desc";
+         $this->sql.= " order by p.estatus,fecha desc,cnombre";
          
          $this->commit();
         
@@ -446,7 +446,7 @@ class factoryDAO extends  database {
                         AND (p.cliente_id = c.id)
                         WHERE
                         p.cuenta_id = $this->cuentaID and (p.borrado = 0 and p.estatus = 1) or (p.estatus = 2 and p.borrado = 0 and date(NOW()) = date(p.fecha_creado) )
-                        order by p.estatus,fecha desc";
+                        order by p.estatus,fecha desc,cnombre";
         
         $this->commit();
     }
@@ -704,8 +704,71 @@ class factoryDAO extends  database {
     }
 
 
+    
+    
+    //////////trae toda la data de los vistantes por cuenta ****MONITOR
+    
+    public function getAllVistByAcount(){
+        
+        $idcuenta = $this->cuentaID;
+        $this->sql = "call sp_accesos_totales($idcuenta);";
+        $this->commit();
+        
+    }
 
 
+    /////trae todos los accesos de la persona por userid, perfil y cuenta ****MONITOR
+    public function getDataVisitor($userid,$perfil){
+        
+        $this->sql = "SELECT 
+                        a.ipaddress as ip,
+                        date_format(fc_fecha_real(a.fecha,$this->cuentaID),'%d/%m/%y %r') as fecha,
+                        a.sesion
+                        FROM
+                        tbl_acceso a
+                        WHERE
+                        a.userid = $userid AND 
+                        a.perfil = '$perfil' AND 
+                        a.cuenta_id = $this->cuentaID
+                        ORDER BY
+                        a.fecha DESC";
+        
+        $this->commit();
+        
+    }
+    
+    
+     public function getNamebyProfile($id,$perfil){
+        
+         $tools2 = new tools();
+         $tools2->dbc = $this->dbc;
+         
+          switch ($perfil) {
+            case "vendor":
+                    $this->setTable("tbl_vendedor");
+                    $cuenta = "and cuenta_id = $this->cuentaID";
+                break;
+           case "dispatch":  
+                    $this->setTable("tbl_despachador");
+                    $cuenta = "and cuenta_id = $this->cuentaID";
+                break;
+            
+             case "admin":  
+                    $this->setTable("tbl_admin");
+                 
+                break;
+        }
+              
+         $query = "SELECT 
+                        nombre
+                        FROM
+                        $this->table 
+                        WHERE
+                        id = $id $cuenta";
+         
+        return $tools2->simple_db($query);
+        
+    }
 
 
 
@@ -772,6 +835,47 @@ class factoryDAO extends  database {
         $this->commit();
     }
     
+    /*
+     * purga los accesos del veneddor y despachador (por ahora) *****COMUN PARA MAESTROS
+     */
+    
+    public function setPurgeAccess($id){
+        
+       
+        switch ($this->table) {
+            case "tbl_vendedor":
+                $perfil = "vendor";
+                break;
+           case "tbl_despachador":
+               $perfil = "dispatch";  
+                break;
+        } 
+        
+         $this->sql = "delete from tbl_acceso where userid = $id and perfil = '$perfil' and cuenta_id = $this->cuentaID ";
+         $this->commit();
+       
+        
+    }
+    
+    
+    /*
+     * borra un vendedor o despachador
+     */
+    
+     public function setBorradoPurgado($id){
+        
+        $this->abrir_transaccion();
+         
+        $this->setBorrado($id);
+        
+        $this->setPurgeAccess($id);
+       
+        $this->cerrar_transaccion(); 
+        
+    }
+
+    
+
     /*
      * trae toda la data no borrada de una tabla *****COMUN PARA MAESTROS
      * se le puede pasar el parametro de orden

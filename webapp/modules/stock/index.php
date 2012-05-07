@@ -1,6 +1,6 @@
 <?php session_start();
 ////seguridad
-$profile = "admin";
+$profile = "admin,dispatch";
 ///titulo pagina y header
 
 include("../../config/siteconfig.php");
