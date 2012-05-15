@@ -1,9 +1,7 @@
 <?php
 
-
     if(isset($_SESSION['PEDIDO_PRODID'])){
         foreach ($_SESSION['PEDIDO_PRODID'] as $i => $value) {
-
 
             echo '<li>
             <b>Producto:</b> <span style="color:blue">'.$_SESSION['PEDIDO_PRODNOMBRE'][$i].'</span>

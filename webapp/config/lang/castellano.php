@@ -86,6 +86,7 @@ define(LANG_deleteit,"Borrar");
 define(LANG_confirmDelete,"Esta seguro que desea borrar el registro?");
 define(LANG_prod,"Producto");
 define(LANG_prodCode,"Código");
+define(LANG_prodValCode,"el Código del producto ya se encuentra registrado");
 define(LANG_prodName,"Nombre producto");
 define(LANG_prodPrice,"Precio de Venta");
 define(LANG_prodBuy,"Precio");
@@ -179,6 +180,9 @@ define(LANG_monitorAccessByPerson,"Accesos por persona");
 define(LANG_monitorAccessOf,"Ultimos Accesos");
 define(LANG_monitorTotalAccess,"Accesos totales: ");
 define(LANG_monitorAccessbyCount,"Accesos de la cuenta: ");
+define(LANG_monitorSales,"Pedidos procesados");
+define(LANG_monitorSalesTotal,"Total en ventas ");
+define(LANG_monitorSalesTotalByAccount,"Ventas totales para ");
 
 
 ////validar

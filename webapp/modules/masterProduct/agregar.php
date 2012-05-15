@@ -104,7 +104,24 @@ include_once('controller/loadCat.php');  ///categorias
                  
                  
                  if(!$("#form1").valid()) return false; 
-                                 
+                 
+                 
+                 /////validando qe no se repita el codigo del prod
+                 
+                  var cod =  $.ajax({
+                    type: "POST",
+                    url: "controller/validarCodigo.php",
+                    data: ({codigo: $("#r9codigo").val()}) ,
+                    async: false
+                   
+                }).responseText;
+                 
+                 if(cod==1){
+                     alert("<?php echo LANG_prodValCode ?>");
+                     return false;
+                 }
+                 
+                / /////guardando producto                
                 var formData = $("#form1").serialize();
  
                 $.ajax({

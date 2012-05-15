@@ -28,6 +28,10 @@ $tituloCurrent = LANG_monitorVisit;
 					<li><a href="visit.php"  data-role="button" data-transition="slide" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_monitorAccess ?></a></li>
 
 				</ul>
+                                <ul>
+					<li><a href="ordersByVendor.php"  data-role="button" data-transition="slide" data-icon="grid" data-iconpos="right" data-inline="true"><?php echo LANG_monitorSales ?></a></li>
+
+				</ul>
                             
                               
                         </div>

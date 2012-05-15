@@ -34,13 +34,16 @@ include_once 'controller/loadData.php';
             
             if(idcli>0){   
                  $("#agregarP").show();
-                 $("#continuaR").show();
+             //    $("#continuaR").show();
              }else{
                 $("#agregarP").hide();
-                $("#continuaR").hide();
+             //   $("#continuaR").hide();
                 
              }
             
+            
+            
+            if($("#continuaR").show()) $("#continuaR").hide();
             
             $.ajax({
                 type: "POST",
@@ -77,7 +80,11 @@ include_once 'controller/loadData.php';
                     $("#agregarP").hide();
                     $("#continuaR").hide();
             
-            <?php } ?>
+            <?php }else if(empty($_SESSION['PEDIDO_PRODID'])){ ?>
+                
+                    $("#continuaR").hide();
+                
+            <?php } ?>    
             
             ///validar
                 $("#form2").validate({
@@ -106,8 +113,10 @@ include_once 'controller/loadData.php';
             ////deshacer todo el pedido
              $("#deshacer").click(function(){
                 
-                     var answer = confirm("<?php echo LANG_ordersDeleteConfirm ?>")
+                     var answer = confirm("<?php echo LANG_ordersDeleteItemConfirm ?>")
                     if (answer){
+                        
+                         $("#continuaR").hide(); ///oculto el boton de continuar
                         
                                 $.ajax({
                                 type: "POST",
@@ -148,6 +157,10 @@ include_once 'controller/loadData.php';
                                 cache: false,
                                 data: formData,
                                 success: function(data){
+                                    
+                                    if(data=="")
+                                       $("#continuaR").hide(); 
+                                    
                                     $("#items").html(data);
                                
                                 },
@@ -191,6 +204,7 @@ include_once 'controller/loadData.php';
                      } 
                 });
  
+                if($("#continuaR").hide()) $("#continuaR").show();
                 return false;
             });
             

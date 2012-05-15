@@ -433,20 +433,7 @@ class factoryDAO extends  database {
     ///el despachador puede ver los pedidos estatus "nuevo" y los "procesados" si son del dia actual, al siguiente dia no salen los procesados.
     public function getDataOrderDispath(){
         
-        $this->sql = "SELECT 
-                        p.id,
-                        p.estatus,
-                        c.nombre as cnombre,
-                        c.codigo as ccodigo,
-                        format(p.total,2) as total,
-                        date_format(p.fecha_creado,'%d/%m/%Y') as fecha
-                        FROM
-                        tbl_pedido p
-                        INNER JOIN tbl_cliente c ON (p.cuenta_id = c.cuenta_id)
-                        AND (p.cliente_id = c.id)
-                        WHERE
-                        p.cuenta_id = $this->cuentaID and (p.borrado = 0 and p.estatus = 1) or (p.estatus = 2 and p.borrado = 0 and date(NOW()) = date(p.fecha_creado) )
-                        order by p.estatus,fecha desc,cnombre";
+        $this->sql = "call sp_traer_pedidos_despachador($this->cuentaID); ";
         
         $this->commit();
     }
@@ -481,17 +468,6 @@ class factoryDAO extends  database {
 
     public function  getDataOrderDetail($id){
         
-//       $this->sql = "SELECT 
-//                p.descripcion,
-//                d.cantidad,
-//                format(d.precio,2) as precio,
-//                format(d.subtotal,2) as subtotal
-//                FROM
-//                tbl_pedido_detalle d
-//                INNER JOIN tbl_producto p ON (d.cuenta_id = p.cuenta_id)
-//                AND (d.producto_id = p.id)
-//                WHERE
-//                d.cuenta_id = $this->cuentaID and d.pedido_id = $id ";
         
         $this->sql = "call sp_traer_pedido_detalle($id,$this->cuentaID)";
         
@@ -571,24 +547,10 @@ class factoryDAO extends  database {
     
      public function getDataProdCat(){
         
-        $this->sql = "SELECT
-                        cat.id,
-                        cat.nombre,
-                        cat.descripcion,
-                        count(PC.producto_id) as cant
-                        FROM
-                        tbl_prodcategoria AS cat
-                        LEFT OUTER JOIN tbl_producto_categoria AS PC ON cat.id = PC.categoria_id AND cat.cuenta_id = PC.cuenta_id
-                        WHERE
-                        cat.activo = 1 and cat.borrado = 0 and cat.cuenta_id = $this->cuentaID
-                        GROUP BY
-                        cat.id
-                        ORDER BY
-                        cat.nombre ASC ";
+        $this->sql = "call sp_traer_categoria_productos($this->cuentaID); ";
         
         $this->commit();
-        
-        
+         
     }
     
     /////trae todos los productos en existencia ****MASTER PRODUCT
@@ -626,21 +588,7 @@ class factoryDAO extends  database {
     
     public function getDataClientCat(){
         
-        $this->sql = "SELECT 
-                        cat.id,
-                        cat.nombre,
-                        cat.descripcion,
-                        count(cliente_id) as cant
-                        FROM
-                        tbl_clientcategoria cat
-                        LEFT OUTER JOIN tbl_cliente_categoria ON (cat.id = tbl_cliente_categoria.categoria_id)
-                        AND (cat.cuenta_id = tbl_cliente_categoria.cuenta_id)
-                        WHERE
-                        cat.borrado = 0 and cat.cuenta_id = $this->cuentaID
-                        GROUP BY
-                        cat.id
-                        ORDER BY
-                        cat.nombre";
+        $this->sql = "call sp_traer_categoria_clientes($this->cuentaID)";
         
         $this->commit();
         
@@ -732,6 +680,19 @@ class factoryDAO extends  database {
                         a.cuenta_id = $this->cuentaID
                         ORDER BY
                         a.fecha DESC";
+        
+        $this->commit();
+        
+    }
+    
+    
+    
+    /*
+     * traer el numero de ventas y el total por vendedor
+     */
+    public function getOrderSales(){
+        
+        $this->sql = "call sp_traer_ventas($this->cuentaID);";
         
         $this->commit();
         
@@ -892,6 +853,30 @@ class factoryDAO extends  database {
     
     
     /*
+     * verifica si el codigo existe al insertar el registro *****COMUN PARA MAESTROS
+     * si $id tiene valor valida el codigo en modo edicion EDITAR
+     */
+    
+     public function isCodigoExist($codigo,$id=false){
+         
+         $this->sql = "select id from $this->table where codigo = '$codigo' and cuenta_id = $this->cuentaID ";
+         if($id) $this->sql.=" and id != $id";
+         
+         $this->commit();
+         
+         if($this->getNreg()>0)
+             return true;
+             else
+             return false;
+         
+     }
+
+
+
+
+
+
+     /*
      * trae  toda la data de una tabla por su clave primaria *****COMUN PARA MAESTROS
      */
     
