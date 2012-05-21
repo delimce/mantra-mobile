@@ -145,7 +145,7 @@ require_once 'controller/dataOrder.php';
             
             <div id="imprime">
             
-             <div><b><?php echo LANG_ordersNumber  ?>:</b> <?php echo $cabecera["id"];  ?></div> 
+             <div><b><?php echo LANG_ordersNumber  ?>:</b> <?php echo $cabecera["pcodigo"];  ?></div> 
             <div><b><?php echo LANG_ordersDate  ?>:</b> <?php echo $cabecera["fecha"];  ?></div> 
             <div><b><?php echo LANG_ordersClient  ?>:</b> <?php echo $cabecera["cnombre"].' ('.$cabecera["ccodigo"].')'; ?></div> 
             <div><b><?php echo LANG_ordersVendor ?>:</b> <?php echo $cabecera["vnombre"].' ('.$cabecera["vcodigo"].')'; ?></div>

@@ -236,28 +236,10 @@ class factoryDAO extends  database {
          ////trayendo montos que afecten la lista de precios
          
          $clienteId = empty($_SESSION['PEDIDO_CLIENTEID']) ? 0 : $_SESSION['PEDIDO_CLIENTEID'];    
-//         $monto = $tools2->simple_db("select monto from tbl_cliente where id = $clienteId and cuenta_id = $this->cuentaID ");
-//         
-//         //////
-//         
-//         
-//         $query = "SELECT 
-//                        p.id,
-//                        concat(p.descripcion,', ',u.titulo,' precio venta: ',format(fc_porcentaje(p.precio1,$monto),2),' PVS: ',format(precio3,2)) as descripcion
-//                        FROM
-//                        tbl_producto p
-//                        LEFT OUTER JOIN tbl_unidad u ON (p.unidad_med = u.id)
-//                        AND (p.cuenta_id = u.cuenta_id)
-//                        INNER JOIN tbl_producto_categoria c ON (p.id = c.producto_id)
-//                        AND (p.cuenta_id = c.cuenta_id)
-//                        WHERE
-//                        c.categoria_id = $catid and p.cuenta_id = $this->cuentaID and p.activo = 1 and p.borrado = 0
-//                    order by p.descripcion";
-         
         
         $query = "call sp_traer_prod_venta($catid,$this->cuentaID,$clienteId)"; 
          
-        return $tools2->combo_db("producto", $query, "descripcion", "id",false,false,false,LANG_NoProdForCat);
+        return $tools2->combo_db("producto", $query, "descripcion", "id",LANG_select,false,"mostrarStock(this.value)",LANG_NoProdForCat);
         
     }
     
@@ -366,7 +348,17 @@ class factoryDAO extends  database {
     }
 
 
-    
+     ////function que processa el pedido *****ORDER
+    ////necesita el id del pedido y el id del despachador
+    public function getProdStock($id){
+        
+          $tools = new tools();
+          $tools->dbc = $this->dbc;
+        
+        return  $tools->simple_db("select fc_traer_prod_inventario($id,$this->cuentaID); "); 
+        
+        
+    } 
     
     
     /////////////traerme el valor del Impuesto Iva
@@ -402,6 +394,7 @@ class factoryDAO extends  database {
 
          $this->sql = "SELECT 
                         p.id,
+                        p.codigo as pcodigo,
                         p.estatus,
                         c.nombre as cnombre,
                         c.codigo as ccodigo,
@@ -475,6 +468,11 @@ class factoryDAO extends  database {
     }
 
 
+   public function getOrderNumber($idcuenta){
+                
+        return "select fc_pedido_correlativo($idcuenta) ";
+         
+   }
 
 
 
@@ -854,12 +852,12 @@ class factoryDAO extends  database {
     
     /*
      * verifica si el codigo existe al insertar el registro *****COMUN PARA MAESTROS
-     * si $id tiene valor valida el codigo en modo edicion EDITAR
+     * si $id tiene valor valida el codigo en modo edicion EDITAR excluye los borrados
      */
     
      public function isCodigoExist($codigo,$id=false){
          
-         $this->sql = "select id from $this->table where codigo = '$codigo' and cuenta_id = $this->cuentaID ";
+         $this->sql = "select id from $this->table where codigo = '$codigo' and borrado = 0 and cuenta_id = $this->cuentaID ";
          if($id) $this->sql.=" and id != $id";
          
          $this->commit();

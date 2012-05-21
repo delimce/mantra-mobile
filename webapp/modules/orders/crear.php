@@ -15,12 +15,40 @@ include_once 'controller/loadData.php';
         /////funcion de carga lista de productos
         function listaproductos(idcatego){
             
+            $("#cantstock").html('&nbsp;');
+            $("#botones").hide();
+            
             $.ajax({
                 type: "POST",
                 url: "controller/listProd.php",
                 data: ({id: idcatego}) ,
                 success: function(data){
                     $("#listaproductos").html(data);
+                }
+                
+            })
+            
+        }
+        
+        
+        
+         /////funcion de carga lista de productos
+        function mostrarStock(idprod){
+        
+            /////validando
+            
+            if(idprod==0)
+                $("#botones").hide();
+            else
+               $("#botones").show(); 
+                
+            
+            $.ajax({
+                type: "POST",
+                url: "controller/getStock.php",
+                data: ({id: idprod}) ,
+                success: function(data){
+                    $("#cantstock").html(data);
                 }
                 
             })
@@ -41,7 +69,8 @@ include_once 'controller/loadData.php';
                 
              }
             
-            
+            $("#cantstock").html('&nbsp;');
+            $("#botones").hide();
             
             if($("#continuaR").show()) $("#continuaR").hide();
             
@@ -113,7 +142,7 @@ include_once 'controller/loadData.php';
             ////deshacer todo el pedido
              $("#deshacer").click(function(){
                 
-                     var answer = confirm("<?php echo LANG_ordersDeleteItemConfirm ?>")
+                     var answer = confirm("<?php echo LANG_ordersUndoConfirm ?>")
                     if (answer){
                         
                          $("#continuaR").hide(); ///oculto el boton de continuar
@@ -213,13 +242,14 @@ include_once 'controller/loadData.php';
             ////ejecuta funcion al cambiar la categoria
             $("#categoriap").change(function() {
                 listaproductos($("#categoriap").val());
+                
             });
             
              ////ejecuta funcion al cambiar el cliente
             $("#cliente_id").change(function() {
                 setClienteId($("#cliente_id").val());
             });
-            
+             
             
         });
         
@@ -267,18 +297,25 @@ include_once 'controller/loadData.php';
                             
                         <label style="font-weight:bold" for="producto" class="select"><?php echo LANG_prod ?></label>
                         <div id="listaproductos">
-                             <?php echo LANG_SelectCatProd ?>
+                            <div id="producto"><?php echo LANG_SelectCatProd ?></div> 
                                     
                         </div>
                         <div>
                             
                             <div id="cantidadprod">
+                                
+                                <div id="cantstock">
+                                    &nbsp;
+                                </div>
+                                
                                 <label style="font-weight:bold" class="select"><?php echo LANG_cant ?></label>
                                 <div><input type="number" id="cantidad" name="cantidad"></div>
                             </div>
-                                
-                            <button data-role="submit" data-theme="a" id="add" name="add" value="submit-value" data-inline="true"><?php echo LANG_ordersAddEdit ?></button>
-                            <button data-role="borrar" data-theme="a" id="borrar" name="borrar" value="submit-value" data-inline="true"><?php echo LANG_ordersDeleteItem ?></button>    
+  
+                            <div id="botones" style="display: none">  
+                                <button data-role="submit" data-theme="a" id="add" name="add" value="submit-value" data-inline="true"><?php echo LANG_ordersAddEdit ?></button>
+                                <button data-role="borrar" data-theme="a" id="borrar" name="borrar" value="submit-value" data-inline="true"><?php echo LANG_ordersDeleteItem ?></button>    
+                            </div>
                         </div>
                             
                           </div>  

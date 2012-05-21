@@ -18,8 +18,10 @@ $totalIva = 0;
 
 $tool->abrir_transaccion();
 
+////traer siguiente correlativo de pedido
+$dataPedido[4] = $tool->simple_db(factoryDAO::getOrderNumber($_SESSION['CUENTAID']));
 
-$tool->insertar2("tbl_pedido", "cuenta_id,vendedor_id,cliente_id,fecha_creado", $dataPedido);
+$tool->insertar2("tbl_pedido", "cuenta_id,vendedor_id,cliente_id,fecha_creado,codigo", $dataPedido);
 
 $idPedido = $tool->getUltimoId(); ///id del pedido a insertar
 

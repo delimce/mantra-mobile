@@ -154,6 +154,7 @@ define(LANG_ordersTotal,"Total");
 define(LANG_dispatch,"Despachador");
 define(LANG_ordersDetail,"Detalle de pedido");
 define(LANG_ordersDeleteItemConfirm,"Confirma que desea borrar del pedido este item?");
+define(LANG_ordersUndoConfirm,"Confirma que desea deshacer este pedido?");
 define(LANG_ordersCancelConfirm,"Confirma que desea Cancelar este pedido?");
 define(LANG_ordersDeleteConfirm,"Confirma que desea BORRAR este pedido?");
 

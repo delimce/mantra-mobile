@@ -5,9 +5,7 @@ session_start();
 $profile = "vendor";
 include("../../../config/siteconfig.php");
 
-$traer = new formulario();
-
-$catid = $traer->getvar("id", $_POST);
+$catid = formulario::getvar("id", $_POST);
 
 if ($catid > 0) {
     $tool = new factoryDAO("db");
