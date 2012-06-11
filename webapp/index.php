@@ -74,11 +74,7 @@ include("./config/siteconfig.php");
            </form>
            
 		</div>
-		<div data-role="footer">
-			<h4>Footer</h4>
-		</div>
-             
-	</div>
+        </div>
 <!--div de login-->    
    
  

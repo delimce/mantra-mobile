@@ -1,7 +1,7 @@
 <?php 
 $tool = new factoryDAO("db");
 $tool->setTable("tbl_producto");
-$tool->getAllDataProd("descripcion");
+$tool->getAllDataProd();
 
 
 //////para q los vendedores puedan visualizarlos

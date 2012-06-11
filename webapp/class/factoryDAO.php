@@ -553,28 +553,10 @@ class factoryDAO extends  database {
     
     /////trae todos los productos en existencia ****MASTER PRODUCT
     
-     public function getAllDataProd($orderby){
+     public function getAllDataProd(){
         
              
-        $this->sql = "SELECT 
-                            p.id,
-                            p.codigo,
-                            p.descripcion,
-                            p.unidad_med,
-                            p.unidad_cant,
-                            p.precio1,
-                            p.precio3,
-                            p.activo,
-                            ifnull(u.titulo,'<b>N/A</b>') AS presentacion
-                            FROM
-                            tbl_producto p
-                            LEFT OUTER JOIN tbl_unidad u ON (p.unidad_med = u.id)
-                            AND (p.cuenta_id = u.cuenta_id)
-                            WHERE
-                            p.borrado = 0 AND 
-                            p.cuenta_id = $this->cuentaID
-                            ORDER BY
-                            $orderby ";
+        $this->sql = "call sp_traer_lista_producto($this->cuentaID);";
         
         $this->commit();
         
