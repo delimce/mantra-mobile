@@ -8,6 +8,7 @@ include_once('controller/loadData.php');
 include_once('controller/loadUnit.php'); ///unidades
 include_once('controller/loadCat.php'); ///categorias
 
+
 ?>
 <body>
  
@@ -33,6 +34,7 @@ include_once('controller/loadCat.php'); ///categorias
             
             
             return valor.toFixed(2);
+
             
         }   
         
@@ -45,7 +47,8 @@ include_once('controller/loadCat.php'); ///categorias
            $("#notification").text(data);
            $("#notification").css({color:"blue", fontWeight:"bold"});
            
-           
+
+
            
         }
         
@@ -75,8 +78,7 @@ include_once('controller/loadCat.php'); ///categorias
             });
                         //////////////////////////////////////////////
             
-            
-            
+
             
              
             ///campo oculto de id
@@ -176,7 +178,7 @@ include_once('controller/loadCat.php'); ///categorias
 <div data-role="page" id="agregar">
 
 		<div data-role="header">
-                        <a href="index.php" data-icon="back"><?php echo LANG_back ?></a>
+                        <a href="index.php" data-ajax="false" data-icon="back"><?php echo LANG_back ?></a>
 			<h1><?php echo $tituloCurrent ?></h1>
 		</div>
 		<div data-role="content">

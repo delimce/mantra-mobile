@@ -58,57 +58,6 @@ class factoryDAO extends  database {
          */
 
         public function getDataLogin($usuario,$clave){
-        
-//        return "(SELECT
-//                        a.id,
-//                        a.nombre,
-//                        a.user,
-//                        c.nombre as cnombre,
-//                        c.site_titulo,
-//                        c.banner_titulo,
-//                        c.footer_titulo,
-//                        c.moneda1,
-//                        c.id as cid,
-//                        'admin' as profile
-//                        FROM
-//                        tbl_admin AS a
-//                        INNER JOIN tbl_cuenta_admin AS ca ON a.id = ca.admin_id
-//                        INNER JOIN tbl_cuenta AS c ON ca.cuenta_id = c.id
-//                        where a.user='$usuario' and a.pass = md5('$clave') and c.activo=1
-//                        )
-//                        UNION
-//                        (SELECT
-//                        v.id,
-//                        v.nombre,
-//                        v.user,
-//                        c.nombre as cnombre,
-//                        c.site_titulo,
-//                        c.banner_titulo,
-//                        c.footer_titulo,
-//                        c.moneda1,
-//                        c.id as cid,
-//                        'vendor' as profile
-//                        FROM
-//                        tbl_vendedor AS v
-//                        INNER JOIN tbl_cuenta AS c ON v.cuenta_id = c.id
-//                        where v.user='$usuario' and v.pass = md5('$clave') and c.activo=1 and v.activo = 1 AND v.borrado = 0
-//                        )UNION
-//                        (SELECT
-//                        d.id,
-//                        d.nombre,
-//                        d.user,
-//                        c.nombre as cnombre,
-//                        c.site_titulo,
-//                        c.banner_titulo,
-//                        c.footer_titulo,
-//                        c.moneda1,
-//                        c.id as cid,
-//                        'dispatch' as profile
-//                        FROM
-//                        tbl_despachador AS d
-//                        INNER JOIN tbl_cuenta AS c ON d.cuenta_id = c.id
-//                        where d.user='$usuario' and d.pass = md5('$clave') and c.activo=1 and d.activo = 1 AND d.borrado = 0
-//                        )";
 
         return "call sp_login('$usuario','$clave')";
                       
@@ -533,12 +482,34 @@ class factoryDAO extends  database {
     
     
      ////trae el query para generar un combo de categoria de producto ****PRODCATEGORIA
+
+    /*
+     * combo con la lista de categorias de producto.
+     */
     
     public function getComboCatProd($cuenta){
         
       return "select nombre,id from tbl_prodcategoria where cuenta_id = $cuenta and activo = 1 and borrado = 0 order by nombre";  
         
     }
+
+    /*
+     *   combo con la lista de categorias de producto. (NUEVO)
+     */
+
+    public function getComboCatProd2($seleccionado){
+
+            $tools2 = new tools();
+            $tools2->dbc = $this->dbc;
+            ////trayendo categorias de productos
+
+            $query =  "select nombre,id from tbl_prodcategoria where cuenta_id = $this->cuentaID and activo = 1 and borrado = 0 order by nombre";
+
+            return $tools2->combo_db("categoriap", $query, "nombre", "id", LANG_all, $seleccionado, false, '', false, false, "-");
+
+
+    }
+
     
      ////trae toda la data de las categorias de productos ****PRODCATEGORIA
     
@@ -553,10 +524,10 @@ class factoryDAO extends  database {
     
     /////trae todos los productos en existencia ****MASTER PRODUCT
     
-     public function getAllDataProd(){
+     public function getAllDataProd($filtro=0){
         
              
-        $this->sql = "call sp_traer_lista_producto($this->cuentaID);";
+        $this->sql = "call sp_traer_lista_producto($this->cuentaID,$filtro);";
         
         $this->commit();
         
@@ -611,7 +582,7 @@ class factoryDAO extends  database {
     
     
     
-    /////////////////////monto de la categoria para calcualr el precio sugerido ***MASTER PRODUCT
+    /////////////////////monto de la categoria para calcular el precio sugerido ***MASTER PRODUCT
     
     public function getMontocatProd($id,$cuenta){
         
@@ -763,6 +734,51 @@ class factoryDAO extends  database {
         
          
         
+    }
+
+
+    /*
+     * trae el valor del filtro por categoria ingresando la tabla  ****FILTROS POR CATEGORIA
+     */
+
+    public function getDataFilter(){
+
+        $tool = new tools();
+        $tool->dbc = $this->dbc;
+
+        $USERID = $_SESSION['USERID'];
+        $PERFIL = $_SESSION['PROFILE'];
+        $tabla = $this->getTable();
+
+       $query =  "select valor from tbl_filtro_categoria where cuenta_id = $this->cuentaID and perfil = '$PERFIL' and userid = $USERID and tabla = '$tabla' ";
+
+        $result =  $tool->simple_db($query);
+
+        if($tool->getNreg()>0)
+            return $result;
+        else
+            return 0;
+
+    }
+
+
+    /*
+     *  guarda el valor del filtro para el usuario consultador  ****FILTROS POR CATEGORIA
+     */
+
+
+    public function setDataFilter($valor){
+
+        $tabla = $this->getTable();
+        $cuenta = $this->cuentaID;
+        $user =  $_SESSION['USERID'];
+        $perfil = $_SESSION['PROFILE'];
+
+       
+        $this->sql = "call sp_guardar_filtro_cat($cuenta,$user,'$perfil','$tabla',$valor);";
+
+        $this->commit();
+
     }
 
 

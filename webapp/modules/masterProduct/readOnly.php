@@ -14,7 +14,7 @@ include_once('controller/loadCat.php'); ///categorias
 <div data-role="page" id="agregar">
 
 		<div data-role="header">
-                        <a href="index.php" data-icon="back"><?php echo LANG_back ?></a>
+                        <a href="index.php" data-ajax="false" data-icon="back"><?php echo LANG_back ?></a>
 			<h1><?php echo $tituloCurrent ?></h1>
 		</div>
 		<div data-role="content">

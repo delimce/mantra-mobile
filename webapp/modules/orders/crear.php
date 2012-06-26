@@ -292,7 +292,7 @@ include_once 'controller/loadData.php';
                         
                         <label style="font-weight:bold" class="select"><?php echo LANG_catProd ?></label>
                         <div>
-                            <?php echo $tool->combo_db("categoriap", $querycp, "nombre", "id", $porDefecto2, $seleccionado2, false, '', false, $desactivado2, "fsdf"); ?>
+                            <?php echo $tool->combo_db("categoriap", $querycp, "nombre", "id", $porDefecto2, $seleccionado2, false, '', false, $desactivado2, "-"); ?>
                         </div>
                             
                         <label style="font-weight:bold" for="producto" class="select"><?php echo LANG_prod ?></label>

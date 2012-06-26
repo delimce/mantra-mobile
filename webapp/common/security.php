@@ -14,6 +14,7 @@ if(!empty($profile)){
         header("location: /$dirApp/index.php");
         die();
     }
+
     
 }
 

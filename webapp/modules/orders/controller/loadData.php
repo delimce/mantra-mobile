@@ -19,7 +19,7 @@ $cuenta = $_SESSION['CUENTAID'];
     
     $querycp = factoryDAO::getComboCatProd($cuenta);
 
-    
+
     $porDefecto2 = LANG_select;
     $seleccionado2 = 0;
     $desactivado2 = false;
