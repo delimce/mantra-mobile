@@ -3,7 +3,7 @@
 // llamando la super clase base de datos
 
 if (!class_exists('database')) {
-	require_once('database.php');
+	require_once('Database.php');
 }
 
 

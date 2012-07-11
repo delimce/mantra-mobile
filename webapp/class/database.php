@@ -6,7 +6,7 @@ desde su coneccion hasta cierre de la conexion
  ******************************************************************/
 //nombre de la clase
 
-class database {
+class Database {
 
  //**********************************************************************Atributos de la clase
   var $db_HOST;  //nombre del host de base de datos
@@ -136,7 +136,6 @@ class database {
    public function db_vector_nom(){
 
       return @mysqli_fetch_assoc($this->result);
-
 
    }
 

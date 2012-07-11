@@ -3,7 +3,7 @@
 $profile = "admin,vendor,dispatch";
 include("../../../config/siteconfig.php");
 
-$tool = new formulario('db');
+$tool = new Formulario('db');
 
 //////validaciones etc...
 /////edicion de la tabla segun el perfil
@@ -16,7 +16,7 @@ else
 
 ///clave
 
-$clave1 = $tool->simple_db(factoryDAO::getDataPassword($tabla,$_SESSION['USERID']));
+$clave1 = $tool->simple_db(FactoryDAO::getDataPassword($tabla,$_SESSION['USERID']));
 $clave2 = $tool->getvar("clave",$_POST);
 if($clave1!=$clave2) $_POST['r1pass'] = md5($clave2);
 

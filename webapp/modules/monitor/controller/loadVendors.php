@@ -1,12 +1,10 @@
 <?php
     
-    $tool = new factoryDAO("db");
+    $tool = new FactoryDAO("db");
     
     $moneda = $tool->getMoneda();
     
-    
-    
-    
+
     $tool->getOrderSales(); //ventas por vendedores
         
     //opteniendo el total

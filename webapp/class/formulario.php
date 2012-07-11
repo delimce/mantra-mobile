@@ -9,7 +9,7 @@
  ****************************************************************************/
 
 
- class formulario extends  tools  {
+ class Formulario extends  Tools  {
 
  //**********************************************atributos
 
@@ -27,7 +27,7 @@
 		
 	}
 
- //********************************************* metodos de formulario
+ //********************************************* metodos de Formulario
 
 
   /* metodo para obtener variables de formularios de manera segura
@@ -141,7 +141,7 @@
 
  
 
- } //// fin de la clase formulario
+ } //// fin de la clase Formulario
 
 
 

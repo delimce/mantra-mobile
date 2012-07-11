@@ -2,7 +2,7 @@
 $profile = "vendor";
 include("../../../config/siteconfig.php");
 
-$traer = new formulario();
+$traer = new Formulario();
 
  $_SESSION['PEDIDO_CLIENTEID'] = $traer->getvar("id", $_POST);
 

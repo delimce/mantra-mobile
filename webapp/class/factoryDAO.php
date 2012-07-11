@@ -4,7 +4,7 @@
  *clase que hace el llamado a todos los querys procedures y funciones a utilizar en la aplicacion 
  */
 
-class factoryDAO extends  database {
+class FactoryDAO extends  Database {
     
     private $table;
     private $cuentaID;
@@ -21,15 +21,22 @@ class factoryDAO extends  database {
 
      }
 
-     
+
      ////para el uso de las tablas maestras y otros querys
-     $this->cuentaID = $_SESSION['CUENTAID'];
+     $this->setCuentaID($_SESSION['CUENTAID']);
 
   }
-    
+
+    /*
+     * setter de la cuenta
+     */
+    public function setCuentaID($cuentaID)
+    {
+        $this->cuentaID = $cuentaID;
+    }
   
     /*
-     * gete y setter de la tabla
+     * geter y setter de la tabla
      */
   
   
@@ -89,7 +96,7 @@ class factoryDAO extends  database {
                         INNER JOIN tbl_cuenta_admin c ON (a.id = c.admin_id)
                         where c.admin_id = $id and c.cuenta_id = $this->cuentaID " ;
          
-        $tools = new tools();
+        $tools = new Tools();
         $tools->dbc = $this->dbc;
         
         $data = $tools->simple_db($this->sql);
@@ -180,7 +187,7 @@ class factoryDAO extends  database {
     
     public function getComboProdByCatId($catid){
         
-         $tools2 = new tools();
+         $tools2 = new Tools();
          $tools2->dbc = $this->dbc;
          ////trayendo montos que afecten la lista de precios
          
@@ -199,7 +206,7 @@ class factoryDAO extends  database {
         
     
                  
-        $tools = new tools();
+        $tools = new Tools();
         
         $tools->dbc = $this->dbc;
         
@@ -226,7 +233,7 @@ class factoryDAO extends  database {
     public function getOrderTempData($productos){
         
         
-         $tools = new tools();
+         $tools = new Tools();
         
         $tools->dbc = $this->dbc;
         
@@ -301,7 +308,7 @@ class factoryDAO extends  database {
     ////necesita el id del pedido y el id del despachador
     public function getProdStock($id){
         
-          $tools = new tools();
+          $tools = new Tools();
           $tools->dbc = $this->dbc;
         
         return  $tools->simple_db("select fc_traer_prod_inventario($id,$this->cuentaID); "); 
@@ -321,7 +328,7 @@ class factoryDAO extends  database {
     
      public function getdataOrderPref(){
         
-         $tools2 = new tools();
+         $tools2 = new Tools();
          $tools2->dbc = $this->dbc;
          $query = "SELECT 
                         c.moneda1,
@@ -361,7 +368,7 @@ class factoryDAO extends  database {
          
         
          ////ordenar
-         $this->sql.= " order by p.estatus,fecha desc,cnombre";
+         $this->sql.= " order by p.estatus,p.fecha_creado desc,cnombre";
          
          $this->commit();
         
@@ -385,7 +392,7 @@ class factoryDAO extends  database {
     
     public function getMoneda(){
         
-         $tools2 = new tools();
+         $tools2 = new Tools();
          $tools2->dbc = $this->dbc;
          
          $query = "select moneda1 from tbl_cuenta where id = $this->cuentaID";
@@ -398,7 +405,7 @@ class factoryDAO extends  database {
     //////////traer los datos encabezados del pedido ***ORDERS
     public function getDataOrder($id){
         
-         $tools2 = new tools();
+         $tools2 = new Tools();
          $tools2->dbc = $this->dbc;
         
          $query = "call sp_traer_pedido($id,$this->cuentaID)";
@@ -432,7 +439,7 @@ class factoryDAO extends  database {
 
     public function getNameProd($idProd){
         
-         $tools2 = new tools();
+         $tools2 = new Tools();
          $tools2->dbc = $this->dbc;
          $query = "SELECT 
                         p.descripcion
@@ -448,7 +455,7 @@ class factoryDAO extends  database {
     
      public function getNameClient($idCli){
         
-         $tools2 = new tools();
+         $tools2 = new Tools();
          $tools2->dbc = $this->dbc;
          $query = "SELECT 
                         c.nombre
@@ -463,7 +470,7 @@ class factoryDAO extends  database {
     
      public function getNameVendor($idVen){
         
-         $tools2 = new tools();
+         $tools2 = new Tools();
          $tools2->dbc = $this->dbc;
          $query = "SELECT 
                         v.nombre
@@ -499,7 +506,7 @@ class factoryDAO extends  database {
 
     public function getComboCatProd2($seleccionado){
 
-            $tools2 = new tools();
+            $tools2 = new Tools();
             $tools2->dbc = $this->dbc;
             ////trayendo categorias de productos
 
@@ -639,7 +646,7 @@ class factoryDAO extends  database {
     
     
     /*
-     * traer el numero de ventas y el total por vendedor
+     * traer el numero de ventas y el total por vendedor     *****MONITOR
      */
     public function getOrderSales(){
         
@@ -648,11 +655,23 @@ class factoryDAO extends  database {
         $this->commit();
         
     }
-    
+
+
+    /*
+     * traer el total de pedidos por vendedor
+     */
+
+    public function  getOrdersByVendor($idvendor){
+
+        $this->sql = "call sp_traer_ventas_vendor($this->cuentaID,$idvendor);";
+        $this->commit();
+
+    }
+
     
      public function getNamebyProfile($id,$perfil){
         
-         $tools2 = new tools();
+         $tools2 = new Tools();
          $tools2->dbc = $this->dbc;
          
           switch ($perfil) {
@@ -691,7 +710,7 @@ class factoryDAO extends  database {
     
     public function addData(){
         
-         $tools = new formulario();
+         $tools = new Formulario();
          $tools->dbc = $this->dbc;
         
          $tools->insert_data("r", "9", $this->table, $_POST);
@@ -709,7 +728,7 @@ class factoryDAO extends  database {
     
     public function saveData($id){
         
-         $tools = new formulario();
+         $tools = new Formulario();
          $tools->dbc = $this->dbc;
         
          $tools->update_data("r", "9", $this->table, $_POST,"id = $id  and cuenta_id = $this->cuentaID ");
@@ -727,7 +746,7 @@ class factoryDAO extends  database {
     
     public function saveDataOnlyId($id){
         
-         $tools = new formulario();
+         $tools = new Formulario();
          $tools->dbc = $this->dbc;
         
          $tools->update_data("r", "9", $this->table, $_POST,"id = $id ");
@@ -743,7 +762,7 @@ class factoryDAO extends  database {
 
     public function getDataFilter(){
 
-        $tool = new tools();
+        $tool = new Tools();
         $tool->dbc = $this->dbc;
 
         $USERID = $_SESSION['USERID'];
@@ -797,8 +816,7 @@ class factoryDAO extends  database {
      */
     
     public function setPurgeAccess($id){
-        
-       
+
         switch ($this->table) {
             case "tbl_vendedor":
                 $perfil = "vendor";
@@ -811,7 +829,7 @@ class factoryDAO extends  database {
          $this->sql = "delete from tbl_acceso where userid = $id and perfil = '$perfil' and cuenta_id = $this->cuentaID ";
          $this->commit();
        
-        
+
     }
     
     
@@ -831,7 +849,28 @@ class factoryDAO extends  database {
         
     }
 
-    
+
+
+     /*
+      * funcion que verifica si esta habilitado el atributo de enviar email
+      */
+
+    public function isEmailEnable()
+    {
+
+        $this->sql = "select envio_email from tbl_cuenta where id = $this->cuentaID and  envio_email = 1";
+            $this->commit();
+
+            if ($this->getNreg() > 0)
+                return true;
+            else
+                return false;
+        }
+
+
+
+
+
 
     /*
      * trae toda la data no borrada de una tabla *****COMUN PARA MAESTROS
@@ -880,7 +919,7 @@ class factoryDAO extends  database {
         
         $this->sql = "select * from $this->table where id = $id and cuenta_id = $this->cuentaID ";
                 
-        $tools = new tools();
+        $tools = new Tools();
         $tools->dbc = $this->dbc;
         
         $data = $tools->simple_db($this->sql);
@@ -898,7 +937,7 @@ class factoryDAO extends  database {
         
         $this->sql = "select * from $this->table where id = $id ";
                 
-        $tools = new tools();
+        $tools = new Tools();
         $tools->dbc = $this->dbc;
         
         $data = $tools->simple_db($this->sql);
@@ -929,6 +968,8 @@ class factoryDAO extends  database {
         $this->sql = "delete from $this->table where $campo = $id and cuenta_id = $this->cuentaID ";
         $this->commit();
     }
+
+
 
 };
 ?>

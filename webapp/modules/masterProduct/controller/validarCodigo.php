@@ -3,11 +3,11 @@
 $profile = "admin,vendor";
 include("../../../config/siteconfig.php");
 
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
 
-$codigo = formulario::getvar("codigo", $_POST);
+$codigo = Formulario::getvar("codigo", $_POST);
 
-$id = formulario::getvar("id", $_POST);
+$id = Formulario::getvar("id", $_POST);
 
 ////en caso de que no venga id
 if(empty($id)) $id = false;

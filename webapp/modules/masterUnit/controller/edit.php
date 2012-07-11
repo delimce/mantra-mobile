@@ -3,7 +3,7 @@
 $profile = "admin";
 include("../../../config/siteconfig.php");
 
-$tool = new formulario('db');
+$tool = new Formulario('db');
 
 //////validaciones etc...
 

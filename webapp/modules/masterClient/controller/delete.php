@@ -3,13 +3,13 @@
 $profile = "admin";
 include("../../../config/siteconfig.php");
 
-$tool = new formulario();
+$tool = new Formulario();
 
 
 $id = $tool->getvar("id", $_POST);
 
 
-$factory = new factoryDAO('db');
+$factory = new FactoryDAO('db');
 $factory->setTable("tbl_cliente");
 
 $factory->setBorrado($id);

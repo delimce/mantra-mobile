@@ -1,9 +1,9 @@
 <?php 
-$tool2 = new formulario();
+$tool2 = new Formulario();
 
 $id = $tool2->getvar("id",$_GET);
 
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
 $tool->setTable("tbl_prodcategoria");
 
 if(!empty($id))

@@ -3,14 +3,14 @@
 $profile = "admin";
 include("../../../config/siteconfig.php");
 
-$tool2 = new formulario();
+$tool2 = new Formulario();
 
 //////validaciones etc...
 
 $id = $tool2->getvar("id", $_POST);
 
 
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
     
 $tool->abrir_transaccion();
     $tool->setTable("tbl_clientcategoria");

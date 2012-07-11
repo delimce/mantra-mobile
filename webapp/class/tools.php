@@ -8,7 +8,7 @@
   en caso de que desee llamar herramientas del tipo database
  ****************************************************************************/
 
- class tools extends  database {
+ class Tools extends  Database {
 
  //**********************************************atributos
 
@@ -129,7 +129,7 @@
               
      $combo = '<select name="'.$id.'" id="'.$id.'"';
      if($onchange)$combo.=' onChange="'.$onchange.'"';
-     if($multiple)$combo.=' multiple size = "'.($this->nreg/2+1).'" ';
+     if($multiple)$combo.=' multiple size = "'.($this->getNreg()/2+1).'" ';
      if($desabilita)$combo.=' disabled="disabled"';
 	 if($estilo)$combo.=' class="'.$estilo.'"';
      $combo.= ' data-native-menu="false" data-mini="true">';

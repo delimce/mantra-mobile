@@ -5,9 +5,9 @@ session_start();
 $profile = "admin";
 include("../../../config/siteconfig.php");
 
-$id = formulario::getvar("id", $_POST);
+$id = Formulario::getvar("id", $_POST);
 
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
 
 $tool->setTable("tbl_pedido");
 

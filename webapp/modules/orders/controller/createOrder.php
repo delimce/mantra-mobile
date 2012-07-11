@@ -5,7 +5,7 @@ session_start();
 $profile = "vendor";
 include("../../../config/siteconfig.php");
 
-$tool = new tools("db");
+$tool = new Tools("db");
 
 ////////crear registro de pedido
 $dataPedido[0] = $_SESSION['CUENTAID'];
@@ -19,7 +19,7 @@ $totalIva = 0;
 $tool->abrir_transaccion();
 
 ////traer siguiente correlativo de pedido
-$dataPedido[4] = $tool->simple_db(factoryDAO::getOrderNumber($_SESSION['CUENTAID']));
+$dataPedido[4] = $tool->simple_db(FactoryDAO::getOrderNumber($_SESSION['CUENTAID']));
 
 $tool->insertar2("tbl_pedido", "cuenta_id,vendedor_id,cliente_id,fecha_creado,codigo", $dataPedido);
 
@@ -31,8 +31,8 @@ $dataDetalle[1] = $idPedido;
 
 
 ////productos con iva
-$prodIva = $tool->array_query(factoryDAO::getProdsIva($_SESSION['PEDIDO_PRODID'],$_SESSION['CUENTAID']));
-$iva1 = $tool->simple_db(factoryDAO::getIva($_SESSION['CUENTAID'])); ///valor del iva
+$prodIva = $tool->array_query(FactoryDAO::getProdsIva($_SESSION['PEDIDO_PRODID'],$_SESSION['CUENTAID']));
+$iva1 = $tool->simple_db(FactoryDAO::getIva($_SESSION['CUENTAID'])); ///valor del iva
 
 foreach ($_SESSION['PEDIDO_PRODID'] as $i => $value) {
     

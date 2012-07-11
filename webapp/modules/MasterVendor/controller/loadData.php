@@ -1,5 +1,5 @@
 <?php 
-$tool = new formulario("db");
+$tool = new Formulario("db");
 
 $id = $tool->getvar("id",$_GET);
 

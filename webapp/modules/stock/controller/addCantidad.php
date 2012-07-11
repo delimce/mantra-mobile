@@ -3,7 +3,7 @@
 $profile = "admin,dispatch";
 include("../../../config/siteconfig.php");
 
-$tool = new formulario('db');
+$tool = new Formulario('db');
 
 //////////////actualizando el inventario con una compra del producto
 $_POST['r9producto_id'] = $tool->getvar("id", $_POST);

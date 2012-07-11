@@ -33,6 +33,8 @@ define(LANG_totalReg, "Total de registros: ");
 define(LANG_nologin, "Usuario ó clave inválidos");
 define(LANG_nologinBlank, "Usuario inválido");
 define(LANG_profile, "Perfil:");
+define(LANG_affirmative , "Ok");
+define(LANG_negative , "No");
 
 ////////////////ADMIN
 define(LANG_admin, "Administrador");
@@ -53,6 +55,7 @@ define(LANG_setupFooter, "Titulo piso");
 define(LANG_setupMoneda1, "Siglas moneda");
 define(LANG_setupServerDatetime, "Fecha server");
 define(LANG_setupImpIva, "Impuesto IVA");
+define(LANG_EnableEmail, "Envios de correo");
 define(LANG_setupDifHour, "Dif.hora server (min)");
 
 //////////////MAESTROS
@@ -183,6 +186,7 @@ define(LANG_monitorAccessOf, "Ultimos Accesos");
 define(LANG_monitorTotalAccess, "Accesos totales: ");
 define(LANG_monitorAccessbyCount, "Accesos de la cuenta: ");
 define(LANG_monitorSales, "Pedidos procesados");
+define(LANG_monitorSalesBy, "Pedidos procesados de ");
 define(LANG_monitorSalesTotal, "Total en ventas ");
 define(LANG_monitorSalesTotalByAccount, "Ventas totales para ");
 

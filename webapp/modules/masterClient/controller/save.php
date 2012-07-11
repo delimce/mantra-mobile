@@ -3,13 +3,13 @@
 $profile = "admin,vendor";
 include("../../../config/siteconfig.php");
 
-$tool2 = new formulario();
+$tool2 = new Formulario();
 
 //////en caso de que cree el cliente el vendor
 if($_SESSION['PROFILE']=="vendor") $_POST['r9vendedor_id'] = $_SESSION['USERID'];
 ////////////////
 
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
 $tool->setTable("tbl_cliente");
 
 $tool->abrir_transaccion();

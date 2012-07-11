@@ -4,8 +4,8 @@ $profile = "vendor";
 include("../../../config/siteconfig.php");
 
 
-$idProd = formulario::getvar("producto", $_POST);
-$cantProd = formulario::getvar("cantidad", $_POST);
+$idProd = Formulario::getvar("producto", $_POST);
+$cantProd = Formulario::getvar("cantidad", $_POST);
 
 
 /////////sino me vienen id de productos
@@ -21,7 +21,7 @@ if(empty($idProd)){
 ///////*****VARIABLES DE SESION ARA ALMACENAR ITEMS DE LOS PEDIDOS
 require("initOrder.php");
 
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
 $data = $tool->getProdDataStock($idProd);
 
 ////***********llenando vectores

@@ -1,10 +1,10 @@
 <?php
 
-$tool = new tools("db");
+$tool = new Tools("db");
 $cuenta = $_SESSION['CUENTAID'];
 
 
-$queryv = factoryDAO::comboVendors($cuenta);
+$queryv = FactoryDAO::comboVendors($cuenta);
 
 if($_SESSION['PROFILE']=="admin"){
 $porDefecto = LANG_all;

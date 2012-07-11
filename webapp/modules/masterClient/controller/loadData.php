@@ -1,9 +1,9 @@
 <?php 
-$tool = new formulario();
+$tool = new Formulario();
 
 $id = $tool->getvar("id",$_GET);
 
-$factory = new factoryDAO("db");
+$factory = new FactoryDAO("db");
 $factory->setTable("tbl_cliente");
 
 $datos = $factory->getAllDataByPk($id);

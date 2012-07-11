@@ -6,10 +6,10 @@ include("../../../config/siteconfig.php");
 
 //////validaciones etc...
 
-$id = formulario::getvar("id", $_POST);
+$id = Formulario::getvar("id", $_POST);
 
     
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
     
 $tool->abrir_transaccion();
     $tool->setTable("tbl_prodcategoria");

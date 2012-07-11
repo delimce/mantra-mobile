@@ -26,7 +26,7 @@ include_once 'controller/loadAccess.php';
                     </p>
                       
                     
-                <?php while ($row = $tool->db_vector_nom($tool->result)) {  ?>
+                <?php while ($row = $tool->db_vector_nom()) {  ?>
                    <div class="ui-grid-b" style="font-size: 13px;font-weight: bold">
                             <div class="ui-block-a"><?php echo $row["fecha"] ?> </div>
                             <div class="ui-block-b"><?php echo $row["ip"] ?> </div>

@@ -1,5 +1,5 @@
 <?php 
-$tool = new tools("db");
+$tool = new Tools("db");
 
 $queryc = "select * from tbl_cliente where cuenta_id = {$_SESSION['CUENTAID']} and borrado = 0 ";
 

@@ -5,9 +5,9 @@ session_start();
 $profile = "admin";
 include("../../../config/siteconfig.php");
 
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
 
-$traer = new formulario();
+$traer = new Formulario();
 
 $id = $traer->getvar("id",$_POST);
 $motivo = $traer->getvar("motivo",$_POST);

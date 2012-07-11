@@ -2,13 +2,13 @@
 
 include("../../config/siteconfig.php");
 
-$tools = new formulario('db');
+$tools = new Formulario('db');
 
 $usuario = $tools->getvar("user",$_POST);
 $clave = $tools->getvar("clave",$_POST);
 
 
-$data = $tools->simple_db(factoryDAO::getDataLogin($usuario,$clave));
+$data = $tools->simple_db(FactoryDAO::getDataLogin($usuario,$clave));
 
 
 if($tools->getNreg()>0){

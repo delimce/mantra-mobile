@@ -3,10 +3,10 @@
 $profile = "admin";
 include("../../../config/siteconfig.php");
 
-$tool = new factoryDAO('db');
+$tool = new FactoryDAO('db');
 $tool->setTable("tbl_vendedor");
 
-$id = formulario::getvar("id", $_POST);
+$id = Formulario::getvar("id", $_POST);
 
 
 $tool->setBorradoPurgado($id); ////borra

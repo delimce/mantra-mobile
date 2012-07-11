@@ -9,7 +9,7 @@
 
 ///////////
 
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
 $cliente = $tool->getNameClient($_SESSION['PEDIDO_CLIENTEID']);
 $vendedor = $tool->getNameVendor($_SESSION['USERID']);
 $dataPref = $tool->getdataOrderPref();

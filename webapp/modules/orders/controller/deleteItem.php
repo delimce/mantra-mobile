@@ -3,7 +3,7 @@
 $profile = "vendor";
 include("../../../config/siteconfig.php");
 
-$traer = new formulario();
+$traer = new Formulario();
 
 $idProd = $traer->getvar("producto", $_POST);
 

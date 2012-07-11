@@ -1,10 +1,10 @@
 <?php
 
-$queryc = factoryDAO::comboClientCat($cuenta);
+$queryc = FactoryDAO::comboClientCat($cuenta);
 
 /////busqueda de las categorias del producto
 
-$cliCategoria = $tool->simple_db(factoryDAO::getIdCatCli($cuenta));
+$cliCategoria = $tool->simple_db(FactoryDAO::getIdCatCli($cuenta));
         
 ////
 
@@ -15,8 +15,8 @@ $desactivadoc = false;
 
 ////cargar tipo de cargo
 
-$tipoLabel = formulario::llenar_array(LANG_prodCatExtraLabel);
-$tipovalues = formulario::llenar_array("N/A,recargo,descuento");
+$tipoLabel = Formulario::llenar_array(LANG_prodCatExtraLabel);
+$tipovalues = Formulario::llenar_array("N/A,recargo,descuento");
 $seleccionadoP = $datos['tipo_cargo'];
 
 ?>

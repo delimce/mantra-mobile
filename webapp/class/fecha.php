@@ -1,6 +1,6 @@
 <?php
 
-  class fecha {
+  class Fecha {
 
   var $fecha;
   var $meses;
@@ -35,7 +35,7 @@
   }  ///// fin constructor
 
 
-  //// funcion para determinar si el año es bisiesto o no devuelve true o false
+  //// funcion para determinar si el aï¿½o es bisiesto o no devuelve true o false
 
 
   function es_bisiesto($ano){

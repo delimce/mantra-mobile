@@ -3,10 +3,10 @@
 $profile = "admin,dispatch";
 include("../../../config/siteconfig.php");
 
-$tool = new formulario("db");
+$tool = new Formulario("db");
 
 $id = $tool->getvar("id", $_POST);
-echo $tool->simple_db(factoryDAO::getMontocatProd($id,$_SESSION['CUENTAID']));
+echo $tool->simple_db(FactoryDAO::getMontocatProd($id,$_SESSION['CUENTAID']));
 
 $tool->cerrar();
 

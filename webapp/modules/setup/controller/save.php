@@ -3,7 +3,7 @@
 $profile = "admin";
 include("../../../config/siteconfig.php");
 
-$tool = new factoryDAO('db');
+$tool = new FactoryDAO('db');
 //////validaciones etc...
  $tool->setTable ("tbl_cuenta");
 $tool->saveDataOnlyId($_SESSION['CUENTAID']);

@@ -163,8 +163,16 @@ include_once 'controller/load.php';
              
               <label style="font-weight:bold" for="r9imp_iva"><?php echo LANG_setupImpIva ?></label>
              <input type="number" data-mini="true" id="r9imp_iva" name="r9imp_iva" value="<?php echo $datos["imp_iva"] ?>"  />
-        	
-            <p id="notification"></p>  
+
+                 <!-- envio de emails -->
+             <label style="font-weight:bold" for="r9envio_email"><?php echo LANG_EnableEmail ?></label>
+                 <select name="r9envio_email" id="r9envio_email" data-role="slider">
+                     <option value="0" <?php if($datos["envio_email"]==0) echo 'selected';  ?> ><?php echo LANG_negative ?></option>
+                     <option value="1" <?php if($datos["envio_email"]==1) echo 'selected';  ?> ><?php echo LANG_affirmative ?></option>
+                 </select>
+
+
+                 <p id="notification"></p>
              </div>
                
            <button data-role="submit" data-theme="b" id="submit" value="submit-value" data-inline="true"><?php echo LANG_save ?></button>

@@ -2,7 +2,7 @@
 
 $cuenta = $_SESSION['CUENTAID'];
 
-$tool = new formulario("db");
+$tool = new Formulario("db");
 
 $queryu = "select titulo,id from tbl_unidad where cuenta_id = $cuenta and borrado = 0";
 

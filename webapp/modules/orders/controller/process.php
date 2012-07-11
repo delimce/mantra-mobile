@@ -6,9 +6,9 @@ $profile = "dispatch";
 include("../../../config/siteconfig.php");
 
 
-$id = formulario::getvar("id", $_POST);
+$id = Formulario::getvar("id", $_POST);
 
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
 
 $tool->processOrder($id,$_SESSION['USERID']);
 

@@ -1,5 +1,5 @@
 <?php 
-$tool = new formulario("db");
+$tool = new Formulario("db");
 
 $id = $tool->getvar("id",$_GET);
 
@@ -7,10 +7,10 @@ $id = $tool->getvar("id",$_GET);
 if(empty($id)) header("location: index.php");
 
 
-        $producto = $tool->simple_db(factoryDAO::getProdUnit($id,$_SESSION['CUENTAID']));
+        $producto = $tool->simple_db(FactoryDAO::getProdUnit($id,$_SESSION['CUENTAID']));
   
        
-        $tool->query(factoryDAO::getCant($id,$_SESSION['CUENTAID']));
+        $tool->query(FactoryDAO::getCant($id,$_SESSION['CUENTAID']));
         
         
 

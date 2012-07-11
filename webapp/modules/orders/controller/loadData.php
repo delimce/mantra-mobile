@@ -1,10 +1,10 @@
 <?php
 
-$tool = new tools("db");
+$tool = new Tools("db");
 $cuenta = $_SESSION['CUENTAID'];
 
 
-    $queryc = factoryDAO::getComboClientByVendor($cuenta,$_SESSION['USERID']);
+    $queryc = FactoryDAO::getComboClientByVendor($cuenta,$_SESSION['USERID']);
     if($_SESSION['PROFILE']=="admin"){
     $porDefecto = LANG_all;
     $seleccionado = $datos['vendedor_id'];
@@ -17,7 +17,7 @@ $cuenta = $_SESSION['CUENTAID'];
     }
     
     
-    $querycp = factoryDAO::getComboCatProd($cuenta);
+    $querycp = FactoryDAO::getComboCatProd($cuenta);
 
 
     $porDefecto2 = LANG_select;

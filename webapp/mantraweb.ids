@@ -905,6 +905,7 @@
       <column name="moneda1" sqlType="VARCHAR" length="4" precision="0" nullable="true" jdbcType="12" def="J0JzJw==" />
       <column name="imp_iva" sqlType="FLOAT" length="3" precision="1" nullable="false" jdbcType="7" />
       <column name="dif_hora" sqlType="SMALLINT" length="5" precision="0" nullable="false" jdbcType="5" def="MA==" />
+      <column name="envio_email" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" def="MQ==" />
       <column name="lenguaje" sqlType="VARCHAR" length="25" precision="0" nullable="true" jdbcType="12" def="J2Nhc3RlbGxhbm8ucGhwJw==" />
       <column name="activo" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" def="MQ==" />
       <primary-key name="PRIMARY" columns="id" />
@@ -1507,6 +1508,12 @@
     <procedure name="sp_traer_ventas" schema="" catalog="mantra_db" type="0">
       <prototype>
         <parameter name="idcuenta" sqlType="INTEGER" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="-1" />
+      </prototype>
+    </procedure>
+    <procedure name="sp_traer_ventas_vendor" schema="" catalog="mantra_db" type="0">
+      <prototype>
+        <parameter name="idcuenta" sqlType="INTEGER" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="-1" />
+        <parameter name="idvendor" sqlType="INTEGER" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="-1" />
       </prototype>
     </procedure>
   </data-source>

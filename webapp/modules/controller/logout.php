@@ -5,7 +5,7 @@
 
 include("../../config/siteconfig.php");
 
-$tools = new factoryDAO('db');
+$tools = new FactoryDAO('db');
 
 $id = $_SESSION['SESIONID'];
 

@@ -13,9 +13,9 @@ else
 
 ////////
 
-$catid = formulario::getvar("id", $_POST);
+$catid = Formulario::getvar("id", $_POST);
 
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
 
 $tool->setTable("tbl_podcategoria");
 

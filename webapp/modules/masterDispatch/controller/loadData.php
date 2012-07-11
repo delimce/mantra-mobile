@@ -1,8 +1,8 @@
 <?php 
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
 $tool->setTable("tbl_despachador");
 
-$id = formulario::getvar("id",$_GET);
+$id = Formulario::getvar("id",$_GET);
 
 $datos = $tool->getAllDataByPk($id);
 

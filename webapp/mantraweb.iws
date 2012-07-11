@@ -1,19 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f07556b-168c-4f01-8893-e2064a74b58a" name="Default" comment="validando que el campo usuario no acepte espacios en blanco entre palabras (todos los entes)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mantraweb.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/view.php" afterPath="$PROJECT_DIR$/common/view.php" />
+    <list default="true" id="5f07556b-168c-4f01-8893-e2064a74b58a" name="Default" comment="Ajustando nuevas caracteristicas del">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/monitor/controller/loadOrdersInfo.php" />
+      <change type="DELETED" beforePath="C:\proyectos\mantra\webapp\class\class.smtp.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\proyectos\mantra\webapp\class\email.php" afterPath="" />
+      <change type="MOVED" beforePath="C:\proyectos\mantra\webapp\class\database.php" afterPath="$PROJECT_DIR$/class/Database.php" />
+      <change type="MOVED" beforePath="C:\proyectos\mantra\webapp\class\factoryDAO.php" afterPath="$PROJECT_DIR$/class/FactoryDAO.php" />
+      <change type="MOVED" beforePath="C:\proyectos\mantra\webapp\class\fecha.php" afterPath="$PROJECT_DIR$/class/Fecha.php" />
+      <change type="MOVED" beforePath="C:\proyectos\mantra\webapp\class\formulario.php" afterPath="$PROJECT_DIR$/class/Formulario.php" />
+      <change type="MOVED" beforePath="C:\proyectos\mantra\webapp\class\image.php" afterPath="$PROJECT_DIR$/class/Image.php" />
+      <change type="MOVED" beforePath="C:\proyectos\mantra\webapp\class\tools.php" afterPath="$PROJECT_DIR$/class/Tools.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mantraweb.ids" afterPath="$PROJECT_DIR$/mantraweb.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/controller.php" afterPath="$PROJECT_DIR$/common/controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/lang/castellano.php" afterPath="$PROJECT_DIR$/config/lang/castellano.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/siteconfig.php" afterPath="$PROJECT_DIR$/config/siteconfig.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mantraweb.ipr" afterPath="$PROJECT_DIR$/mantraweb.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mantraweb.iws" afterPath="$PROJECT_DIR$/mantraweb.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClient/index.php" afterPath="$PROJECT_DIR$/modules/masterClient/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterDispatch/agregar.php" afterPath="$PROJECT_DIR$/modules/masterDispatch/agregar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterDispatch/editar.php" afterPath="$PROJECT_DIR$/modules/masterDispatch/editar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterVendor/agregar.php" afterPath="$PROJECT_DIR$/modules/masterVendor/agregar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterVendor/editar.php" afterPath="$PROJECT_DIR$/modules/masterVendor/editar.php" />
-      <change type="MODIFICATION" beforePath="C:\proyectos\mantra\webapp\modules\misDatos\index.php" afterPath="$PROJECT_DIR$/modules/misDatos/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/controller/logout.php" afterPath="$PROJECT_DIR$/modules/controller/logout.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/controller/validar.php" afterPath="$PROJECT_DIR$/modules/controller/validar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClientCat/controller/delete.php" afterPath="$PROJECT_DIR$/modules/masterClientCat/controller/delete.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClientCat/controller/edit.php" afterPath="$PROJECT_DIR$/modules/masterClientCat/controller/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClientCat/controller/load.php" afterPath="$PROJECT_DIR$/modules/masterClientCat/controller/load.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClientCat/controller/loadData.php" afterPath="$PROJECT_DIR$/modules/masterClientCat/controller/loadData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClientCat/controller/save.php" afterPath="$PROJECT_DIR$/modules/masterClientCat/controller/save.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClient/agregar.php" afterPath="$PROJECT_DIR$/modules/masterClient/agregar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClient/controller/delete.php" afterPath="$PROJECT_DIR$/modules/masterClient/controller/delete.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClient/controller/edit.php" afterPath="$PROJECT_DIR$/modules/masterClient/controller/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClient/controller/load.php" afterPath="$PROJECT_DIR$/modules/masterClient/controller/load.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClient/controller/loadCat.php" afterPath="$PROJECT_DIR$/modules/masterClient/controller/loadCat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClient/controller/loadData.php" afterPath="$PROJECT_DIR$/modules/masterClient/controller/loadData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClient/controller/loadVendor.php" afterPath="$PROJECT_DIR$/modules/masterClient/controller/loadVendor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClient/controller/save.php" afterPath="$PROJECT_DIR$/modules/masterClient/controller/save.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClient/editar.php" afterPath="$PROJECT_DIR$/modules/masterClient/editar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterClient/readOnly.php" afterPath="$PROJECT_DIR$/modules/masterClient/readOnly.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterDispatch/controller/delete.php" afterPath="$PROJECT_DIR$/modules/masterDispatch/controller/delete.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterDispatch/controller/edit.php" afterPath="$PROJECT_DIR$/modules/masterDispatch/controller/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterDispatch/controller/load.php" afterPath="$PROJECT_DIR$/modules/masterDispatch/controller/load.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterDispatch/controller/loadData.php" afterPath="$PROJECT_DIR$/modules/masterDispatch/controller/loadData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterDispatch/controller/save.php" afterPath="$PROJECT_DIR$/modules/masterDispatch/controller/save.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProdCat/controller/delete.php" afterPath="$PROJECT_DIR$/modules/masterProdCat/controller/delete.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProdCat/controller/edit.php" afterPath="$PROJECT_DIR$/modules/masterProdCat/controller/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProdCat/controller/load.php" afterPath="$PROJECT_DIR$/modules/masterProdCat/controller/load.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProdCat/controller/loadData.php" afterPath="$PROJECT_DIR$/modules/masterProdCat/controller/loadData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProdCat/controller/save.php" afterPath="$PROJECT_DIR$/modules/masterProdCat/controller/save.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProduct/controller/delete.php" afterPath="$PROJECT_DIR$/modules/masterProduct/controller/delete.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProduct/controller/edit.php" afterPath="$PROJECT_DIR$/modules/masterProduct/controller/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProduct/controller/listProd.php" afterPath="$PROJECT_DIR$/modules/masterProduct/controller/listProd.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProduct/controller/load.php" afterPath="$PROJECT_DIR$/modules/masterProduct/controller/load.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProduct/controller/loadData.php" afterPath="$PROJECT_DIR$/modules/masterProduct/controller/loadData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProduct/controller/loadUnit.php" afterPath="$PROJECT_DIR$/modules/masterProduct/controller/loadUnit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProduct/controller/montoCatego.php" afterPath="$PROJECT_DIR$/modules/masterProduct/controller/montoCatego.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProduct/controller/save.php" afterPath="$PROJECT_DIR$/modules/masterProduct/controller/save.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterProduct/controller/validarCodigo.php" afterPath="$PROJECT_DIR$/modules/masterProduct/controller/validarCodigo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterUnit/controller/delete.php" afterPath="$PROJECT_DIR$/modules/masterUnit/controller/delete.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterUnit/controller/edit.php" afterPath="$PROJECT_DIR$/modules/masterUnit/controller/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterUnit/controller/load.php" afterPath="$PROJECT_DIR$/modules/masterUnit/controller/load.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterUnit/controller/loadData.php" afterPath="$PROJECT_DIR$/modules/masterUnit/controller/loadData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/masterUnit/controller/save.php" afterPath="$PROJECT_DIR$/modules/masterUnit/controller/save.php" />
+      <change type="MODIFICATION" beforePath="C:\proyectos\mantra\webapp\modules\masterVendor\controller\delete.php" afterPath="$PROJECT_DIR$/modules/masterVendor/controller/delete.php" />
+      <change type="MODIFICATION" beforePath="C:\proyectos\mantra\webapp\modules\masterVendor\controller\edit.php" afterPath="$PROJECT_DIR$/modules/masterVendor/controller/edit.php" />
+      <change type="MODIFICATION" beforePath="C:\proyectos\mantra\webapp\modules\masterVendor\controller\load.php" afterPath="$PROJECT_DIR$/modules/masterVendor/controller/load.php" />
+      <change type="MODIFICATION" beforePath="C:\proyectos\mantra\webapp\modules\masterVendor\controller\loadData.php" afterPath="$PROJECT_DIR$/modules/masterVendor/controller/loadData.php" />
+      <change type="MODIFICATION" beforePath="C:\proyectos\mantra\webapp\modules\masterVendor\controller\save.php" afterPath="$PROJECT_DIR$/modules/masterVendor/controller/save.php" />
+      <change type="MODIFICATION" beforePath="C:\proyectos\mantra\webapp\modules\misDatos\controller\load.php" afterPath="$PROJECT_DIR$/modules/misDatos/controller/load.php" />
+      <change type="MODIFICATION" beforePath="C:\proyectos\mantra\webapp\modules\misDatos\controller\save.php" afterPath="$PROJECT_DIR$/modules/misDatos/controller/save.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/monitor/controller/loadAccess.php" afterPath="$PROJECT_DIR$/modules/monitor/controller/loadAccess.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/monitor/controller/loadVendors.php" afterPath="$PROJECT_DIR$/modules/monitor/controller/loadVendors.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/monitor/controller/loadVisit.php" afterPath="$PROJECT_DIR$/modules/monitor/controller/loadVisit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/monitor/ordersDetail.php" afterPath="$PROJECT_DIR$/modules/monitor/ordersDetail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/monitor/visitDetail.php" afterPath="$PROJECT_DIR$/modules/monitor/visitDetail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/orders/controller/addItem.php" afterPath="$PROJECT_DIR$/modules/orders/controller/addItem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/orders/controller/cancelOrder.php" afterPath="$PROJECT_DIR$/modules/orders/controller/cancelOrder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/orders/controller/createOrder.php" afterPath="$PROJECT_DIR$/modules/orders/controller/createOrder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/orders/controller/dataOrder.php" afterPath="$PROJECT_DIR$/modules/orders/controller/dataOrder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/orders/controller/deleteItem.php" afterPath="$PROJECT_DIR$/modules/orders/controller/deleteItem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/orders/controller/deleteOrder.php" afterPath="$PROJECT_DIR$/modules/orders/controller/deleteOrder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/orders/controller/getStock.php" afterPath="$PROJECT_DIR$/modules/orders/controller/getStock.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/orders/controller/listProd.php" afterPath="$PROJECT_DIR$/modules/orders/controller/listProd.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/orders/controller/load.php" afterPath="$PROJECT_DIR$/modules/orders/controller/load.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/orders/controller/loadData.php" afterPath="$PROJECT_DIR$/modules/orders/controller/loadData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/orders/controller/loadTempOrder.php" afterPath="$PROJECT_DIR$/modules/orders/controller/loadTempOrder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/orders/controller/process.php" afterPath="$PROJECT_DIR$/modules/orders/controller/process.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/orders/controller/setClient.php" afterPath="$PROJECT_DIR$/modules/orders/controller/setClient.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/setup/controller/load.php" afterPath="$PROJECT_DIR$/modules/setup/controller/load.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/setup/controller/save.php" afterPath="$PROJECT_DIR$/modules/setup/controller/save.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/setup/index.php" afterPath="$PROJECT_DIR$/modules/setup/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/stock/controller/addCantidad.php" afterPath="$PROJECT_DIR$/modules/stock/controller/addCantidad.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/stock/controller/load.php" afterPath="$PROJECT_DIR$/modules/stock/controller/load.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/stock/controller/loadData.php" afterPath="$PROJECT_DIR$/modules/stock/controller/loadData.php" />
     </list>
     <ignored path="mantraweb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,10 +149,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="agregar.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/modules/masterVendor/agregar.php">
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/misDatos/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="68" selection-start="1784" selection-end="1784" vertical-scroll-proportion="5.68797">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -100,22 +174,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/class/factoryDAO.php" />
-        <option value="$PROJECT_DIR$/modules/masterProduct/controller/load.php" />
-        <option value="$PROJECT_DIR$/modules/masterProduct/editar.php" />
-        <option value="$PROJECT_DIR$/modules/masterProduct/readOnly.php" />
-        <option value="$PROJECT_DIR$/modules/masterProduct/controller/listProd.php" />
-        <option value="$PROJECT_DIR$/modules/masterProduct/index.php" />
-        <option value="$PROJECT_DIR$/modules/masterClient/index.php" />
-        <option value="/userver databases" />
+        <option value="$PROJECT_DIR$/modules/stock/controller/addCantidad.php" />
+        <option value="$PROJECT_DIR$/modules/stock/controller/loadData.php" />
+        <option value="$PROJECT_DIR$/modules/controller/logout.php" />
+        <option value="$PROJECT_DIR$/modules/controller/validar.php" />
+        <option value="$PROJECT_DIR$/modules/masterClientCat/controller/delete.php" />
+        <option value="$PROJECT_DIR$/class/Formulario.php" />
+        <option value="$PROJECT_DIR$/modules/masterUnit/controller/delete.php" />
+        <option value="$PROJECT_DIR$/class/Fecha.php" />
+        <option value="$PROJECT_DIR$/modules/monitor/controller/loadVendors.php" />
+        <option value="$PROJECT_DIR$/common/controller.php" />
         <option value="$PROJECT_DIR$/config/lang/castellano.php" />
-        <option value="$PROJECT_DIR$/modules/misDatos/index.php" />
-        <option value="$PROJECT_DIR$/modules/masterDispatch/agregar.php" />
-        <option value="$PROJECT_DIR$/modules/masterDispatch/editar.php" />
-        <option value="$PROJECT_DIR$/modules/masterVendor/agregar.php" />
-        <option value="$PROJECT_DIR$/config/siteconfig.php" />
-        <option value="$PROJECT_DIR$/common/view.php" />
-        <option value="$PROJECT_DIR$/modules/masterVendor/editar.php" />
+        <option value="$PROJECT_DIR$/class/Database.php" />
+        <option value="$PROJECT_DIR$/modules/monitor/controller/loadOrdersInfo.php" />
+        <option value="$PROJECT_DIR$/modules/monitor/ordersDetail.php" />
+        <option value="$PROJECT_DIR$/modules/monitor/visitDetail.php" />
+        <option value="$PROJECT_DIR$/class/FactoryDAO.php" />
       </list>
     </option>
   </component>
@@ -386,7 +460,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -405,19 +479,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -450,7 +511,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mantraweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="misDatos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -465,6 +557,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="158" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../prueba" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="158" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="837" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="832" />
@@ -483,13 +576,13 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="fileTemplates" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.PHP" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
   </component>
-  <component name="PublishConfig" serverName="userver/mantraweb" serverId="06a022c4-e527-49e3-840f-f6c4ecc882c2" filePermissions="420" folderPermissions="493" autoUpload="true" autoUploadExternalChanges="true">
+  <component name="PublishConfig" serverName="userver/mantraweb" serverId="06a022c4-e527-49e3-840f-f6c4ecc882c2" filePermissions="420" folderPermissions="493" autoUploadExternalChanges="true">
     <servers>
       <server id="06a022c4-e527-49e3-840f-f6c4ecc882c2">
         <serverdata>
@@ -505,13 +598,19 @@
           </mappings>
         </serverdata>
       </server>
+      <server id="c1db0148-26b3-46b3-8ba8-cdfd938e3c5b">
+        <serverdata />
+      </server>
     </servers>
   </component>
-  <component name="RunManager" selected="Query Language Console.Default">
+  <component name="RunManager" selected="PHP Script.tools.php">
     <configuration default="false" name="Default" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console" temporary="true">
       <option name="VM_PARAMETERS" value="" />
       <option name="USER_CFG_CLASS" />
       <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
+    <configuration default="false" name="tools.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/class/tools.php">
       <method />
     </configuration>
     <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application">
@@ -725,8 +824,9 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Query Language Console.Default" />
+      <item index="1" class="java.lang.String" itemvalue="PHP Script.tools.php" />
     </list>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
@@ -768,26 +868,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14242424" sideWeight="0.5650685" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20151515" sideWeight="0.6712329" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5188356" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.7671233" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21136364" sideWeight="0.19178082" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43493152" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43493152" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16818182" sideWeight="0.15753424" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21136364" sideWeight="0.31678084" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16818182" sideWeight="0.39554796" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21136364" sideWeight="0.6712329" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23287672" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34246576" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.7766831" order="3" side_tool="false" content_ui="tabs" />
@@ -849,93 +949,104 @@
     <MESSAGE value="validando que el campo usuario no acepte espacios en blanco entre palabras (todos los entes)" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/class/FactoryDAO.php</url>
+          <line>860</line>
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/class/factoryDAO.php">
+    <entry file="file://$PROJECT_DIR$/modules/masterUnit/agregar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="526" column="21" selection-start="14691" selection-end="14691" vertical-scroll-proportion="0.7" />
+        <state line="2" column="19" selection-start="56" selection-end="56" vertical-scroll-proportion="-1.3076923" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/masterProduct/controller/load.php">
+    <entry file="file://$PROJECT_DIR$/common/security.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="15" selection-start="245" selection-end="245" vertical-scroll-proportion="-9.153846" />
+        <state line="16" column="18" selection-start="384" selection-end="384" vertical-scroll-proportion="-10.461538" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/masterClient/controller/load.php">
+    <entry file="file://$PROJECT_DIR$/common/controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="9" column="11" selection-start="383" selection-end="383" vertical-scroll-proportion="0.35334873" />
       </provider>
     </entry>
-    <entry file="dbDummy://dbElement:/mantraweb96f72279/b2c3390b-3dd3-4ee7-8f9f-fc9291751471/mantra_db..tbl_pedido_detalle">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/lang/castellano.php">
+    <entry file="file://$PROJECT_DIR$/../../prueba/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="24" selection-start="1065" selection-end="1082" vertical-scroll-proportion="-2.6666667" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/masterDispatch/controller/loadData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="45" selection-start="167" selection-end="167" vertical-scroll-proportion="0.34256926" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/masterDispatch/controller/load.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="7" selection-end="7" vertical-scroll-proportion="0.042821158" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/misDatos/controller/save.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="59" selection-start="134" selection-end="134" vertical-scroll-proportion="0.25692695" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/masterDispatch/agregar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="11" selection-start="1029" selection-end="1069" vertical-scroll-proportion="-3.3461537" />
+        <state line="2" column="13" selection-start="20" selection-end="37" vertical-scroll-proportion="0.07852194" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common/view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="103" selection-start="790" selection-end="790" vertical-scroll-proportion="0.77078086" />
+        <state line="7" column="45" selection-start="161" selection-end="161" vertical-scroll-proportion="-4.576923" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/siteconfig.php">
+    <entry file="file://$PROJECT_DIR$/config/lang/castellano.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="14" selection-start="632" selection-end="632" vertical-scroll-proportion="-10.461538" />
+        <state line="154" column="23" selection-start="5593" selection-end="5609" vertical-scroll-proportion="-7.3333335" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/masterDispatch/editar.php">
+    <entry file="file://$PROJECT_DIR$/modules/monitor/ordersByVendor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="15" selection-start="1795" selection-end="1834" vertical-scroll-proportion="3.8461537" />
+        <state line="7" column="31" selection-start="156" selection-end="156" vertical-scroll-proportion="-3.3461537" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/masterVendor/editar.php">
+    <entry file="file://$PROJECT_DIR$/modules/monitor/controller/loadVendors.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="36" selection-start="56" selection-end="56" vertical-scroll-proportion="0.12781955" />
+        <state line="7" column="16" selection-start="106" selection-end="106" vertical-scroll-proportion="-4.576923" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/misDatos/index.php">
+    <entry file="file://$PROJECT_DIR$/modules/monitor/controller/loadOrdersInfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="50" selection-start="99" selection-end="99" vertical-scroll-proportion="0.2556391" />
+        <state line="11" column="0" selection-start="248" selection-end="248" vertical-scroll-proportion="0.5615616" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/masterProduct/agregar.php">
+    <entry file="file://$PROJECT_DIR$/class/Database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="135" column="19" selection-start="3865" selection-end="3865" vertical-scroll-proportion="0.33125" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/monitor/ordersDetail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="19" selection-start="1218" selection-end="1218" vertical-scroll-proportion="-6.230769" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/monitor/visitDetail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="57" selection-start="859" selection-end="859" vertical-scroll-proportion="0.33633634" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/FactoryDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="353" column="67" selection-start="10057" selection-end="10057" vertical-scroll-proportion="2.1865385">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/masterVendor/agregar.php">
+    <entry file="file://$PROJECT_DIR$/modules/orders/controller/load.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="68" selection-start="1784" selection-end="1784" vertical-scroll-proportion="5.68797">
+        <state line="15" column="19" selection-start="289" selection-end="289" vertical-scroll-proportion="0.478424">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/orders/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="27" selection-start="168" selection-end="168" vertical-scroll-proportion="0.22884615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/misDatos/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

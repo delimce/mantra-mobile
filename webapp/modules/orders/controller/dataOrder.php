@@ -1,8 +1,8 @@
 <?php
 
 
-$id = formulario::getvar("id");
-$tool = new factoryDAO("db");
+$id = Formulario::getvar("id");
+$tool = new FactoryDAO("db");
 
 $cabecera = $tool->getDataOrder($id);
 

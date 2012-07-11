@@ -1,8 +1,8 @@
 <?php
     
-    $iduser = formulario::getvar("id");
-    $perfil = formulario::getvar("perfil");
-    $tool = new factoryDAO("db");
+    $iduser = Formulario::getvar("id");
+    $perfil = Formulario::getvar("perfil");
+    $tool = new FactoryDAO("db");
     
     $nombre = $tool->getNamebyProfile($iduser, $perfil); //nombre del sujeto
         

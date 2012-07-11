@@ -1,5 +1,5 @@
 <?php 
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
 
 /////consulta de la tabla segun el perfil
 if ($_SESSION['PROFILE'] == "admin") {

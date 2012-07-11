@@ -3,9 +3,9 @@
 $profile = "admin";
 include("../../../config/siteconfig.php");
 
-$id = formulario::getvar("id", $_POST);
+$id = Formulario::getvar("id", $_POST);
 
-$factory = new factoryDAO('db');
+$factory = new FactoryDAO('db');
 $factory->setTable("tbl_prodcategoria");
 
 $factory->setBorrado($id);

@@ -1,5 +1,5 @@
 <?php 
-$tool = new factoryDAO("db");
+$tool = new FactoryDAO("db");
 $tool->setTable("tbl_unidad");
 
 $tool->getAllData("titulo");
