@@ -1,7 +1,15 @@
-<?php 
+<?php
 $tool = new FactoryDAO("db");
 
 
-$tool->getInventario();
+///filtro por categoria
+$tool->setTable("tbl_inventario");
+$selectedStock = $tool->getDataFilter();
+
+////combo de categorias
+$querycat = $tool->getComboCatProd2($selectedStock);
+
+
+$tool->getInventario($selectedStock);
 
 ?>
