@@ -136,8 +136,12 @@ require_once 'controller/dataOrder.php';
     <div data-role="page" id="verpedi">
         
         <div data-role="header">
-            <a href="index.php" data-icon="back"><?php echo LANG_ordersList ?></a>
+            <a href="index.php" data-icon="back" data-ajax="false"><?php echo LANG_ordersList ?></a>
             <h1><?php echo $tituloCurrent ?></h1>
+
+            <?php if($_SESSION['PROFILE']=="vendor"){ ?>
+            <a href="crear.php" data-icon="pluss" data-ajax="false" data-theme="b"><?php echo LANG_ordersNew ?></a>
+            <?php } ?>
                 
         </div>
         

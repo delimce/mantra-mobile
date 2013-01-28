@@ -124,7 +124,7 @@ define(LANG_disActive, "Despachador Activo");
 
 /////////////pedidos
 define(LANG_ordersList, "Lista de pedidos");
-define(LANG_ordersNew, "Crear pedido");
+define(LANG_ordersNew, "Crear Nuevo pedido");
 define(LANG_ordersCheck, "Datos del pedido");
 define(LANG_ordersClient, "Cliente");
 define(LANG_ordersAddProduct, "Añadir / Editar / Borrar");
@@ -133,6 +133,8 @@ define(LANG_ordersDeleteItem, "Borrar");
 define(LANG_ordersUndo, "Deshacer");
 define(LANG_ordersNext, "Continuar");
 define(LANG_ordersOk, "Crear pedido");
+define(LANG_ordersNoSelectedOrders, "No ha seleccionado ningún pedido");
+define(LANG_ordersConfirmDeleteOrders, "Esta seguro que desea eliminar los pedidos seleccionados?");
 
 
 define(LANG_ordersClient, "Cliente");

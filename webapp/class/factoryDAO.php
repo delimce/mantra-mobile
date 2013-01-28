@@ -404,6 +404,18 @@ class FactoryDAO extends Database
     }
 
 
+    ///////borra pedidos por lotes  (necesita una variable con los ids separados por ,)
+
+    public function deleteOrderBatch($ids){
+
+        $this->sql = "update tbl_pedido set borrado = 1 where cuenta_id = $this->cuentaID and id in ($ids) ";
+
+        $this->commit();
+
+    }
+
+
+
     //////traer moneda
 
     public function getMoneda()

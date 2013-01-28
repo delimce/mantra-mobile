@@ -25,7 +25,7 @@ $tituloCurrent = LANG_lobi;
             <ul>
                 <li><a id="misdatos" href="misDatos/index.php" data-ajax="false" data-transition="slide"
                        data-icon="custom">Mis datos</a></li>
-                <li><a id="buscarp" href="orders/index.php" data-role="button" data-transition="slide"
+                <li><a id="buscarp" href="orders/index.php" data-role="button" data-ajax="false"
                        data-icon="search" data-iconpos="right" data-inline="true">Buscar Pedido</a></li>
             </ul>
 
