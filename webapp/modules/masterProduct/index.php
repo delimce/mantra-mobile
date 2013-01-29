@@ -87,8 +87,8 @@ include_once 'controller/load.php';
 
                 <div style="color:blue"><?php echo $row["descripcion"] ?><br></div>
                 <fieldset style="font-size: 12px">
-                    <?php  //echo $row["presentacion"] ?>
-                    <?php echo LANG_prodPrice  ?>&nbsp;<?php echo $_SESSION['MONEDA1'] ?>
+                    <?php echo LANG_prodCode  ?>&nbsp;<?php echo $row["codigo"] ?>
+                    &nbsp;<?php echo LANG_prodPrice  ?>&nbsp;<?php echo $_SESSION['MONEDA1'] ?>
                     &nbsp; <?php echo number_format($row["precio1"], 2) ?>
                     <?php echo LANG_prodSug  ?>&nbsp;<?php echo $_SESSION['MONEDA1'] ?>
                     &nbsp; <?php echo number_format($row["precio3"], 2) ?>
