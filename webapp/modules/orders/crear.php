@@ -101,7 +101,7 @@ include_once 'controller/loadData.php';
         
         
         ////accion jquery
-        $(document).ready(function() {
+         $("div[data-role*='page']").live('pageshow', function() {  
             
             ////////validacion para seleccionar siempre el cliente
             <?php if(empty($_SESSION['PEDIDO_CLIENTEID'])){ ?>

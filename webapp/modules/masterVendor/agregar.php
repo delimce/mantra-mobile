@@ -28,7 +28,7 @@ include("../../config/siteconfig.php");
     }, "<?php echo LANG_nologinBlank ?>");
 
 
-    $(document).ready(function () {
+     $("div[data-role*='page']").live('pageshow', function() {  
 
 
         $('#form1').validate({

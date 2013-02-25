@@ -13,7 +13,7 @@ include_once 'controller/load.php';
 <script type="text/javascript">
 
     ////accion jquery
-    $(document).ready(function () {
+     $("div[data-role*='page']").live('pageshow', function() {  
 
         ////para eliminar pedidos en masa
         $("#categoriap").live("change", function () {

@@ -24,11 +24,10 @@ include("./config/siteconfig.php");
         }        
  
   
-        $(document).ready(function() {
-            
-                
+        $("div[data-role*='page']").live('pageshow', function() {     
+                        
             $("#submit").click(function(){
- 
+
                                
                 var formData = $("#form1").serialize();
  
@@ -50,8 +49,8 @@ include("./config/siteconfig.php");
     
 <!--div de login-->
 	<div data-role="page" id="login">
-		<div data-role="header">
-                    <img  src="css/images/mantralogo.png" width="145" height="34" style="matralogo"/>
+		<div data-role="header" align="center">
+                    <img  src="css/images/mantralogo.png"/>
 
 		</div>
 		<div data-role="content">

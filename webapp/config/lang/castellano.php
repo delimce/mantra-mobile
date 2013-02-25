@@ -169,6 +169,7 @@ define(LANG_ordersCancel, "Cancelar pedido");
 define(LANG_ordersProcess, "Procesar pedido");
 define(LANG_ordersDelete, "Borrar pedido");
 define(LANG_ordersPrint, "Imprimir");
+define(LANG_ordersComment, "Observaciones:");
 define(LANG_ordersCanceled, "<b>Pedido Cancelado</b>");
 define(LANG_ordersCanceledCause, "<b>Motivo de cancelación:</b>");
 define(LANG_ordersCanceledText, "<b>Este pedido ha sido cancelado y el inventario actualizado</b>");

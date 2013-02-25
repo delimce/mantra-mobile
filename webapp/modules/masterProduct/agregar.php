@@ -47,7 +47,7 @@ include_once('controller/loadCat.php');  ///categorias
  
  
         /////acciones jquery
-        $(document).ready(function() {
+         $("div[data-role*='page']").live('pageshow', function() {  
             
             
              ///validar

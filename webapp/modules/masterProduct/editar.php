@@ -55,7 +55,7 @@ include_once('controller/loadCat.php'); ///categorias
          
  
  
-        $(document).ready(function() {
+         $("div[data-role*='page']").live('pageshow', function() {  
             
             
             

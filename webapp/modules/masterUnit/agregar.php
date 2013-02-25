@@ -17,7 +17,7 @@ include("../../config/siteconfig.php");
            
         }
  
-        $(document).ready(function() {
+         $("div[data-role*='page']").live('pageshow', function() {  
             
             
              ///validar

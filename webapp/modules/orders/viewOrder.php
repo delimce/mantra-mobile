@@ -16,7 +16,7 @@ include_once 'controller/loadTempOrder.php';
 
 
     ////accion jquery
-        $(document).ready(function() {
+         $("div[data-role*='page']").live('pageshow', function() {  
             
              //////siguiente paso
             $("#ok").click(function(){
@@ -24,6 +24,7 @@ include_once 'controller/loadTempOrder.php';
                  $.ajax({
                     type: "POST",
                     url: "controller/createOrder.php",
+                    data: ({observa: $("#observa").val()}) ,
                     async: false,
                     success: function (data) {                  
                           $(location).attr('href','orderDetails.php?id='+data);
@@ -76,6 +77,11 @@ include_once 'controller/loadTempOrder.php';
             <div style="text-align: right"><?php echo LANG_ordersTotalProd ?> <?php echo $dataPref["moneda1"] ?>: <?php echo number_format($totalNeto,2) ?></div>
             <div style="text-align: right"><?php echo LANG_ordersTotalImp ?> <?php echo $dataPref["moneda1"] ?>: <?php $iva = $totalIva*($dataPref["iva"]/100); echo number_format($iva,2) ?></div>
             <div style="text-align: right;"><b><?php echo LANG_ordersTotal ?> <?php echo $dataPref["moneda1"] ?>: <?php  echo number_format($totalNeto+$iva,2) ?></b></div>
+        </div>
+        
+        <div>
+            <label for="observa"><b><?=LANG_ordersComment ?></b></label>
+            <input type="text" name="observa" id="observa" value="" size="50" />
         </div>
         
         <button data-theme="b" id="ok" data-icon="check" name="ok" value="submit-value" data-inline="true"><?php echo LANG_ordersOk ?></button> 

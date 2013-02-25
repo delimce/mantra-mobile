@@ -30,6 +30,7 @@ while ($row = $tool->db_vector_nom($tool->result)) {
                <div style="color:blue">' . $row["descripcion"] . '<br></div>
                      <fieldset style="font-size: 12px">';
     //  echo $row["presentacion"].'&nbsp';
+	echo LANG_prodCode .'&nbsp;'.$row["codigo"].'&nbsp;';
     echo LANG_prodPrice . '&nbsp;' . $_SESSION['MONEDA1'] . '&nbsp';
     echo number_format($row["precio1"], 2) . '&nbsp';
     echo LANG_prodSug . '&nbsp;' . $_SESSION['MONEDA1'] . '&nbsp';

@@ -39,7 +39,7 @@ include_once 'controller/load.php';
 
 
     ////accion jquery
-    $(document).ready(function () {
+     $("div[data-role*='page']").live('pageshow', function() {  
 
         ////ejecuta funcion al cambiar la categoria
         $("#categoriap").live("change", function () {

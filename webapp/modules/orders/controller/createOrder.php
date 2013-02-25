@@ -20,8 +20,9 @@ $tool->abrir_transaccion();
 
 ////traer siguiente correlativo de pedido
 $dataPedido[4] = $tool->simple_db(FactoryDAO::getOrderNumber($_SESSION['CUENTAID']));
+$dataPedido[5] = Formulario::getvar("observa", $_POST);
 
-$tool->insertar2("tbl_pedido", "cuenta_id,vendedor_id,cliente_id,fecha_creado,codigo", $dataPedido);
+$tool->insertar2("tbl_pedido", "cuenta_id,vendedor_id,cliente_id,fecha_creado,codigo,observacion", $dataPedido);
 
 $idPedido = $tool->getUltimoId(); ///id del pedido a insertar
 

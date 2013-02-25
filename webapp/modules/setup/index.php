@@ -75,7 +75,7 @@ include_once 'controller/load.php';
            
         }
  
-        $(document).ready(function() {
+         $("div[data-role*='page']").live('pageshow', function() {  
             
             
              $('#form1').validate({
