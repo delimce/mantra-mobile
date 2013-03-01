@@ -9,6 +9,7 @@ $tools = new FactoryDAO('db');
 
 $id = $_SESSION['SESIONID'];
 
+if(!empty($id))
 $tools->setFinSesion($id);
 
 $tools->cerrar();
