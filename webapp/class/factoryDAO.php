@@ -1,101 +1,82 @@
 <?php
 
 /**
- *clase que hace el llamado a todos los querys procedures y funciones a utilizar en la aplicacion
+ * clase que hace el llamado a todos los querys procedures y funciones a utilizar en la aplicacion
  */
-
-class FactoryDAO extends Database
-{
+class FactoryDAO extends Database {
 
     private $table;
     private $cuentaID;
     private $sql;
 
-    /********************************************** CONSTRUCTOR */
+    /*     * ******************************************** CONSTRUCTOR */
 
-    function __construct($conect = '')
-    { ///constructor de la clase
-
+    function __construct($conect = '') { ///constructor de la clase
         if (!empty($conect)) {
 
             /////conexion de dos vistas
-            if ($conect == "db") $this->autoconexion();
-
+            if ($conect == "db")
+                $this->autoconexion();
         }
 
 
         ////para el uso de las tablas maestras y otros querys
         $this->setCuentaID($_SESSION['CUENTAID']);
-
     }
 
     /*
      * setter de la cuenta
      */
-    public function setCuentaID($cuentaID)
-    {
+
+    public function setCuentaID($cuentaID) {
         $this->cuentaID = $cuentaID;
     }
 
     /*
-    * geter y setter de la tabla
-    */
+     * geter y setter de la tabla
+     */
 
-
-    public function setTable($tabla)
-    {
+    public function setTable($tabla) {
 
         $this->table = $tabla;
     }
 
-
-    public function getTable()
-    {
+    public function getTable() {
 
         return $this->table;
     }
 
-
     ////ejecuta un query
 
-    public function commit()
-    {
+    public function commit() {
 
         $this->query($this->sql);
     }
 
-
     /*
-    * trae  los datos de un usuario logueado ****LOGIN
-    */
+     * trae  los datos de un usuario logueado ****LOGIN
+     */
 
-    public function getDataLogin($usuario, $clave)
-    {
+    public function getDataLogin($usuario, $clave) {
 
         return "call sp_login('$usuario','$clave')";
-
     }
-
 
     /*
      * registra el fin de sesion de un usuario ****LOGOUT
      */
 
-    public function setFinSesion($id)
-    {
+    public function setFinSesion($id) {
 
         $this->sql = "update tbl_acceso set sesion = 'Finalizada' where id = $id and cuenta_id = $this->cuentaID ";
         $this->commit();
-
     }
 
-
     /*
-    * trae  toda la data de la tabla del admin por su clave primaria ****MISDATOS
-    */
+     * trae  toda la data de la tabla del admin por su clave primaria ****MISDATOS
+     */
 
-    public function getAllDataAdminByPk($id)
-    {
+    public function getAllDataAdminByPk($id) {
 
         $this->sql = "SELECT *
                         FROM
@@ -109,29 +90,22 @@ class FactoryDAO extends Database
         $data = $tools->simple_db($this->sql);
 
         return $data;
-
     }
 
-
     /*
-    * trae el password de un usuario por su id ****MISDATOS
-    */
+     * trae el password de un usuario por su id ****MISDATOS
+     */
 
-    public function getDataPassword($tabla, $id)
-    {
+    public function getDataPassword($tabla, $id) {
 
         return "select pass from $tabla where id = $id ";
-
-
     }
 
-
     /*
-    * trae historico de las cantidades añadidas por cada producto segun la cuenta al inventario ***STOCK
-    */
+     * trae historico de las cantidades añadidas por cada producto segun la cuenta al inventario ***STOCK
+     */
 
-    public function getInventario($catid)
-    {
+    public function getInventario($catid) {
 
 //        $this->sql = "SELECT 
 //                        p.id,
@@ -147,17 +121,13 @@ class FactoryDAO extends Database
         $this->sql = "call sp_traer_inventario($this->cuentaID,$catid)";
 
         $this->commit();
-
-
     }
 
-
     /*
-    * trae los datos del nombre de producto y la unidad (presentacion usada) ***STOCK
-    */
+     * trae los datos del nombre de producto y la unidad (presentacion usada) ***STOCK
+     */
 
-    public function getProdUnit($idProd, $idcuenta)
-    {
+    public function getProdUnit($idProd, $idcuenta) {
 
         return "SELECT 
                     p.descripcion,
@@ -171,14 +141,11 @@ class FactoryDAO extends Database
                     p.cuenta_id = $idcuenta ";
     }
 
-
     /*
-    * trae las cantidades y el historial del inventario del producto ****STOCK
-    */
+     * trae las cantidades y el historial del inventario del producto ****STOCK
+     */
 
-
-    public function getCant($idProd, $idcuenta)
-    {
+    public function getCant($idProd, $idcuenta) {
 
         return "SELECT 
                     date(i.fecha) as fecha,
@@ -192,11 +159,9 @@ class FactoryDAO extends Database
                     order by fecha ";
     }
 
-
     ///////el html del combo con la lista de productos segun la categoria ****ORDER
 
-    public function getComboProdByCatId($catid)
-    {
+    public function getComboProdByCatId($catid) {
 
         $tools2 = new Tools();
         $tools2->dbc = $this->dbc;
@@ -207,14 +172,11 @@ class FactoryDAO extends Database
         $query = "call sp_traer_prod_venta($catid,$this->cuentaID,$clienteId)";
 
         return $tools2->combo_db("producto", $query, "descripcion", "id", LANG_select, false, "mostrarStock(this.value)", LANG_NoProdForCat);
-
     }
-
 
     /////////////////////////////campos de la lista de productos para order ****ORDER
 
-    public function getProdDataStock($id)
-    {
+    public function getProdDataStock($id) {
 
 
         $tools = new Tools();
@@ -235,14 +197,11 @@ class FactoryDAO extends Database
         $data = $tools->simple_db($this->sql);
 
         return $data;
-
     }
-
 
     ////////////////////trae l info de los productos del pedido ****ORDER
 
-    public function getOrderTempData($productos)
-    {
+    public function getOrderTempData($productos) {
 
 
         $tools = new Tools();
@@ -273,10 +232,8 @@ class FactoryDAO extends Database
         $this->commit();
     }
 
-
     /////////////traer los productos donde aplica el iva cuando se genera el pedido ****ORDER
-    public function getProdsIva($prods, $idcuenta)
-    {
+    public function getProdsIva($prods, $idcuenta) {
 
 
         $ids = implode(",", $prods);
@@ -285,14 +242,11 @@ class FactoryDAO extends Database
                         tbl_producto p
                         WHERE
                         p.cuenta_id = $idcuenta and p.id in ($ids)  and paga_impuesto = 1";
-
-
     }
 
     ////function que cancela el pedido *****ORDER
 
-    public function cancelOrder($id, $motivo)
-    {
+    public function cancelOrder($id, $motivo) {
 
         $this->abrir_transaccion();
 
@@ -306,43 +260,33 @@ class FactoryDAO extends Database
         $this->cerrar_transaccion();
     }
 
-
     ////function que processa el pedido *****ORDER
     ////necesita el id del pedido y el id del despachador
-    public function processOrder($id, $despachador)
-    {
+    public function processOrder($id, $despachador) {
 
         $this->sql = "update tbl_pedido set estatus = 2, fecha_despacho = NOW(), despachador_id = $despachador  where id = $id and cuenta_id = $this->cuentaID ";
         $this->commit();
     }
 
-
     ////function que processa el pedido *****ORDER
     ////necesita el id del pedido y el id del despachador
-    public function getProdStock($id)
-    {
+    public function getProdStock($id) {
 
         $tools = new Tools();
         $tools->dbc = $this->dbc;
 
         return $tools->simple_db("select fc_traer_prod_inventario($id,$this->cuentaID); ");
-
-
     }
 
-
     /////////////traerme el valor del Impuesto Iva
-    public function getIva($idcuenta)
-    {
+    public function getIva($idcuenta) {
 
         return "select imp_iva from tbl_cuenta where id = $idcuenta";
     }
 
-
     ////traer datos de preferencia para pedidos *****ORDERS
 
-    public function getdataOrderPref()
-    {
+    public function getdataOrderPref() {
 
         $tools2 = new Tools();
         $tools2->dbc = $this->dbc;
@@ -355,13 +299,10 @@ class FactoryDAO extends Database
                         c.id = $this->cuentaID ";
 
         return $tools2->simple_db($query);
-
     }
 
-
     //////////traer los datos de lista de pedidos ***ORDERS
-    public function getAllDataOrder($idVendor = false)
-    {
+    public function getAllDataOrder($idVendor = false) {
 
 
         $this->sql = "SELECT
@@ -380,46 +321,37 @@ class FactoryDAO extends Database
                         p.cuenta_id = $this->cuentaID and p.borrado = 0 ";
 
         ////en el caso del vendedor
-        if ($idVendor) $this->sql .= " and p.vendedor_id = " . $idVendor;
+        if ($idVendor)
+            $this->sql .= " and p.vendedor_id = " . $idVendor;
 
 
         ////ordenar
         $this->sql .= " order by p.estatus,p.fecha_creado desc,cnombre";
 
         $this->commit();
-
-
     }
 
-
     //////trae la data de todos los pedidos para el despachador ***ORDERS 
-
     ///el despachador puede ver los pedidos estatus "nuevo" y los "procesados" si son del dia actual, al siguiente dia no salen los procesados.
-    public function getDataOrderDispath()
-    {
+    public function getDataOrderDispath() {
 
         $this->sql = "call sp_traer_pedidos_despachador($this->cuentaID); ";
 
         $this->commit();
     }
 
-
     ///////borra pedidos por lotes  (necesita una variable con los ids separados por ,)
 
-    public function deleteOrderBatch($ids){
+    public function deleteOrderBatch($ids) {
 
         $this->sql = "update tbl_pedido set borrado = 1 where cuenta_id = $this->cuentaID and id in ($ids) ";
 
         $this->commit();
-
     }
-
-
 
     //////traer moneda
 
-    public function getMoneda()
-    {
+    public function getMoneda() {
 
         $tools2 = new Tools();
         $tools2->dbc = $this->dbc;
@@ -427,13 +359,10 @@ class FactoryDAO extends Database
         $query = "select moneda1 from tbl_cuenta where id = $this->cuentaID";
 
         return $tools2->simple_db($query);
-
     }
 
-
     //////////traer los datos encabezados del pedido ***ORDERS
-    public function getDataOrder($id)
-    {
+    public function getDataOrder($id) {
 
         $tools2 = new Tools();
         $tools2->dbc = $this->dbc;
@@ -441,12 +370,9 @@ class FactoryDAO extends Database
         $query = "call sp_traer_pedido($id,$this->cuentaID)";
 
         return $tools2->simple_db($query);
-
-
     }
 
-    public function  getDataOrderDetail($id)
-    {
+    public function getDataOrderDetail($id) {
 
 
         $this->sql = "call sp_traer_pedido_detalle($id,$this->cuentaID)";
@@ -454,17 +380,12 @@ class FactoryDAO extends Database
         $this->commit();
     }
 
-
-    public function getOrderNumber($idcuenta)
-    {
+    public function getOrderNumber($idcuenta) {
 
         return "select fc_pedido_correlativo($idcuenta) ";
-
     }
 
-
-    public function getNameProd($idProd)
-    {
+    public function getNameProd($idProd) {
 
         $tools2 = new Tools();
         $tools2->dbc = $this->dbc;
@@ -476,12 +397,9 @@ class FactoryDAO extends Database
                         p.id = $idProd and p.cuenta_id = $this->cuentaID ";
 
         return $tools2->simple_db($query);
-
     }
 
-
-    public function getNameClient($idCli)
-    {
+    public function getNameClient($idCli) {
 
         $tools2 = new Tools();
         $tools2->dbc = $this->dbc;
@@ -493,11 +411,9 @@ class FactoryDAO extends Database
                         c.id = $idCli and c.cuenta_id = $this->cuentaID ";
 
         return $tools2->simple_db($query);
-
     }
 
-    public function getNameVendor($idVen)
-    {
+    public function getNameVendor($idVen) {
 
         $tools2 = new Tools();
         $tools2->dbc = $this->dbc;
@@ -509,9 +425,7 @@ class FactoryDAO extends Database
                         v.id = $idVen and v.cuenta_id = $this->cuentaID ";
 
         return $tools2->simple_db($query);
-
     }
-
 
     ////trae el query para generar un combo de categoria de producto ****PRODCATEGORIA
 
@@ -519,19 +433,16 @@ class FactoryDAO extends Database
      * combo con la lista de categorias de producto.
      */
 
-    public function getComboCatProd($cuenta)
-    {
+    public function getComboCatProd($cuenta) {
 
         return "select nombre,id from tbl_prodcategoria where cuenta_id = $cuenta and activo = 1 and borrado = 0 order by nombre";
-
     }
 
     /*
      *   combo con la lista de categorias de producto. (NUEVO)
      */
 
-    public function getComboCatProd2($seleccionado)
-    {
+    public function getComboCatProd2($seleccionado) {
 
         $tools2 = new Tools();
         $tools2->dbc = $this->dbc;
@@ -540,76 +451,60 @@ class FactoryDAO extends Database
         $query = "select nombre,id from tbl_prodcategoria where cuenta_id = $this->cuentaID and activo = 1 and borrado = 0 order by nombre";
 
         return $tools2->combo_db("categoriap", $query, "nombre", "id", LANG_all, $seleccionado, false, '', false, false, "-");
-
-
     }
-
 
     ////trae toda la data de las categorias de productos ****PRODCATEGORIA
 
 
-    public function getDataProdCat()
-    {
+    public function getDataProdCat() {
 
         $this->sql = "call sp_traer_categoria_productos($this->cuentaID); ";
 
         $this->commit();
-
     }
 
     /////trae todos los productos en existencia ****MASTER PRODUCT
 
-    public function getAllDataProd($filtro = 0)
-    {
+    public function getAllDataProd($filtro = 0) {
 
 
         $this->sql = "call sp_traer_lista_producto($this->cuentaID,$filtro);";
 
         $this->commit();
-
-
     }
-
 
     ////trae toda la data de las categorias de clientes ****CLIENTECATEGORIA
 
-    public function getDataClientCat()
-    {
+    public function getDataClientCat() {
 
         $this->sql = "call sp_traer_categoria_clientes($this->cuentaID)";
 
         $this->commit();
-
-
     }
 
-
     /*
-    * cargar vendedores para maestro de clientes *****MASTER CLIENT
-    */
+     * cargar vendedores para maestro de clientes *****MASTER CLIENT
+     */
 
-    public function comboVendors($cuenta)
-    {
+    public function comboVendors($cuenta) {
 
         return "select nombre,id from tbl_vendedor where cuenta_id = $cuenta and activo = 1 and borrado = 0";
     }
 
-
     /*
-    * cargar vendedores para maestro de clientes *****MASTER CLIENT
-    */
+     * cargar vendedores para maestro de clientes *****MASTER CLIENT
+     */
 
-    public function comboClientCat($cuenta)
-    {
+    public function comboClientCat($cuenta) {
 
         return "select nombre,id from tbl_clientcategoria where cuenta_id = $cuenta and borrado = 0 and activo = 1";
     }
 
     /*
-    * para obtener el ide de la categoria *****MASTER CLIENT
-    */
-    public function getIdCatCli($cuenta)
-    {
+     * para obtener el ide de la categoria *****MASTER CLIENT
+     */
+
+    public function getIdCatCli($cuenta) {
 
         return "SELECT pc.categoria_id
                     FROM
@@ -617,47 +512,34 @@ class FactoryDAO extends Database
                     WHERE
                     pc.cliente_id = '$id' AND 
                     pc.cuenta_id = $cuenta  ";
-
     }
-
 
     /////////////////////monto de la categoria para calcular el precio sugerido ***MASTER PRODUCT
 
-    public function getMontocatProd($id, $cuenta)
-    {
+    public function getMontocatProd($id, $cuenta) {
 
 
         return "select monto from tbl_prodcategoria where id = $id and cuenta_id = $cuenta";
-
     }
-
 
     ///////////////combo que muestra la lista de cllientes por vendedor asignado ****STOCK
 
-    public function getComboClientByVendor($cuenta, $vendor)
-    {
+    public function getComboClientByVendor($cuenta, $vendor) {
 
         return "select nombre,id from tbl_cliente where cuenta_id = $cuenta and activo = 1 and borrado = 0 and vendedor_id in (0,$vendor) order by nombre";
-
-
     }
-
 
     //////////trae toda la data de los vistantes por cuenta ****MONITOR
 
-    public function getAllVistByAcount()
-    {
+    public function getAllVistByAcount() {
 
         $idcuenta = $this->cuentaID;
         $this->sql = "call sp_accesos_totales($idcuenta);";
         $this->commit();
-
     }
 
-
     /////trae todos los accesos de la persona por userid, perfil y cuenta ****MONITOR
-    public function getDataVisitor($userid, $perfil)
-    {
+    public function getDataVisitor($userid, $perfil) {
 
         $this->sql = "SELECT 
                         a.ipaddress as ip,
@@ -673,38 +555,30 @@ class FactoryDAO extends Database
                         a.fecha DESC";
 
         $this->commit();
-
     }
 
-
     /*
-    * traer el numero de ventas y el total por vendedor     *****MONITOR
-    */
-    public function getOrderSales()
-    {
+     * traer el numero de ventas y el total por vendedor     *****MONITOR
+     */
+
+    public function getOrderSales() {
 
         $this->sql = "call sp_traer_ventas($this->cuentaID);";
 
         $this->commit();
-
     }
-
 
     /*
      * traer el total de pedidos por vendedor
      */
 
-    public function  getOrdersByVendor($idvendor)
-    {
+    public function getOrdersByVendor($idvendor) {
 
         $this->sql = "call sp_traer_ventas_vendor($this->cuentaID,$idvendor);";
         $this->commit();
-
     }
 
-
-    public function getNamebyProfile($id, $perfil)
-    {
+    public function getNamebyProfile($id, $perfil) {
 
         $tools2 = new Tools();
         $tools2->dbc = $this->dbc;
@@ -733,17 +607,13 @@ class FactoryDAO extends Database
                         id = $id $cuenta";
 
         return $tools2->simple_db($query);
-
     }
 
-
     /*
-    * añade un nuevo registro de maestro *****COMUN PARA MAESTROS
-    */
+     * añade un nuevo registro de maestro *****COMUN PARA MAESTROS
+     */
 
-
-    public function addData()
-    {
+    public function addData() {
 
         $tools = new Formulario();
         $tools->dbc = $this->dbc;
@@ -751,50 +621,37 @@ class FactoryDAO extends Database
         $tools->insert_data("r", "9", $this->table, $_POST);
 
         $this->setUltimoID($tools->getUltimoId());
-
     }
 
-
     /*
-    * guarda la data de un maestro *****COMUN PARA MAESTROS
-    */
+     * guarda la data de un maestro *****COMUN PARA MAESTROS
+     */
 
-
-    public function saveData($id)
-    {
+    public function saveData($id) {
 
         $tools = new Formulario();
         $tools->dbc = $this->dbc;
 
         $tools->update_data("r", "9", $this->table, $_POST, "id = $id  and cuenta_id = $this->cuentaID ");
-
-
     }
 
-
     /*
-    * guarda la data de un maestro solo por su ID sin la cuenta *****COMUN PARA MAESTROS
-    */
+     * guarda la data de un maestro solo por su ID sin la cuenta *****COMUN PARA MAESTROS
+     */
 
-
-    public function saveDataOnlyId($id)
-    {
+    public function saveDataOnlyId($id) {
 
         $tools = new Formulario();
         $tools->dbc = $this->dbc;
 
         $tools->update_data("r", "9", $this->table, $_POST, "id = $id ");
-
-
     }
-
 
     /*
      * trae el valor del filtro por categoria ingresando la tabla  ****FILTROS POR CATEGORIA
      */
 
-    public function getDataFilter()
-    {
+    public function getDataFilter() {
 
         $tool = new Tools();
         $tool->dbc = $this->dbc;
@@ -811,17 +668,13 @@ class FactoryDAO extends Database
             return $result;
         else
             return 0;
-
     }
-
 
     /*
      *  guarda el valor del filtro para el usuario consultador  ****FILTROS POR CATEGORIA
      */
 
-
-    public function setDataFilter($valor)
-    {
+    public function setDataFilter($valor) {
 
         $tabla = $this->getTable();
         $cuenta = $this->cuentaID;
@@ -832,27 +685,23 @@ class FactoryDAO extends Database
         $this->sql = "call sp_guardar_filtro_cat($cuenta,$user,'$perfil','$tabla',$valor);";
 
         $this->commit();
-
     }
-
 
     /*
      * coloca como borrado un registro *****COMUN PARA MAESTROS
      */
 
-    public function setBorrado($id)
-    {
+    public function setBorrado($id) {
 
         $this->sql = "update $this->table set borrado = 1, fecha_borrado = NOW() where id = $id and cuenta_id = $this->cuentaID ";
         $this->commit();
     }
 
     /*
-    * purga los accesos del veneddor y despachador (por ahora) *****COMUN PARA MAESTROS
-    */
+     * purga los accesos del veneddor y despachador (por ahora) *****COMUN PARA MAESTROS
+     */
 
-    public function setPurgeAccess($id)
-    {
+    public function setPurgeAccess($id) {
 
         switch ($this->table) {
             case "tbl_vendedor":
@@ -865,17 +714,13 @@ class FactoryDAO extends Database
 
         $this->sql = "delete from tbl_acceso where userid = $id and perfil = '$perfil' and cuenta_id = $this->cuentaID ";
         $this->commit();
-
-
     }
 
-
     /*
-    * borra un vendedor o despachador
-    */
+     * borra un vendedor o despachador
+     */
 
-    public function setBorradoPurgado($id)
-    {
+    public function setBorradoPurgado($id) {
 
         $this->abrir_transaccion();
 
@@ -884,16 +729,13 @@ class FactoryDAO extends Database
         $this->setPurgeAccess($id);
 
         $this->cerrar_transaccion();
-
     }
 
-
     /*
-    * funcion que verifica si esta habilitado el atributo de enviar email
-    */
+     * funcion que verifica si esta habilitado el atributo de enviar email
+     */
 
-    public function isEmailEnable()
-    {
+    public function isEmailEnable() {
 
         $this->sql = "select envio_email from tbl_cuenta where id = $this->cuentaID and  envio_email = 1";
         $this->commit();
@@ -904,33 +746,30 @@ class FactoryDAO extends Database
             return false;
     }
 
-
     /*
-    * trae toda la data no borrada de una tabla *****COMUN PARA MAESTROS
-    * se le puede pasar el parametro de orden
-    */
+     * trae toda la data no borrada de una tabla *****COMUN PARA MAESTROS
+     * se le puede pasar el parametro de orden
+     */
 
-    public function getAllData($orderBy = false)
-    {
+    public function getAllData($orderBy = false) {
 
         $this->sql = "select * from $this->table where cuenta_id = $this->cuentaID and borrado = 0 ";
-        if ($orderBy) $this->sql .= "order by $orderBy";
+        if ($orderBy)
+            $this->sql .= "order by $orderBy";
 
         $this->commit();
-
     }
 
-
     /*
-    * verifica si el codigo existe al insertar el registro *****COMUN PARA MAESTROS
-    * si $id tiene valor valida el codigo en modo edicion EDITAR excluye los borrados
-    */
+     * verifica si el codigo existe al insertar el registro *****COMUN PARA MAESTROS
+     * si $id tiene valor valida el codigo en modo edicion EDITAR excluye los borrados
+     */
 
-    public function isCodigoExist($codigo, $id = false)
-    {
+    public function isCodigoExist($codigo, $id = false) {
 
         $this->sql = "select id from $this->table where codigo = '$codigo' and borrado = 0 and cuenta_id = $this->cuentaID ";
-        if ($id) $this->sql .= " and id != $id";
+        if ($id)
+            $this->sql .= " and id != $id";
 
         $this->commit();
 
@@ -938,16 +777,13 @@ class FactoryDAO extends Database
             return true;
         else
             return false;
-
     }
 
-
     /*
-    * trae  toda la data de una tabla por su clave primaria *****COMUN PARA MAESTROS
-    */
+     * trae  toda la data de una tabla por su clave primaria *****COMUN PARA MAESTROS
+     */
 
-    public function getAllDataByPk($id)
-    {
+    public function getAllDataByPk($id) {
 
         $this->sql = "select * from $this->table where id = $id and cuenta_id = $this->cuentaID ";
 
@@ -957,16 +793,13 @@ class FactoryDAO extends Database
         $data = $tools->simple_db($this->sql);
 
         return $data;
-
     }
 
-
     /*
-    * trae  toda la data de una tabla por su clave primaria sin id de cuenta *****COMUN PARA MAESTROS
-    */
+     * trae  toda la data de una tabla por su clave primaria sin id de cuenta *****COMUN PARA MAESTROS
+     */
 
-    public function getAllDataByPkOnlyId($id)
-    {
+    public function getAllDataByPkOnlyId($id) {
 
         $this->sql = "select * from $this->table where id = $id ";
 
@@ -976,36 +809,34 @@ class FactoryDAO extends Database
         $data = $tools->simple_db($this->sql);
 
         return $data;
-
     }
 
-
     /*
-    * setea el campo "activo" de la tabla segun el valor  activo que se le pase con el id del registro
-    */
+     * setea el campo "activo" de la tabla segun el valor  activo que se le pase con el id del registro
+     */
 
-    public function setActivo($id, $activo = true)
-    {
+    public function setActivo($id, $activo = true) {
 
         $active = ($activo == true ? 1 : 0);
         $this->sql = "update $this->table set activo = $active where id = $id and cuenta_id = $this->cuentaID ";
         $this->commit();
     }
 
-
     /*
-    * borra fisicamente un registro segun el parametro campo que se le pase primaria
-    */
+     * borra fisicamente un registro segun el parametro campo que se le pase primaria
+     */
 
-    public function deleteData($id, $campo = "id")
-    {
+    public function deleteData($id, $campo = "id") {
 
         $this->sql = "delete from $this->table where $campo = $id and cuenta_id = $this->cuentaID ";
         $this->commit();
     }
 
+    public function setProdPrice($codigo, $precio) {
+        $this->sql = "update tbl_producto set precio1 = $precio where codigo = '$codigo' and cuenta_id = $this->cuentaID  ";
+        $this->commit();
+    }
 
 }
 
-;
 ?>

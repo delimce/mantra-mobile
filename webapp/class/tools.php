@@ -518,7 +518,7 @@ function burbuja($array,$modo=0){
 	//////valida el tamano maximo
 	if($tmax){
 		$tama =  bcdiv($origen['size'],1048576,2); ///tamano en mb
-		if($tama>$tmax){ $this->javaviso("El archivo es demasiado grande");
+		if($tama>$tmax){ echo "El archivo es demasiado grande";
 		return false;
 		}
 	}
@@ -531,7 +531,7 @@ function burbuja($array,$modo=0){
 		
 		if(!in_array(strtolower($origen['type']),$vectortipo)){
 			
-		$this->javaviso("El tipo de archivo a subir es invalido");
+		echo ("El tipo de archivo a subir es invalido");
 		return false;
 			
 			
@@ -546,7 +546,7 @@ function burbuja($array,$modo=0){
 		
 		if (file_exists($destino)) {
 			
-			$this->javaviso("Ya existe un archivo con el mismo nombre");
+			echo ("Ya existe un archivo con el mismo nombre");
 			return false;
 			
 		}
@@ -563,7 +563,7 @@ function burbuja($array,$modo=0){
 	
 	if (!is_uploaded_file($origen['tmp_name'])) {
 	
-		$this->javaviso("Error al subir el archivo, Verifique los permisos de escritura en el directorio ' $destino ' ó intente subir otro archivo ");
+		echo ("Error al subir el archivo, Verifique los permisos de escritura en el directorio ' $destino ' ó intente subir otro archivo ");
 	 	return false;
 		
 	}
@@ -572,7 +572,7 @@ function burbuja($array,$modo=0){
 
 	 if(!move_uploaded_file($origen['tmp_name'], $destino)){
 
-	 	$this->javaviso("Error al subir el archivo, quizas este corrupto");
+	 	echo ("Error al subir el archivo, quizas este corrupto");
 	 	return false;
 
 	 }else{

@@ -39,8 +39,8 @@ $tituloCurrent = LANG_lobi;
             </ul>
 
             <ul>
-                <li><a id="setup1" href="setup/index.php" data-ajax="false" data-role="button" data-transition="slide"
-                       data-icon="custom" data-iconpos="right" data-inline="true"><?php echo LANG_setup ?></a></li>
+                <li><a id="batch1" href="batch/index.php" data-ajax="false" data-role="button" data-transition="slide"
+                       data-icon="custom" data-iconpos="right" data-inline="true"><?php echo LANG_batchTittle ?></a></li>
                 <li><a id="auditorias" href="monitor/index.php" data-ajax="false" data-role="button"
                        data-transition="slide" data-icon="custom" data-iconpos="right"
                        data-inline="true"><?php echo LANG_monitorVisit ?></a></li>

@@ -21,6 +21,7 @@ define(LANG_tel, "Teléfono");
 define(LANG_back, "Volver");
 define(LANG_accept, "Aceptar");
 define(LANG_save, "Guardar");
+define(LANG_proccessit, "Procesar");
 define(LANG_enter, "Entrar");
 define(LANG_units, "Unidades");
 define(LANG_add, "Agregar");
@@ -193,6 +194,11 @@ define(LANG_monitorSalesBy, "Pedidos procesados de ");
 define(LANG_monitorSalesTotal, "Total en ventas ");
 define(LANG_monitorSalesTotalByAccount, "Ventas totales para ");
 
+////proceso batch (lista de precios)
+define(LANG_batchTittle, "Lista de precios");
+define(LANG_batchDesc, "A continuación busque el archivo a subir y presione el boton: Procesar");
+define(LANG_batchProds, "Productos modificados");
+define(LANG_batchError, "Hubo un error subiendo el archivo, o el formato es invalido");
 
 ////validar
 define(LANG_prodVal1, "error: verifique que no queden campos vacios");
@@ -202,6 +208,8 @@ define(LANG_prodValCli, "Advertencia: debe crear al menos una categoria de Clien
 define(LANG_prodVal2, "error: el campo precio solo debe ser numerico");
 define(LANG_cliVal1, "error: verifique que no esten vacios los campos... codigo,nombre y rif ");
 define(LANG_venVal1, "error: verifique que no esten vacios los campos... codigo,nombre usuario y password ");
+define(LANG_batchVal, "El archivo de tener extension .CSV y ser menor de 1 Mb");
+
 
 
 
