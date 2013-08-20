@@ -191,8 +191,7 @@ include_once('controller/loadCat.php'); ///categorias
             <input type="text" data-mini="true" id="r9codigo" name="r9codigo" maxlength="12" value="<?php echo $datos['codigo']  ?>" />
         
              <label style="font-weight:bold" for="r9descripcion"><?php echo LANG_prodName ?></label>
-             <input type="text" data-mini="true" id="r9descripcion" name="r9descripcion" value="<?php echo $datos['descripcion']  ?>" />
-
+              <textarea id="r9descripcion" name="r9descripcion"><?php echo $datos['descripcion']  ?> </textarea>
                           
              <label style="font-weight:bold" for="r9precio1"><?php echo LANG_prodPrice.' '.$_SESSION['MONEDA1'] ?></label>
              <input type="text" data-mini="true" id="r9precio1" name="r9precio1" value="<?php echo $datos['precio1']  ?>" />

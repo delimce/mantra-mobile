@@ -2,16 +2,16 @@
 
 include("../../config/siteconfig.php");
 
-$tools = new Formulario('db');
+$tools = new FactoryDAO('db');
 
-$usuario = $tools->getvar("user",$_POST);
-$clave = $tools->getvar("clave",$_POST);
-
-
-$data = $tools->simple_db(FactoryDAO::getDataLogin($usuario,$clave));
+$usuario = Formulario::getvar("user",$_POST);
+$clave = Formulario::getvar("clave",$_POST);
 
 
-if($tools->getNreg()>0){
+$data = $tools->getDataLogin($usuario,$clave);
+
+
+if(!empty($data["id"])){
     
     $_SESSION['PROFILE'] = $data["profile"]; ///perfil requerido
     $_SESSION['USERID'] = $data["id"];
@@ -19,13 +19,14 @@ if($tools->getNreg()>0){
     $_SESSION['CUENTAID'] = $data["cid"];
     $_SESSION['MONEDA1'] = $data["moneda1"];
     $_SESSION['CUENTA'] = $data["cnombre"];
+    $tools->setCuentaID($_SESSION['CUENTAID']);
     
     /////registro de acceso efectivo
     $vector[0] =  $_SESSION['CUENTAID'];
     $vector[1] = $_SERVER['REMOTE_ADDR'];
     $vector[2] = $_SESSION['PROFILE'];
     $vector[3] = $_SESSION['USERID'];
-    $vector[4] =  @date("Y-m-d H:i:s");
+    $vector[4] =  $tools->getCurrentDate();
     $vector[5] =  $_SERVER['HTTP_USER_AGENT'];
     
     

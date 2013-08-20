@@ -65,6 +65,7 @@ include("../../config/siteconfig.php");
             }
 
             var formData = $("#form1").serialize();
+             $('#submit').attr('disabled', 'disabled');
 
             $.ajax({
                 type:"POST",

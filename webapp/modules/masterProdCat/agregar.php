@@ -49,6 +49,7 @@ include 'controller/loadData.php';
                  if(!$("#form1").valid()) return false; 
                                  
                 var formData = $("#form1").serialize();
+                 $('#submit').attr('disabled', 'disabled');
  
                 $.ajax({
                     type: "POST",

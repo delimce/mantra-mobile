@@ -104,7 +104,7 @@ include_once('controller/loadCat.php');  ///categorias
                  
                  
                  if(!$("#form1").valid()) return false; 
-                 
+                  $('#submit').attr('disabled', 'disabled');
                  
                  /////validando qe no se repita el codigo del prod
                  
@@ -161,7 +161,7 @@ include_once('controller/loadCat.php');  ///categorias
             <input type="text" data-mini="true" id="r9codigo" name="r9codigo" maxlength="12" />
         
              <label style="font-weight:bold" for="r9descripcion"><?php echo LANG_prodName ?></label>
-             <input type="text" data-mini="true" id="r9descripcion" name="r9descripcion"  />
+              <textarea id="r9descripcion" name="r9descripcion"> </textarea>
 
             
              <label style="font-weight:bold" for="r9precio1"><?php echo LANG_prodPrice.' '.$_SESSION['MONEDA1'] ?></label>
