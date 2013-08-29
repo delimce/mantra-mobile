@@ -15,7 +15,8 @@ $tool->setTable("tbl_cliente");
 $tool->abrir_transaccion();
 
 $_POST['r9cuenta_id'] = $_SESSION['CUENTAID'];
-$_POST['r9fecha_creado'] = $tool->getCurrentDate();
+
+$_POST['r9fecha_creado'] = date("Y-m-d H:i:s");
 
 $tool->addData();
 

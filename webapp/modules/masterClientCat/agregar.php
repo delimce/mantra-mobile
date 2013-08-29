@@ -44,7 +44,8 @@ include("../../config/siteconfig.php");
                  if(!$("#form1").valid()) return false; 
                                  
                 var formData = $("#form1").serialize();
-                 $('#submit').attr('disabled', 'disabled');
+               //  $('#submit').attr('disabled', 'disabled');
+                 $("input[type='submit']").attr('disabled', true);
  
                 $.ajax({
                     type: "POST",

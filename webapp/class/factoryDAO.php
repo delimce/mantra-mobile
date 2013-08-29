@@ -836,6 +836,16 @@ class FactoryDAO extends Database {
         $this->sql = "update tbl_producto set precio1 = $precio where codigo = '$codigo' and cuenta_id = $this->cuentaID  ";
         $this->commit();
     }
+    
+    
+    /**
+     * funcion que trae la fecha actual para el caso de base de datos
+     * @return type
+     */
+    public static function getCurrentDate(){
+        
+        return date("Y-m-d H:i:s");
+    }
 
 }
 
