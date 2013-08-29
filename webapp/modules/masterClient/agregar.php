@@ -15,7 +15,7 @@ include_once('controller/loadCat.php');  ///categorias
     <script>
         function onSuccess()
         {
-              $(location).attr('href', 'index.php');
+            $(location).attr('href', 'index.php');
 
         }
 
@@ -51,8 +51,7 @@ include_once('controller/loadCat.php');  ///categorias
                     return false;
 
                 var formData = $("#form1").serialize();
-                // $('#submit').attr('disabled', 'disabled');
-                $("input[type='submit']").attr('disabled', true);
+                $('#submit').attr('disabled', 'disabled');
 
                 $.ajax({
                     type: "POST",
