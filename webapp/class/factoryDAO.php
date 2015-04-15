@@ -59,7 +59,15 @@ class FactoryDAO extends Database {
 
     public function getDataLogin($usuario, $clave) {
 
-        return "call sp_login('$usuario','$clave')";
+        $this->sql = "call sp_login('$usuario','$clave')";
+		
+		 $tools = new Tools();
+        $tools->dbc = $this->dbc;
+
+        $data = $tools->simple_db($this->sql);
+
+        return $data;
+		
     }
 
     /*

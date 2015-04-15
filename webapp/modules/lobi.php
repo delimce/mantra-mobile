@@ -45,8 +45,17 @@ $tituloCurrent = LANG_lobi;
                        data-transition="slide" data-icon="custom" data-iconpos="right"
                        data-inline="true"><?php echo LANG_monitorVisit ?></a></li>
             </ul>
+			
+			
+			 <ul>
+                <li><a id="setup1" href="setup/index.php" data-ajax="false" data-role="button" data-transition="slide"
+                       data-icon="custom" data-iconpos="right" data-inline="true"><?php echo LANG_setup ?></a></li>
+                <li><a id="cerrar" href="controller/logout.php" data-ajax="false" data-role="button"
+                       data-transition="slide" data-icon="delete" data-iconpos="right" data-inline="true">Cerrar
+                    Sesión</a></li>
+            </ul>
 
-            <?php } else if ($_SESSION['PROFILE'] == "dispatch") { ///para el vendedor ?>
+            <?php } else if ($_SESSION['PROFILE'] == "dispatch") { ///para el despachador ?>
 
             <ul>
                 <li><a id="maestros" href="masterProduct/index.php" data-role="button" data-transition="slide"
@@ -54,6 +63,16 @@ $tituloCurrent = LANG_lobi;
                 <li><a id="inventario" href="stock/index.php" data-role="button" data-ajax="false" data-icon="custom"
                        data-iconpos="right" data-inline="true">Manejar Inventario</a></li>
             </ul>
+			
+			
+			 <ul>
+                <li><a id="setup1" href="#" data-ajax="false" data-role="button" data-transition="slide"
+                       data-icon="mensajes" data-iconpos="right" data-inline="true">Mensajes</a></li>
+                <li><a id="cerrar" href="controller/logout.php" data-ajax="false" data-role="button"
+                       data-transition="slide" data-icon="delete" data-iconpos="right" data-inline="true">Cerrar
+                    Sesión</a></li>
+            </ul>
+			
 
             <?php } else if ($_SESSION['PROFILE'] == "vendor") { ///para el vendedor ?>
 
@@ -63,16 +82,19 @@ $tituloCurrent = LANG_lobi;
                 <li><a id="clientes" href="masterClient/index.php" data-role="button" data-transition="slide"
                        data-icon="custom" data-iconpos="right" data-inline="true">Manejo de Clientes</a></li>
             </ul>
-
-            <?php } ?>
-
-            <ul>
-                <li><a id="setup1" href="setup/index.php" data-ajax="false" data-role="button" data-transition="slide"
-                       data-icon="custom" data-iconpos="right" data-inline="true"><?php echo LANG_setup ?></a></li>
+			
+			
+			 <ul>
+                <li><a id="setup1" href="#" data-ajax="false" data-role="button" data-transition="slide"
+                       data-icon="email" data-iconpos="right" data-inline="true">Mensajes</a></li>
                 <li><a id="cerrar" href="controller/logout.php" data-ajax="false" data-role="button"
                        data-transition="slide" data-icon="delete" data-iconpos="right" data-inline="true">Cerrar
                     Sesión</a></li>
             </ul>
+
+            <?php } ?>
+
+           
         </div>
 
     </div>

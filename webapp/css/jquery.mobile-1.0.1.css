@@ -1869,7 +1869,7 @@ span.ui-slider-label-a { left: -100%;  margin-right: -1px }
 span.ui-slider-label-b { right: -100%;  margin-left: -1px }
 
 #auditorias .ui-icon { background:  url(icons/44-shoebox.png) 50% 50% no-repeat; background-size: 24px 22px; }
-#email .ui-icon { background:  url(icons/18-envelope.png) 50% 50% no-repeat; background-size: 24px 16px;  }
+#mensajes.ui-icon { background:  url(icons/12-eye.png) 50% 50% no-repeat; background-size: 22px 24px;  }
 #login .ui-icon { background:  url(icons/30-key.png) 50% 50% no-repeat;  background-size: 12px 26px; }
 #maestros .ui-icon { background:  url(icons/33-cabinet.png) 50% 50% no-repeat;  background-size: 22px 27px; }
 #inventario .ui-icon { background:  url(icons/40-inbox.png) 50% 50% no-repeat;  background-size: 20px 24px; }

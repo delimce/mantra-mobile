@@ -1,5 +1,4 @@
-<?php session_start(); ?>
-<?php 
+<?php session_start(); 
 
 include("./config/siteconfig.php");
 
@@ -21,6 +20,7 @@ include("./config/siteconfig.php");
         function onError(data, status)
         {
             // handle an error
+			alert("un error ha ocurrido en la aplicación");
         }        
  
   

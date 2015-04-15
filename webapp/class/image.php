@@ -2,7 +2,7 @@
 
 // llamando la super clase base de datos
 
-if (!class_exists('database')) {
+if (!class_exists('Database')) {
 	require_once('Database.php');
 }
 
@@ -13,7 +13,7 @@ IMPORTANTE: por defecto se asume que se esta conectado a la base de datos
 en caso de que desee llamar herramientas del tipo database
 ****************************************************************************/
 
-class image extends  database {
+class image extends  Database {
 
 
 
